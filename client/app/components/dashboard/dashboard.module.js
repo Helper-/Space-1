@@ -1,1 +1,0 @@
-angular.module('dashboard', ['ngCookies', 'smart-table', 'ui.bootstrap', 'ui.mask']);
