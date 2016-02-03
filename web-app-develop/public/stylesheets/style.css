@@ -707,7 +707,9 @@ a:hover {
     width:400px;
 }
 
-
+.form-control {
+  width: 80%;
+}
 .disclosure {
   margin-left:35%;
   margin-top:20px;
