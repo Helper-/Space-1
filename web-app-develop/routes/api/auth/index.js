@@ -134,4 +134,10 @@ router.post('/api/auth', function (req, res, next) {
     });
 });
 
+router.delete('/api/auth', function (req, res, next) {
+    req.logout();
+    res.redirect('/');
+    next();
+});
+
 module.exports = router;
