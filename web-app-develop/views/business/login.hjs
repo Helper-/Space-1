@@ -16,7 +16,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
         <a class="navbar-brand" href="/">
-            <img id = "company-logo" src="images/logo.png">
+            <!-- hardcoded directory value for logo (images/corner.gif) -->
+            <img id = "company-logo" src="images/corner.gif">
         </a>
     </div>
     <div class="navbar-padding-right">
@@ -34,24 +35,32 @@
 
 
 <div class="container container-margin">
-    <img class="custom-center" id="login-image" src="images/ipad.png"/>
-    <br><br>
+    <!-- hardcoded directory value for center screen image (images/ipad.png) -->
+    <img class="custom-center" id="login-image" src="images/ipad.png" style="width:180px;height:180px;"/>
+    <br><br> <!-- line break -->
+
     <form class="form-horizontal" action="login" method="post">
         <div class="form-group">
-            <label for="email" class="col-sm-4 control-label">Email</label>
+            <!-- class="col-md-4" contols length -->
+            <label for="email" class="col-md-4 control-label">Email</label>
+            <!-- div class="col-sm-5" controls position -->
             <div class="col-sm-5">
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
             </div>
         </div>
+
         <div class="form-group">
+            <!-- class="col-md-4" contols length -->
             <label for="password" class="col-sm-4 control-label">Password</label>
+            <!-- div class="col-sm-5" controls position -->
             <div class="col-sm-5">
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-5 col-sm-10">
-                <button type="submit" class="btn custom-button">Sign in</button>
+                <!-- style modifies location of the button -->
+                <button type="submit" class="btn custom-button" style="margin-top:10px;margin-left:10px">Sign in</button>
             </div>
         </div>
     </form>
@@ -71,7 +80,9 @@
             <li><a href="">Privacy</a></li>
             <li><a href="">Terms</a></li>
             <li><a href="">Support</a></li>-->
-            <li class = "footer-copyright">Copyright &#169; Gold Team-CSE 112, Winter 2015. All Rights Reserved.</li>
+
+            <!-- This would need to be changed on every page -->
+            <li class = "footer-copyright">Copyright &#169; Space-1; CSE 112, Winter 2016. All Rights Reserved.</li>
         </ul>
     </div>
 </footer>

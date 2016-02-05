@@ -197,12 +197,12 @@ body {
 /********************* Landing Page **************************/
 
 .custom-button {
-  background-color: #008080; /*button color*/
+  background-color: #008EAF; /*button color*/
   color: #ffffff; /*text color*/
   font-family: 'Lato', sans-serif;
   border-radius: 6px; /* Overrides bootstrap rounded corners*/
-  border-color: #008081;
-  width: 150px;
+  border-color: #008080
+;  width: 150px;
 }
 
 .custom-button:visited, .custom-button:link, .btn:visited, .btn:link {
@@ -210,7 +210,7 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #1eb962;
+  background-color: #009ACD;
   color: #ffffff;
 }
 
@@ -454,6 +454,7 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .innerInfo {

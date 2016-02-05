@@ -16,7 +16,8 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="navbar-header">
         <a class="navbar-brand" href="/">
-            <img id = "company-logo" src="images/logo.png">
+            <!-- Hard coded value for corner image -->
+            <img id = "company-logo" src="images/corner.gif">
         </a>
       </div>
       <div class="navbar-padding-right">
@@ -39,17 +40,20 @@
             <div class="row text-center" id="regis-container">
                 <div class="col-xs-offset-1 col-xs-4" id="form-separator">
                     <form method="post" action="" enctype="application/x-www-form-urlencoded">
+                        <!-- Rearranged the form values -->
                         <input class="regis" type="text" name="companyName" value="{{ companyName }}" placeholder="COMPANY NAME" required>
                         <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="YOUR FIRST NAME" required>
                         <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="YOUR LAST NAME" required>
                         <input class="regis" type="email" name="email" value="{{ email }}" placeholder="EMAIL" required>
-                        <input class="regis" type="tel" name="phone" value="{{ phone }}" placeholder="PHONE NUMBER" required>
                         <input class="regis" type="password" name="password" value="{{ password }}" placeholder="PASSWORD" required>
+                        <input class="regis" type="tel" name="phone" value="{{ phone }}" placeholder="PHONE NUMBER" required>
+                        <!-- Sign up button at the end of the page -->
                         <input class="btn custom-button" name="submit" type="submit" value="Sign Up">
                     </form>
                 </div>
                 <div class="col-xs-7">
-                    <img class="custom-center" id="register-image" src="images/ipad.png" alt="Register to use iReceptionist"/>
+                    <!-- hard coded image file, style controls image size -->
+                    <img class="custom-center" id="register-image" src="images/ipad.gif" style="width:500px;height:500px;"alt="Register to use Breeze"/>
                 </div>
             </div>
     </div>
@@ -62,7 +66,9 @@
                 <li><a href="">Privacy</a></li>
                 <li><a href="">Terms</a></li>
                 <li><a href="">Support</a></li>-->
-                <li class = "footer-copyright">Copyright &#169; Gold Team-CSE 112, Winter 2015. All Rights Reserved.</li>
+
+                <!-- This would need to be changed on every page -->
+                <li class = "footer-copyright">Copyright &#169; Space-1; CSE 112, Winter 2016. All Rights Reserved.</li>
             </ul>
         </div>
     </footer>
