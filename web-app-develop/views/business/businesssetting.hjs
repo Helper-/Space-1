@@ -29,6 +29,9 @@
             <li  class="active">
               <a href="/businesssetting">Company Name</a>
             </li>
+            <li>
+              <a href="/api/auth">Logout</a>
+            </li>
         </ul>
       </div>
     </nav>

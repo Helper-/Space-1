@@ -133,11 +133,11 @@ router.post('/api/auth', function (req, res, next) {
         }
     });
 });
-
-router.delete('/api/auth', function (req, res, next) {
+// Logout
+router.get('/api/auth', function (req, res) {
+    console.log("logoutderp");
     req.logout();
     res.redirect('/');
-    next();
 });
 
 module.exports = router;

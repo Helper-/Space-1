@@ -145,6 +145,7 @@ app.use('/api', require('./routes/webapi'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+    console.log('lol we are still going nexst');
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
