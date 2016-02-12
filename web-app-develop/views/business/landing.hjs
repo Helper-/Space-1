@@ -1,134 +1,214 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ title }}</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    {{#newrelic}}
-        {{{ newrelic.getBrowserTimingHeader }}}
-    {{/newrelic}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">
-            <!-- hardcoded directory value for logo (images/corner.gif) -->
-            <img id = "company-logo" src="images/corner.gif">
-        </a>
-      </div>
-      <div class="navbar-padding-right">
-        <ul class="nav navbar-nav navbar-right">
-           <li>
-               <p class="navbar-btn">
-                   <a href="/login" class="btn custom-button" id="login-btn-navbar">Log In</a>
-               </p>
-           </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="col-xs-16">
-        <!-- hardcoded directory value for logo (images/corner.gif) 
-             Style managed position of the image, guess and tested the position -->
-        <center><img id="intro-image" src="images/ipad.gif" 
-                    style="width:300px;height:300px;margin-top:90px;margin-right:100px"></center>
-            </div>
-    <!-- start of outer container -->
-    <div class="col-2">
-        <div class="row">
-            <!-- style handles position -->
-            <div style="margin-top:50px;margin-bottom:200px">
-                <!-- title, style above controls position -->
-                <h1 class="heading bold text-center">Welcome to Breeze management solutions!</h3>
-                <div class="col-xs-8" style="margin-left:230px">
-                <!-- text below, style above controls position -->
-                <p class="text-center info-text"> This is where interpersonal relationships and technology will meet. Let Breeze help you revolutionize your guest check-in experience with effortless check-in, form management, arrival notification, and appointment integration for your office or business. </p>
-                <!-- This section adds other text below, working on this -->
-
-                <!--
-                <br><center><p class="text-center info-text">More specific product features here.</p>
-                <br><p class="text-center info-text">Testimonials about our product and why it is so awesome.</p>
-                <br><p class="text-center info-text">Product plans (basic, premium).</p>
-                    <hr style="height:30px; visibility:hidden;" /></p>
-                -->
-
-                <form class="form-group" action="" method="post">
-                    <!-- controls the text box, class="col-sm-5" controls length and style controls position -->
-                    <div class="col-sm-5" style="margin-left:260px">
-                        <center><input type="company" class="small form-control" id="companyName" name="companyName" value="{{companyName}}" method="post" placeholder="Enter your company name here!"></center>
-                    </div>
-                    <!-- Sign up button, style controls position -->
-                    <div class="col-xs-5 text-small" style="margin-top:25px;margin-left:260px;margin-bottom:50px">
-                        <center><button type="submit" class="btn custom-button">Let's get started!</button></center>
-                    </div>
-                </div>
-                </form>
-            </div>
-
-            
-        </div>
-<!-- This section is the customer testimonial section, I only commented this out -->
+<!DOCTYPE HTML>
 <!--
-        <div class="row" id="second-section">
-            <div class="col-xs-6">
-                <div>
-                    <blockquote class="testimonial">
-                        <p>With a limited budget and tight schedule, this check-in app really saved me time and cost to run the dental clinic I just opened up. Thank you, iReceptionist. You’re a life-saver.</p>
-                    </blockquote>
-                    <div class="arrow-down"></div>
-                    <img src="images/jennifer.jpg" class="testimonial-image">
-                    <span class="testimonial-author">Dr. Jennifer Kim, DDS | <span>San Francisco, California</span></span>
-                </div>
-                <div>
-                    <blockquote class="testimonial testimonial-grey">
-                        <p>Wow! iReceptionist was the perfect addition to our offices! It’s elegant, fast, and our customers absolutely love it! The team’s continued support and commitment to excellence has made me a life-long customer. Definitely the GOLD standard for check-in apps!</p>
-                    </blockquote>
-                    <div class="arrow-down arrow-down-grey"></div>
-                    <img src="images/leonard.jpg" class="testimonial-image">
-                    <span class="testimonial-author">Dr. Leonard McCoy, M.D. | <span>Riverside, California</span></span>
-                    
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div>
-                    <blockquote class="testimonial testimonial-grey">
-                        <p>iReceptionist is truly an aesthetic experience, I love how intuitive and modern the design is. Making appointments and checking in has never been easier.</p>
-                    </blockquote>
-                    <div class="arrow-down arrow-down-grey"></div>
-                    <img src="images/betty.jpg" class="testimonial-image">
-                    <span class="testimonial-author">Betty Johnson | <span>Stockholm, Sweden</span></span>
-                </div>
-                <div>
-                    <blockquote class="testimonial">
-                        <p>I can’t believe how much time I saved using iReceptionist. It was truly a breathe of fresh air. Never again will I have to deal with the hassle of a grumpy receptionist and a clipboard!</p>
-                    </blockquote>
-                    <div class="arrow-down"></div>
-                    <img src="images/joel.jpg" class="testimonial-image">
-                    <span class="testimonial-author">Joel Spolsky | <span>Kathmandu, Nepal</span></span>
-                </div>
-            </div>
-        </div>
-    -->
+	Twenty by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Breeze</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href='/stylesheets/main.css' />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="index">
+		<div id="page-wrapper">
 
-    </div>
-    <footer class="footer navbar-bottom">
-        <div class="container">
-            <ul class="list-inline footer-links text-center">
-                <!--<li><a href="">About Us</a></li>
-                <li><a href="">Store</a></li>
-                <li><a href="">Jobs</a></li>
-                <li><a href="">Privacy</a></li>
-                <li><a href="">Terms</a></li>
-                <li><a href="">Support</a></li>-->
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a href="index.html">Breeze <span>by Space-1</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/login" class="button special">Log In</a></li>
+						</ul>
+					</nav>
+				</header>
 
-                <!-- This would need to be changed on every page -->
-                <li class = "footer-copyright">Copyright &#169; Space-1; CSE 112, Winter 2016. All Rights Reserved.</li>
-            </ul>
-        </div>
-    </footer>
-</body>
+			<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>BREEZE</h2>
+						</header>
+						<p>This is <strong>Breeze</strong>, the
+						<br />
+						checkin app for the future
+						<br />
+						by <a href="#">Space-1</a>.</p>
+						<footer>
+							<ul class="buttons vertical">
+								<li><a href="#cta" class="button fit scrolly">Sign Up</a></li>
+							</ul>
+							<ul class="buttons vertical">
+								<li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon fa-bar-chart-o"></span>
+						<h2>Greet the guest, we’ll do the rest.<br /></h2>
+						<br />
+					  <center><img src = "images/slack.png" style="width:25%"></center>
+						<br />
+						<p>Let Breeze welcome you to a world without paper pushing or wasted time;
+					  <br />just secure and seamless visitor registration. When you replace your
+						<br />sign-in book with our customizable iPad app, we collect the visitor information,
+						<br /> so you can focus on giving the guest a better, more personal experience.</p>
+						<br /> <br />
+					</header>
+
+					<!-- Two -->
+						<section class="wrapper style1 container special">
+							<div class="row">
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<span class="icon featured fa-check"></span>
+										<header>
+											<h3>Simplistic checkin</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<span class="icon featured fa-check"></span>
+										<header>
+											<h3>Effortless form building</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+								<div class="4u 12u(narrower)">
+
+									<section>
+										<span class="icon featured fa-check"></span>
+										<header>
+											<h3>Workflow fluidity</h3>
+										</header>
+										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+									</section>
+
+								</div>
+							</div>
+						</section>
+
+						<!-- Two.2 -->
+							<section class="wrapper style1 container special">
+								<div class="row">
+									<div class="4u 12u(narrower)">
+
+										<section>
+											<span class="icon featured fa-check"></span>
+											<header>
+												<h3>Business analytics</h3>
+											</header>
+											<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										</section>
+
+									</div>
+									<div class="4u 12u(narrower)">
+
+										<section>
+											<span class="icon featured fa-check"></span>
+											<header>
+												<h3>Customize signed agreements</h3>
+											</header>
+											<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										</section>
+
+									</div>
+									<div class="4u 12u(narrower)">
+
+										<section>
+											<span class="icon featured fa-check"></span>
+											<header>
+												<h3>Easy system management</h3>
+											</header>
+											<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										</section>
+
+									</div>
+								</div>
+							</section>
+
+					<!-- Three -->
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>Next look at this <strong>cool stuff</strong></h2>
+							</header>
+
+
+						</section>
+
+				</article>
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<header>
+						<h2>Ready to do <strong>something</strong>?</h2>
+						<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="/register" class="button special">Sign Up</a></li>
+							<li><a href="#" class="button">GTFO</a></li>
+						</ul>
+					</footer>
+
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.dropotron.min.js"></script>
+			<script src="js/jquery.scrolly.min.js"></script>
+			<script src="js/jquery.scrollgress.min.js"></script>
+			<script src="js/skel.min.js"></script>
+			<script src="js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="js/main.js"></script>
+
+	</body>
 </html>
