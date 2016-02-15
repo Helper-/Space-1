@@ -7,6 +7,8 @@
 <html>
 	<head>
 		<title>Breeze</title>
+		<!-- Includes both footers from both .css files -->
+
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -41,11 +43,12 @@
 						<header>
 							<h2>BREEZE</h2>
 						</header>
-						<p>This is <strong>Breeze</strong>, the
+						<p>This is <strong>Breeze</strong>,
 						<br />
-						checkin app for the future
+						the check-in app that 
 						<br />
-						by <a href="#">Space-1</a>.</p>
+						will make it easy
+						<br /></p>
 						<footer>
 							<ul class="buttons vertical">
 								<li><a href="#cta" class="button fit scrolly">Sign Up</a></li>
@@ -63,16 +66,16 @@
 				<article id="main">
 
 					<header class="special container">
-						<span class="icon fa-bar-chart-o"></span>
-						<h2>Greet the guest, we’ll do the rest.<br /></h2>
+						<span class="icon featured fa-inbox"></span>
+						<h2>Checking in will never be the same again<br /></h2>
 						<br />
-					  <center><img src = "images/slack.png" style="width:25%"></center>
+					  <center><img src = "images/ipad.gif" style="width:20%"></center>
 						<br />
-						<p>Let Breeze welcome you to a world without paper pushing or wasted time;
-					  <br />just secure and seamless visitor registration. When you replace your
-						<br />sign-in book with our customizable iPad app, we collect the visitor information,
-						<br /> so you can focus on giving the guest a better, more personal experience.</p>
-						<br /> <br />
+						<p>	   This is where interpersonal relationships and technology will meet. 
+						<br /> Let Breeze do all your check-in work for you, taking out the need
+					  	<br /> for messy paper and pens. Use our system to effortlessly create
+						<br /> your own customizable forms to suit all kinds of check-in needs. 
+						<br /> Breeze will handle the check-in, you can focus on your business.</p>
 					</header>
 
 					<!-- Two -->
@@ -83,82 +86,73 @@
 									<section>
 										<span class="icon featured fa-check"></span>
 										<header>
-											<h3>Simplistic checkin</h3>
+											<h3>Simplistic check-in</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										<p>Guests will check-in to your business with just a few form fields. Breeze will automatically notify their host that they are here, ready for their appointment. 
+										</p>
 									</section>
 
 								</div>
 								<div class="4u 12u(narrower)">
 
 									<section>
-										<span class="icon featured fa-check"></span>
+										<span class="icon featured fa-laptop"></span>
 										<header>
 											<h3>Effortless form building</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										<p>Need more than just the basic form? We have an easy-to-use form builder in our system to help you customize the check-in to suit your needs for awesome business.
+										</p>
 									</section>
 
 								</div>
 								<div class="4u 12u(narrower)">
 
 									<section>
-										<span class="icon featured fa-check"></span>
+										<span class="icon featured fa-lock"></span>
 										<header>
-											<h3>Workflow fluidity</h3>
+											<h3>Workflow separation</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										<p>Breeze separates the check-in into several views. Employees can't touch important business operations and business owners won't have to sweat the small things.</p>
 									</section>
 
 								</div>
 							</div>
 						</section>
 
-						<!-- Two.2 -->
-							<section class="wrapper style1 container special">
-								<div class="row">
-									<div class="4u 12u(narrower)">
-
-										<section>
-											<span class="icon featured fa-check"></span>
-											<header>
-												<h3>Business analytics</h3>
-											</header>
-											<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										</section>
-
-									</div>
-									<div class="4u 12u(narrower)">
-
-										<section>
-											<span class="icon featured fa-check"></span>
-											<header>
-												<h3>Customize signed agreements</h3>
-											</header>
-											<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										</section>
-
-									</div>
-									<div class="4u 12u(narrower)">
-
-										<section>
-											<span class="icon featured fa-check"></span>
-											<header>
-												<h3>Easy system management</h3>
-											</header>
-											<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										</section>
-
-									</div>
-								</div>
-							</section>
-
 					<!-- Three -->
+						<!-- White box bacgrounds -->
 						<section class="wrapper style3 container special">
-
+							<!-- Title -->
+							<!--
 							<header class="major">
 								<h2>Next look at this <strong>cool stuff</strong></h2>
 							</header>
+							-->
+
+                <div>
+                    <blockquote class="testimonial testimonial-grey">
+                        <p>With a limited budget and tight schedule, this check-in app really saved me time and cost to run the dental clinic I just opened up. I get to know right when the guests arrive and when I should let them in. Thank you, Breeze. You’re a life-saver.</p>
+                    </blockquote>
+                    <img src="images/jennifer.jpg" class="testimonial-image"> <br />
+                    <span class="testimonial-author">Dr. Jennifer Kim, DDS | <span>San Francisco, California</span></span>
+                </div>
+
+                <div>
+                    <blockquote class="testimonial">
+                        <p>Wow! Breeze was the perfect addition to our offices! It’s elegant, fast, and our customers absolutely love it! The team’s continued support and commitment to excellence has made me a life-long customer. Definitely the GOLD standard for check-in apps!</p>
+                    </blockquote>
+                    <img src="images/leonard.jpg" class="testimonial-image"> <br />
+                    <span class="testimonial-author">Dr. Leonard McCoy, M.D. | <span>New York City, New York</span></span>
+                    
+                </div>
+
+                <div>
+                    <blockquote class="testimonial testimonial-grey">
+                        <p>Breeze is really easy-to-use! My business has a lot of information needs from our guests, so having a customizable form for check-in is really easy-to-use! And did I mention it was easy-to-use? Anyone can use it! Only the best check-in app ever! Thanks Breeze!</p>
+                    </blockquote>
+                    <img src="images/joel.jpg" class="testimonial-image"> <br />
+                    <span class="testimonial-author">Joel Spolsky | <span>Boston, Massachussetts</span></span>
+                </div>
 
 
 						</section>
@@ -169,13 +163,11 @@
 				<section id="cta">
 
 					<header>
-						<h2>Ready to do <strong>something</strong>?</h2>
-						<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>
+						<h2>Ready to make your business <strong>awesome</strong>?</h2>
 					</header>
 					<footer>
 						<ul class="buttons">
-							<li><a href="/register" class="button special">Sign Up</a></li>
-							<li><a href="#" class="button">GTFO</a></li>
+							<li><a href="/register" class="button special">Let's get started!</a></li>
 						</ul>
 					</footer>
 
@@ -183,7 +175,7 @@
 
 			<!-- Footer -->
 				<footer id="footer">
-
+					<!--
 					<ul class="icons">
 						<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
@@ -191,9 +183,10 @@
 						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
 						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
 					</ul>
+					-->
 
 					<ul class="copyright">
-						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>Space-1 &copy;2016</li>
 					</ul>
 
 				</footer>

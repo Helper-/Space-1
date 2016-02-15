@@ -3194,3 +3194,40 @@
 			}
 
 	}
+
+/* Testimonials */
+.testimonial {
+  margin: 50px auto;
+  background: #42444F;
+  padding: 15px;
+  color: #ffffff;
+  font-style: italic;
+  width: 75%;
+}
+
+.testimonial-author {
+  font-family: Helvetica, sans-serif;
+  color: #999999;
+  text-align: left;
+}
+
+.testimonial-image {
+  margin: -30px 0 0 0;
+  font-family: Helvetica, sans-serif;
+  color: #008080;
+  text-align:left;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 2px solid #008080;
+}
+
+.testimonial-grey {
+  background: #eceef0;
+  color: #42444F;
+}
+
+.testimonial-author {
+    font-size: 15px;
+    color: #666666;
+}
