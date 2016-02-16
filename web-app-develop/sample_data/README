@@ -1,0 +1,15 @@
+How to use:
+
+Move the `dumps` folder to the /web-app directory.
+Start up everything with the `gulp` command
+Open up a new terminal and run:
+	mongo --eval 'db.dropDatabase()' robobetty
+Now import the new data with:
+	gulp mongorestore
+
+The password for every account is `password`
+
+To find your employee acount open up a mongo shell with `mongo robobetty` and the type the following two commands:
+	db.loadServerScripts();
+	myAppts('first name', 'last name');
+Be sure to replace the arguments with the proper values;
