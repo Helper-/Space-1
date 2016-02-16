@@ -15,6 +15,7 @@
     <script src="/javascripts/lib/jquery/jquery-2.1.3.min.js"></script>
     <script src = "/javascripts/underscore-min.js"></script>
     <script src="/javascripts/formbuilder.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
     <script>
     form = {{{form}}};
@@ -101,13 +102,18 @@
           </ul>
         </div>
         <div id="toolbar-main" class="active-page container-margin toolbar-bgcolor">
-            <fieldset id="buildyourform" class="builderForm"></fieldset>
+
+            <!--<fieldset id="buildyourform" class="builderForm"></fieldset>
             <input type="button" value="Add a field" class="add btn btn-default" id="add" />
             <input type="button" value="Save" class="add btn custom-button" id="submit" />
 
             <a href="/manageforms">
                 <input type="button" value="Return to Forms" class="add btn btn-default" id="return" />
-            </a>
+            </a>-->
+
+            <textarea name="formBuilder" id="formBuilder">
+                $('textarea').formBuilder();
+            </textarea>
         </div>
       </div>
   </div>
