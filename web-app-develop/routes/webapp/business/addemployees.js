@@ -16,6 +16,8 @@ exports.get = function(req,res){
         var employee;
         var notemployee;
         var businessID = req.user[0].business.toString();
+        console.log("object id");
+        console.log(ObjectId(businessID));
 
         async.parallel({
             employee: function(cb){
@@ -103,3 +105,13 @@ exports.post = function(req,res){
  function randomToken() {
         return crypto.randomBytes(24).toString('hex');
     }
+
+
+// exports.get = function (req, res) {
+//     if (!req.session.companyName) {
+//         res.render('business/addemployees');
+//     } else {
+//         res.render('business/addemployees', {title: 'Express', companyName: req.session.companyName});
+//     }
+// };
+
