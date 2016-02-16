@@ -38,6 +38,7 @@
 	                <a href="/customizetheme">Customize Theme</a>
 	            </li>
 	            <li class="active"><a href="/accountSettings">More Settings</a></li>
+	            <li><a href="/api/auth">Logout</a></li>
 	        </ul>
 	    </div>
 	</nav>
