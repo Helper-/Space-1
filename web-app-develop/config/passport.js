@@ -31,6 +31,7 @@ module.exports = function (passport) {
             var fname = req.body.fname;
             var lname = req.body.lname;
             var phone = req.body.phone;
+
             // Check if any field has been left blank
             if (companyName === '' || fname === '' || lname === '' || email === ''
                 || phone === '' || password === '') {
@@ -40,7 +41,8 @@ module.exports = function (passport) {
                     phone: phone,
                     fname: fname,
                     lname: lname,
-                    email: email,
+                    email: email
+
                 });
             } else {
 
@@ -76,7 +78,10 @@ module.exports = function (passport) {
                             phone: phone,
                             fname: fname,
                             lname: lname,
-                            logo: '',
+                            logo: 'defaultLogo.jpg',
+                            style: {
+                                bg: 'defaultBG.jpg'
+                            },
                             walkins: false
                         }, function (err, result) {
                             if (err) {
@@ -84,7 +89,7 @@ module.exports = function (passport) {
                             }
 
                             var businessID = result._id.toString();
-                            
+
                             employees.insert({
                                 business: ObjectId(businessID),
                                 password: result.password,
@@ -118,7 +123,7 @@ module.exports = function (passport) {
     },
         function (req,email,password,done) {
 
-       
+
 
             var db =req.db;
             var employee = db.get('employees');
@@ -129,12 +134,12 @@ module.exports = function (passport) {
              query: {registrationToken: req.query.token},
              update: { $unset: {registrationToken: 1},
                 $set: {password: password} },
-             new: true},    
-                function (err,user){  
-                if (err) { 
+             new: true},
+                function (err,user){
+                if (err) {
                      throw err; }
                 return done(null,user);
-       
+
                  }
             );
         }
@@ -156,17 +161,17 @@ module.exports = function (passport) {
         },
         function (req, email, password, done) { // callback with email and password from our form
 
-      
+
             auth.validateLogin(req.db, email, password, function (user) {
                 if (!user) {
                     return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
-                } 
+                }
                 else {
                     return done(null,user);
                     }
-            });     
+            });
         }
     ));
-    
+
 
 };
