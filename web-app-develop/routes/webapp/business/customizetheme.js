@@ -8,10 +8,10 @@ exports.get = function (req, res, next) {
             return next(new Error('Business not found for user: ' + req.user));
         }
 
-        res.render('business/customize_theme', {
+        res.render('business/customizetheme', {
             message: req.flash('permission'),
-            logo: business.logo,
-            bg: '/images/bg/thumb/' + business.style.bg
+            logo: 'images/bg/thumb/' + business.style.logo,
+            bg: '/images/bg/full/' + business.style.bg
         });
     });
 };

@@ -6,7 +6,7 @@ exports.get = function (req,res) {
     businesses.findById(bid, function (err, result) {
         if (err) {
                 return next(err);
-            }
+        }
         var dbBusiness = result;
         var phone = dbBusiness.phone;
         phone = phone.replace('1', '');
@@ -40,7 +40,7 @@ exports.post = function (req, res) {
             //if input fields are empty
             if (companyName === '' || phone === '') {
                 phone = dbBusiness.phone;
-                //removing country code 1 from phone 
+                //removing country code 1 from phone
                 phone = phone.replace('1', '');
                 phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
                 res.render('business/businesssetting', {
@@ -80,7 +80,7 @@ exports.post = function (req, res) {
                         error: 'phone number should be in 1 xxx-xxx-xxxx format'
                     });
                 }
-                
+
             }
         }// end of undefined password if statement
 
@@ -91,7 +91,7 @@ exports.post = function (req, res) {
                     newPassword = auth.hashPassword(newPassword);
                     businesses.update({_id:bid}, {
                         $set :{
-                            password: newPassword,
+                            password: newPassword
                         }
                     });
                     phone = dbBusiness.phone;
@@ -128,5 +128,5 @@ exports.post = function (req, res) {
 
     });
 
-    
-}; 
+
+};

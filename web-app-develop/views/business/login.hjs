@@ -20,15 +20,7 @@
             <img id = "company-logo" src="images/corner.gif">
         </a>
     </div>
-    <div class="navbar-padding-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <p class="navbar-btn">
-                   <a href="/login" class="btn custom-button" id="login-btn-navbar">Log In</a>
-               </p>
-            </li>
-        </ul>
-    </div>
+
 </nav>
 <!--Main Part that needs styling-->
 
@@ -73,7 +65,7 @@
 <footer class="footer navbar-fixed-bottom">
     <div class="container">
         <ul class="list-inline footer-links text-center">
-            
+
             <!--<li><a href="">About Us</a></li>
             <li><a href="">Store</a></li>
             <li><a href="">Jobs</a></li>

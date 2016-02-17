@@ -59,6 +59,7 @@ body {
   z-index: 5;
 }
 
+
 .customBG {
   width: 100%;
   height: auto;
@@ -235,7 +236,7 @@ body {
 }
 
 #first-section {
-  background-image: url('../images/bg.jpg');
+  background-image: url('../images/defaultBG.jpg');
   height: 100vh;
   padding-top: 160px;
   background-repeat: no-repeat;
