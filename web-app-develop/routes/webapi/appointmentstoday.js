@@ -19,7 +19,7 @@ exports.get = function (req, res) {
     end.setHours(23, 59, 59, 999);
     employees.find({
         _id : ObjectID(req.params.eid),
-        admin : "true"
+        admin : true,
     }, {sort : {date: 1}},function(err, results){
         if (err) {
             console.error('MongoDB Error in /api/employee/:eid/appointments/today: ' + err);
