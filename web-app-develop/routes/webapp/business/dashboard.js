@@ -6,7 +6,7 @@ exports.get = function (req, res) {
 	var employeename = req.user[0].fname;
 
     res.render('business/dashboard', {title: 'Express',
-		eid: employeeId,
+        eid: employeeId,
 		employeeName: employeename,
 		message: req.flash("permission"),
 	});
