@@ -78,10 +78,10 @@
           <tr>
 
             <td></td>
+            <td>{{fname}}  {{lname}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{dob}}</td>
+            <td>{{state}}</td>
             <td></td>
             <td></td>
             <td></td>

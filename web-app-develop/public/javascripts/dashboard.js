@@ -55,11 +55,11 @@ function checkTime(i) {
 }
 
 function table() {
-  
+
     var cols,$btn;
 
     $.get('/api/employee/'+eid+'/appointments/today', function( data ){
-        
+
         var count = 0;
         //empty's the table
         $('#tblBody').empty();
@@ -153,7 +153,7 @@ function getAppDate(date){
     appTime = hoursPM+':'+minutesPM + ' PM';
   }
 
-  return appTime;  
+  return appTime;
 }
 
 // JQuery Insert Row
