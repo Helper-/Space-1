@@ -55,12 +55,12 @@
                             <div class="form-group">
                                 <div class="12u">
                                     <ul class="buttons">
-                                        <input class="special" value="Register" name="submit" type="submit" />
+                                        <input class="special" value="Log In" name="submit" type="submit" />
                                     </ul>
                                 </div>
                             </div>
                         </form>
-                        
+
                     </div>
                 </section>
 
