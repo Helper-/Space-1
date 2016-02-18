@@ -19,7 +19,7 @@
                 alert ("Form submitted - Thank you!");
                 return true;
             }
-</script>
+        </script>
     </head>
 
     <body class="contact">
@@ -75,11 +75,18 @@
                                         <!-- Third Row -->
                                         <div class="row 50%">
                                             <div class="12u">
-                                                <input class="regis" type="email" name="email" value="{{ email }}" placeholder="Email Address" required>
+                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="(123) 345-6789" required>
                                             </div>
                                         </div>
 
                                         <!-- Fourth Row -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                                <input class="regis" type="email" name="email" value="{{ email }}" placeholder="Email Address" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Fifth Row -->
                                         <div class="row 50%">
                                             <div class="12u">
                                                 <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
