@@ -1,6 +1,7 @@
 var auth = require ('../../../lib/auth');
 exports.get = function (req,res) {
     var bid = req.user[0].business;
+    console.log("BUSINESS ID: " + bid);
     var db = req.db;
     var businesses = db.get('businesses');
     businesses.findById(bid, function (err, result) {
@@ -9,8 +10,10 @@ exports.get = function (req,res) {
         }
         var dbBusiness = result;
         var phone = dbBusiness.phone;
-        phone = phone.replace('1', '');
-        phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+        if (phone) {
+            phone = phone.replace('1', '');
+            phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+        }
         res.render('business/businesssetting', {
             companyName: dbBusiness.companyName,
             phone: phone

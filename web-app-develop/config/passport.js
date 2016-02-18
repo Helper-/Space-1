@@ -31,10 +31,13 @@ module.exports = function (passport) {
             var fname = req.body.fname;
             var lname = req.body.lname;
             var phone = req.body.phone;
+            if (!phone) {
+                phone = '';
+            }
 
             // Check if any field has been left blank
             if (companyName === '' || fname === '' || lname === '' || email === ''
-                || phone === '' || password === '') {
+                || password === '') {
                 res.render('business/register', {
                     error: 'You must fill in all fields.',
                     companyName: companyName,
@@ -42,7 +45,6 @@ module.exports = function (passport) {
                     fname: fname,
                     lname: lname,
                     email: email
-
                 });
             } else {
 
@@ -89,6 +91,7 @@ module.exports = function (passport) {
                             }
 
                             var businessID = result._id.toString();
+                            console.log(companyName);
 
                             employees.insert({
                                 business: ObjectId(businessID),
@@ -100,7 +103,7 @@ module.exports = function (passport) {
                                 smsNotify: true,
                                 emailNotify: true,
                                 admin: true
-                            },function(err, user){
+                            }, function(err, user){
                                 if (err) {
                                     throw err;
                                 }

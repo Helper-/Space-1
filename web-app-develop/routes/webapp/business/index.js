@@ -22,7 +22,6 @@ var setdisclosure = require('./setdisclosure');
 module.exports = function (passport) {
 
 
-
     //Pass in passport
 
     //Setup the routes
