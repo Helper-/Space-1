@@ -1,21 +1,23 @@
 var auth = require ('../../../lib/auth');
+var ObjectId = require('mongodb').ObjectID;
+
 exports.get = function (req,res) {
-    var bid = req.user[0].business;
-    console.log("BUSINESS ID: " + bid);
+    console.log("REQUEST: user[0]: " );
+    console.log(req.user[0]);
+    var bid = req.user[0].business.toString();
     var db = req.db;
     var businesses = db.get('businesses');
-    businesses.findById(bid, function (err, result) {
+    businesses.find({_id: ObjectId(bid)}, function (err, result) {
+        console.log("RESULT:");
+        console.log(result);
         if (err) {
                 return next(err);
         }
-        var dbBusiness = result;
-        var phone = dbBusiness.phone;
-        if (phone) {
-            phone = phone.replace('1', '');
-            phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
-        }
+        var phone = result[0].phone;     ////////////// CRASH!!!! , result[0] = null
+        phone = phone.replace('1', '');
+        phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
         res.render('business/businesssetting', {
-            companyName: dbBusiness.companyName,
+            companyName: result[0].companyName,
             phone: phone
         });
     });
@@ -26,7 +28,6 @@ exports.post = function (req, res) {
     var db = req.db;
     var businesses = db.get('businesses');
     var bid = req.user[0].business;
-
     var companyName = req.body.companyName;
     var phone = req.body.phone;
     var oldPassword = req.body.oldPassword;

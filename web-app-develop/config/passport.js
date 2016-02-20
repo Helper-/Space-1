@@ -91,7 +91,9 @@ module.exports = function (passport) {
                             }
 
                             var businessID = result._id.toString();
-                            console.log(companyName);
+                            console.log( "BUSINESS ID: ");
+                            console.log(ObjectId(businessID));
+
 
                             employees.insert({
                                 business: ObjectId(businessID),
