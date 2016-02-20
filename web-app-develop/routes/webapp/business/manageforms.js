@@ -77,15 +77,15 @@ function makeForm(db, businessId, body, fn) {
                 //return fn(new Error('Form not found for business: ' + businessId));
             } else {
 
-            var formHtml = '<form class="form-horizontal" action="#">';
+                var formHtml = '<form class="form-horizontal" action="#">';
 
-            _.each(form.fields, function (field, index) {
-                formHtml += makeFormGroup(field, index, body);
-            });
+                _.each(form.fields, function (field, index) {
+                    formHtml += makeFormGroup(field, index, body);
+                });
 
-            formHtml += '</form>';
+                formHtml += '</form>';
 
-            fn(null, formHtml);
+                fn(null, formHtml);
             }
         });
     });
