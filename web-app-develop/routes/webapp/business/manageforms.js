@@ -50,13 +50,32 @@ function makeForm(db, businessId, body, fn) {
         if (!business) {
             return fn(new Error('Business not found: ' + businessId));
         }
+
         forms.findOne({business: business._id}, function (err, form) {
             if (err) {
                 return fn(err);
             }
             if (!form) {
-                return fn(new Error('Form not found for business: ' + businessId));
-            }
+                forms.insert({
+                    "business": business._id,
+                    "fields": [
+                        {
+                            "type": "textfield",
+                            "label": "Name"
+                        }
+                    ]
+                }).then(function(form){
+                    var formHtml = '<form class="form-horizontal" action="#">';
+
+                    _.each(form.fields, function (field, index) {
+                        formHtml += makeFormGroup(field, index, body);
+                    });
+
+                    formHtml += '</form>';
+
+                    fn(null, formHtml);});
+                //return fn(new Error('Form not found for business: ' + businessId));
+            } else {
 
             var formHtml = '<form class="form-horizontal" action="#">';
 
@@ -67,6 +86,7 @@ function makeForm(db, businessId, body, fn) {
             formHtml += '</form>';
 
             fn(null, formHtml);
+            }
         });
     });
 }
