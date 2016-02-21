@@ -6,8 +6,11 @@
       <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/demo.css">
       <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-builder.min.css">
       <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-render.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <link rel='stylesheet' href='/stylesheets/style.css'/>
     </head>
-    <body>
+    <body class="customBG">
+
       <div class="demo-wrap">
         <div id="main_content_wrap" class="outer">
           <section id="main_content" class="inner">
@@ -57,14 +60,12 @@
             var json = {business: "{{{findID}}}", fields: $(template)};
             console.log($(json));
             $.ajax({
-                            url:'/api/form',
-                            type:'POST',
-                            data: JSON.stringify(json),
-                            contentType:'application/json',
-                            dataType:'json',
-                            success:function(){
-                                alert('Form Submitted!');
-                            }
+                url:'/api/form',
+                type:'POST',
+                data: JSON.stringify(json),
+                contentType:'application/json',
+                dataType:'json',
+                success:function(){alert('Form Submitted!');}
             });
         });
 
