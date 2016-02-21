@@ -54,7 +54,7 @@
         });
         $(saving).click(function(){
             alert("clicked save button");
-            var json = {business: "111", fields: $(template)};
+            var json = {business: "{{{findID}}}", fields: $(template)};
             console.log($(json));
             $.ajax({
                             url:'/api/form',
