@@ -43,10 +43,16 @@
           formContainer = document.getElementById('rendered-form'),
           renderBtn = document.getElementById('render-form-button');
         $(template).formBuilder();
+        $(renderBtn).click(function(e) {
+          e.preventDefault();
+          $(template).formRender({
+            container: $(formContainer)
+          });
+        });
+        $(saving).click(function(){
+            alert("clicked save button");
 
-
-        e.preventDefault();
-        $(template).formRender({container: $(formContainer)});
+        });
       });
       </script>
     </body>
