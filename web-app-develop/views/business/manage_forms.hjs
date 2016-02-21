@@ -18,7 +18,7 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="navbar-header">
         <a class="navbar-brand" href="/">
-            <img id = "company-logo" src="images/logo.png">
+            <img id = "company-logo" src="images/corner.gif">
         </a>
     </div>
     <div class="navbar-padding-right">
@@ -29,7 +29,7 @@
                 <a href="/customizetheme">Settings</a>
             </li>
             <li><a href="/businesssetting">Company Name</a></li>
-            <li><a href="/api/auth">Logout</a></li>
+            <li><a href="/login">Logout</a></li>
         </ul>
     </div>
     <!--Secondary navbar for the Settings tab-->

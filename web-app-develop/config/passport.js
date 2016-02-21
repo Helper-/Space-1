@@ -71,6 +71,7 @@ module.exports = function (passport) {
 
                         // set the user's local credentials
                         password = auth.hashPassword(password);
+                        console.log(companyName);
 
                         // save the user
                         businesses.insert({
@@ -91,9 +92,6 @@ module.exports = function (passport) {
                             }
 
                             var businessID = result._id.toString();
-                            console.log( "BUSINESS ID: ");
-                            console.log(ObjectId(businessID));
-
 
                             employees.insert({
                                 business: ObjectId(businessID),
@@ -120,15 +118,12 @@ module.exports = function (passport) {
     ));
 
 
-
     passport.use('local-signup-employee',new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
         passReqToCallback: true
     },
         function (req,email,password,done) {
-
-
 
             var db =req.db;
             var employee = db.get('employees');
