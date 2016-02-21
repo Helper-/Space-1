@@ -25,6 +25,9 @@
               </form>
               <div class="render-description">
                 <button id="render-form-button" class="btn btn-primary">Render form</button>
+                <a href="/manageforms">
+                    <input type="button" value="Return to Forms" class="btn btn-primary" id="return" />
+                </a>
               </div>
             </div>
             <br style="clear:both">
@@ -51,8 +54,20 @@
         });
         $(saving).click(function(){
             alert("clicked save button");
-
+            var json = {business: "111", fields: $(template)};
+            console.log($(json));
+            $.ajax({
+                            url:'/api/form',
+                            type:'POST',
+                            data: JSON.stringify(json),
+                            contentType:'application/json',
+                            dataType:'json',
+                            success:function(){
+                                alert('Form Submitted!');
+                            }
+            });
         });
+
       });
       </script>
     </body>
