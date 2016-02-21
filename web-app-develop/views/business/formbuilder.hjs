@@ -1,85 +1,55 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-  <meta name="description" content="jQuery formBuilder: A jQuery plugin for drag and drop form creation">
-  <meta name="theme-color" content="#232323">
-  <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/demo.css">
-  <link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-  <link rel="manifest" href="/assets/manifest.json">
-  <meta name="msapplication-TileColor" content="#232323">
-  <meta name="msapplication-TileImage" content="assets/images/ms-icon-144x144.png">
-  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-builder.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-render.min.css">
-</head>
-
-<body>
-  <div class="demo-wrap">
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <div class="build-form">
-          <h2><strong>Build Your Form Here:</strong></h2>
-          <form action="">
-            <textarea name="form-builder-template" id="form-builder-template" cols="30" rows="10"></textarea>
-          </form>
-          <br style="clear:both">
+    <head>
+      <meta charset='utf-8'>
+      <meta http-equiv="X-UA-Compatible" content="chrome=1">
+      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/demo.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-builder.min.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-render.min.css">
+    </head>
+    <body>
+      <div class="demo-wrap">
+        <div id="main_content_wrap" class="outer">
+          <section id="main_content" class="inner">
+            <div class="build-form">
+              <h2><strong>Build Your Form Here:</strong></h2>
+              <form action="">
+                <textarea name="form-builder-template" id="form-builder-template" cols="30" rows="10"></textarea>
+              </form>
+              <br style="clear:both">
+            </div>
+            <div class="render-form">
+              <h2><strong>Your Form Looks Like:</strong></h2>
+              <form id="rendered-form">
+                <p class="cta">Add some fields to the formBuilder above and render them here.</p>
+              </form>
+              <div class="render-description">
+                <button id="render-form-button" class="btn btn-primary">Render form</button>
+              </div>
+            </div>
+            <br style="clear:both">
+          </section>
         </div>
-        <div class="render-form">
-          <h2><strong>Your Form Looks Like:</strong></h2>
-          <form id="rendered-form">
-            <p class="cta">Add some fields to the formBuilder above and render them here.</p>
-          </form>
-          <div class="render-description">
-            <button id="render-form-button" class="btn btn-primary">Render form</button>
-          </div>
-        </div>
-        <br style="clear:both">
-      </section>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+      <script src="javascripts/form-builder.min.js"></script>
+      <script src="javascripts/form-render.min.js"></script>
+      <script>
+      jQuery(document).ready(function($) {
+        'use strict';
+        var template = document.getElementById('form-builder-template'),
+          formContainer = document.getElementById('rendered-form'),
+          renderBtn = document.getElementById('render-form-button');
+        $(template).formBuilder();
 
-  <!-- Only include on form edit page -->
-  <script src="javascripts/form-builder.min.js"></script>
-  <!-- Only include on form render page -->
-  <script src="javascripts/form-render.min.js"></script>
-  <script>
-  jQuery(document).ready(function($) {
-    'use strict';
-    var template = document.getElementById('form-builder-template'),
-      formContainer = document.getElementById('rendered-form'),
-      renderBtn = document.getElementById('render-form-button');
-    $(template).formBuilder();
 
-    $(renderBtn).click(function(e) {
-      e.preventDefault();
-      $(template).formRender({
-        container: $(formContainer)
+        e.preventDefault();
+        $(template).formRender({container: $(formContainer)});
       });
-    });
-  });
-
-  </script>
-</body>
-
+      </script>
+    </body>
 </html>
 
 
