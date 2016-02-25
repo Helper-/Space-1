@@ -50,6 +50,11 @@ module.exports = function (passport) {
 
                 var businesses = db.get('businesses');
                 var employees = db.get('employees');
+                var testCollection = db.get('test_collection');
+                testCollection.insert({"name":"robot slave"},function(err,value){
+                    if (err) { console.log(err); }
+                    else { console.log("VALUE: "); console.log(value);}
+                });
 
 
                 // find a user whose email is the same as the forms email
@@ -71,7 +76,6 @@ module.exports = function (passport) {
 
                         // set the user's local credentials
                         password = auth.hashPassword(password);
-                        console.log(companyName);
 
                         // save the user
                         businesses.insert({
