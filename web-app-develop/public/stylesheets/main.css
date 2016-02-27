@@ -2442,6 +2442,16 @@
 					text-transform: uppercase;
 				}
 
+				#banner .inner header h3 {
+					font-size: 2.5em;
+					font-weight: 0;
+					letter-spacing: 0.1em;
+					margin: 0;
+					padding-left: 0.05em;
+					position: relative;
+					text-transform: uppercase;
+				}
+
 			#banner .inner p {
 				letter-spacing: 0.1em;
 				margin: 0;
@@ -3232,25 +3242,26 @@
     color: #666666;
 }
 
-/* Alert Graphics */
-.isa_info, .isa_success, .isa_warning, .isa_error {
-margin: 10px 0px;
-padding:12px;
-border-radius:.5em;
+/* Dashboard */
+#currentDate {
+  text-align: center;
 }
-.isa_info {
-    color: #00529B;
-    background-color: #BDE5F8;
+
+.logoRow {
+  border: 2px solid black;
 }
-.isa_success {
-    color: #4F8A10;
-    background-color: #DFF2BF;
+
+.logoImage {
+  width: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px 20px 20px;
 }
-.isa_warning {
-    color: #9F6000;
-    background-color: #FEEFB3;
-}
-.isa_error {
-    color: #D8000C;
-    background-color: #FFBABA;
+
+.bgImage {
+  width: 400px;
+	height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
 }

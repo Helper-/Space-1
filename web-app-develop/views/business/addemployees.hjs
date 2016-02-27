@@ -1,103 +1,148 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-    <title>{{ title }}</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'>
-    {{#newrelic}}
-        {{{ newrelic.getBrowserTimingHeader }}}
-    {{/newrelic}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</head>
+  <head>
+    <title>Breeze - Employees</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+  </head>
 
-<body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/dashboard">
-            <img id = "company-logo" src="images/corner.gif">
-        </a>
-      </div>
-      <div class="navbar-padding-right">
-        <ul class="nav navbar-nav navbar-right navbar-padding">
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li class="active"><a href="/addemployees">Employees</a></li>
-            <li>
-                <a href="/customizetheme">Settings</a>
+  <body class="no-sidebar">
+    <div id="page-wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+
+            <li class="submenu">
+              <a href="#">Settings</a>
+              <ul>
+                <li><a href="/manageforms">Manage Forms</a></li>
+                <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
+                <li><a href="/uploadlogo">Upload Logo</a></li>
+                <li><a href="/customizetheme">Customize Theme</a></li>
+                <li><a href="/accountSettings">Account Settings</a></li>
+                <li><a href="/businesssetting" >Company Settings</a></li>
+                <li><a href="/addemployees">Employees</a></li>
+              </ul>
             </li>
-            <li><a href="/businesssetting">Company Name</a></li>
-            <li><a href="/api/auth">Logout</a></li>
-        </ul>
-        </div>
-    </nav>
 
-    <div class="container container-margin">
+            <li><a href="/api/auth" class="button special">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+        <article id="main">
+
+            <header class="special container">
+                        <span class="icon fa-laptop"></span>
+                        <h2><strong>Register Employees</strong></h2>
+                        <p>Register all your employee(s) through a CSV file!</p> <br />
+
+
+                        <div class="row" id="regis-container">
+                            <div class="4u 12u(mobile)"></div>
+                            <div class="4u 12u(mobile)">
+                                <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
+                                <textarea class="add-email" type="text" name="csvEmployees"
+                                    placeholder="CSV of Employees EMAILS" rows="4" required></textarea> <br />
+                                <input class="button special" name="submit" type="submit" href="/addemployees" value="Upload">
+                                </form>
+                            </div>
+                        </div>
+            </header>
+
+          <!-- Special Container -->
+            <section class="wrapper style4 container 75%">
+
+              <!-- Content -->
             <div class="row">
-                <div class="col-xs-offset-1 col-xs-4">
-                    <h2>Register Employees</h2>
-                    <h4>Register all your employee(s) through a CSV file!</h4>
-                </div>
-            </div>
-
-            <div class="row text-center" id="regis-container">
-                <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
-                    <textarea class="add-email" type="text" name="csvEmployees" placeholder="CSV of Employees EMAILS" required></textarea>
-                    <input class="btn custom-button" name="submit" type="submit" href="/addemployees" value="Upload">
-                </form>
-
-                <div class="outerAlign" >
-
-                    <h3 class="tableheader">Employees already registered</h2>
-
-                        <div class="tableheader">
-
-                            <table class="table table-hover tablewidth" id="registeredEmployees">
-                                <thead>
-                                    <tr>
+                <div class="12u 12u(mobile)">
+                    <h2 style="text-align: center">Registered Employees</h2>
+                            <table class="table" id="registeredEmployees">
+                                <thead style="font-weight: bold">
+                                    <tr style="text-align: left">
                                         <th>Name</th>
                                         <th>Email</th>
                                     </tr>
                                 </thead>
+
                                 {{#signed}}
-                                <tr>
+                                <tr style="text-align: left">
                                     <td>{{fname}} {{lname}}</td>
                                     <td>{{email}}</td>
                                 </tr>
                                 {{/signed}}
                             </table>
+                </div>
 
-                        </div>
-
-
-                        <h3 class="tableheader">Employees not yet registered</h2>
-
-                        <div class="tableheader">
-
-                            <table class="table table-hover tablewidth" id="unregisteredEmployees">
-                                <thead>
-                                    <tr>
+                <div class="12u 12u(mobile)">
+                    <h2 style="text-align: center">Not Registered Employees</h2>
+                    <div class="12u 12u(mobile)">
+                            <table class="table" id="registeredEmployees">
+                                <thead style="font-weight: bold">
+                                    <tr style="text-align: left">
                                         <th>Name</th>
                                         <th>Email</th>
                                     </tr>
                                 </thead>
 
                                 {{#notsigned}}
-                                <tr>
+                                <tr style="text-align: left">
                                     <td>{{fname}} {{lname}}</td>
                                     <td>{{email}}</td>
                                 </tr>
                                 {{/notsigned}}
                             </table>
-
-                        </div>
-
-                        </div>
+                    </div>
                 </div>
+
             </div>
+
+            </section>
+
+          </article>
+
+      <!-- Footer -->
+        <footer id="footer">
+          <!--
+          <ul class="icons">
+            <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+            <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+          </ul>
+          -->
+
+          <ul class="copyright">
+            <li>Space-1 &copy;2016</li>
+          </ul>
+
+        </footer>
+
     </div>
 
-
-
-</body>
+    <!-- Scripts -->
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/jquery.dropotron.min.js"></script>
+      <script src="/js/jquery.scrolly.min.js"></script>
+      <script src="/js/jquery.scrollgress.min.js"></script>
+      <script src="/js/skel.min.js"></script>
+      <script src="/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+      eid = "{{eid}}";
+    </script>
+  </body>
 </html>
