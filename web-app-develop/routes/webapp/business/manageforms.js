@@ -55,6 +55,7 @@ function makeForm(db, businessId, body, fn) {
             if (err) {
                 return fn(err);
             }
+
             if (!form) {
                 forms.insert({
                     "business": business._id,

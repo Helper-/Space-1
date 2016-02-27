@@ -59,6 +59,7 @@ exports.createForm = function (req, res, next) {
     // grab our db object from the request
     var db = req.db;
     var forms = db.get('forms');
+    //console.log($(forms));
 
     // query to create entry in collection
     forms.insert(req.body, function (err, doc) {
