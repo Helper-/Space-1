@@ -8,6 +8,7 @@
     <link rel='stylesheet' href='/stylesheets/main.css'/>
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!-- Scripts -->
   </head>
 
   <body class="no-sidebar">
@@ -15,37 +16,26 @@
 
       <!-- Header -->
         <header id="header">
-          <h1 id="logo"><a href="/">Breeze <span>by Space-1</span></a></h1>
+          <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
           <nav id="nav">
             <ul>
               <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
-              <li class="current"><a href="/addemployees" class="button">Employees</a></li>
+
               <li class="submenu">
                 <a href="#">Settings</a>
                 <ul>
-                  <li><a href="/registerDevice">Configurations</a></li>
                   <li><a href="/manageforms">Manage Forms</a></li>
                   <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
                   <li><a href="/uploadlogo">Upload Logo</a></li>
                   <li><a href="/customizetheme">Customize Theme</a></li>
-                  <li><a href="/accountSettings">More Settings</a></li>
+                  <li><a href="/accountSettings">Account Settings</a></li>
+                  <li><a href="/businesssetting" >Company Settings</a></li>
+                  <li><a href="/addemployees">Employees</a></li>
                 </ul>
               </li>
-              <li><a href="/businesssetting" class="button">Company Settings</a></li>
+
               <li><a href="/api/auth" class="button special">Logout</a></li>
             </ul>
-          </nav>
-          <nav id="nav">
-            <ul>
-              <li class="submenu">
-                <ul>
-
-              
-              <li><a href="/customizetheme" class="button">Settings</a></li>
-              
-                </ul>
-            </ul>
-            </li>
           </nav>
         </header>
 
@@ -80,7 +70,7 @@
                         </thead>
 
                         <tbody id="tblBody">
-                          <tr>                
+                          <tr>
 
                             <td></td>
                             <td></td>
@@ -89,7 +79,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>               
+                            <td></td>
 
                           </tr>
                         </tbody>
@@ -120,18 +110,16 @@
         </footer>
 
     </div>
-
-    <!-- Scripts -->
-      <script src="/js/jquery.min.js"></script>
-      <script src="/js/jquery.dropotron.min.js"></script>
-      <script src="/js/jquery.scrolly.min.js"></script>
-      <script src="/js/jquery.scrollgress.min.js"></script>
-      <script src="/js/skel.min.js"></script>
-      <script src="/js/util.js"></script>
-      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-      <script src="/js/main.js"></script>
-    <script> 
-      eid = "{{eid}}"; 
-    </script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/main.js"></script>
+  <script>
+    eid = "{{eid}}";
+  </script>
   </body>
 </html>
