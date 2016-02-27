@@ -3242,44 +3242,7 @@
     color: #666666;
 }
 
-/* Alert Graphics */
-.isa_info, .isa_success, .isa_warning, .isa_error {
-margin: 10px 0px;
-padding:12px;
-border-radius:.5em;
-}
-.isa_info {
-    color: #00529B;
-    background-color: #BDE5F8;
-}
-.isa_success {
-    color: #4F8A10;
-    background-color: #DFF2BF;
-}
-.isa_warning {
-    color: #9F6000;
-    background-color: #FEEFB3;
-}
-.isa_error {
-    color: #D8000C;
-    background-color: #FFBABA;
-}
-
-/* Phone Hacks */
-.phone-number .col-xs-3::after{
- content: "-";
- position:absolute;
-    right: 5px;
-    color: black;
-    border: 0px solid;
-    top: 5px;
-}
-
-.phone-number .col-xs-4{
-	width:25%;
-}
-
-.phone-number .col-xs-3, .phone-number .col-xs-4{
-
-	padding-left:0;
+/* Dashboard */
+#currentDate {
+  text-align: center;
 }
