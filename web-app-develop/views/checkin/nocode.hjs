@@ -75,7 +75,7 @@
                 <div class="form-group">
                     <label class="col-md-5 control-label inputDOB">Date of Birth</label>
                     <div class="col-md-4">
-                        <input type="birthDate" id="inputDOB" name="inputDOB" value="{{ inputDOB }}" class="form-control form-width-custom" placeholder='MM/DD/YY' required autofocus>
+                        <input type="birthDate" id="inputDOB" name="inputDOB" value="{{ inputDOB }}" class="form-control form-width-custom" placeholder='MM/DD/YYYY' required autofocus>
                     </div>
                 </div>
                <button class="btn btn-lg btn-block custom-button custom-center" type="submit">Next</button>
