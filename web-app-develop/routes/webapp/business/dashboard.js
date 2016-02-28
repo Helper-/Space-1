@@ -11,3 +11,5 @@ exports.get = function (req, res) {
 		message: req.flash("permission"),
 	});
 };
+
+

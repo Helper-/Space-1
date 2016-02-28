@@ -30,7 +30,7 @@
               <ul>
                 <li><a href="/addemployees">Employees</a></li>
                 <li><a href="/manageforms">Manage Forms</a></li>
-                <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
+                <li><a href="/setdisclosure">Disclosure Agreements</a></li>
                 <li><a href="/customizetheme">Customize Theme</a></li>
                 <li><a href="/accountSettings">Account Settings</a></li>
                 <li><a href="/businesssetting">Company Settings</a></li>
@@ -46,25 +46,25 @@
                 <article id="main">
 
                     <header class="special container">
-                        <span class="icon featured fa-laptop"></span>
+                        <span class="icon fa-cog"></span>
                         <h2>Account Settings</h2>
                         <p>Change your password, email, phone number, or notification settings.</p>
                     </header>
 
                     <!-- One -->
+                    					{{#message}}
+									     <div class="alert alert-danger" style="text-align:center">{{message}}</div>
+									    {{/message}}
+									    {{#edited}}
+									      <div class="alert alert-success" role="alert" style="text-align:center">{{edited}}</div>
+									    {{/edited}}
+									    {{#alert}}
+									      <div class="alert alert-error" role="alert" style="text-align:center">{{alert}}</div>
+									    {{/alert}}
                         <section class="wrapper style4 special container 50%">
                             <!-- Content -->
                                 <div class="content">  
                                     <div class="row">
-									    {{#message}}
-									     <div class="alert alert-danger">{{message}}</div>
-									    {{/message}}
-									    {{#edited}}
-									      <div class="alert alert-success" role="alert">{{edited}}</div>
-									    {{/edited}}
-									    {{#alert}}
-									      <div class="alert alert-error" role="alert">{{alert}}</div>
-									    {{/alert}}
 									    <div class="12u 12u">
 									      <h2>Hello, Dr. {{ lname }}!</h2>
 									    </div>
@@ -79,8 +79,8 @@
 							<!-- Password row -->
 							    <div class="12u 12u">
 							      <form class="form-horizontal" action="" method="post">
-							        <label>Password</label>							
-							        <input type="password" id="editPassword" name="editPassword" value="{{ password }}" class="form-control">
+							        <label>New Password</label>							
+							        <input type="password" id="editPassword" name="editPassword" placeholder="New Password" class="form-control">
 							        <div style="text-align: center">
 							          <button type="password" type="submit">Update</button>
 							        </div>
@@ -175,5 +175,9 @@
             <script src="/js/util.js"></script>
             <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="/js/main.js"></script>
+            <script src="/javascripts/accountsettings.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>
 </html>
