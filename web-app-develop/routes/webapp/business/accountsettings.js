@@ -125,7 +125,7 @@ exports.post = function (req, res) {
                     email: emp.email,
                     smsNotify: emp.smsNotify,
                     emailNotify: emp.emailNotify,
-                    edited: 'Email successfully changed!'
+                    edited: 'Email successfully changed! \n'
                 });
             });
         });

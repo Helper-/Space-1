@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Customize Theme</title>
+    <title>Breeze - Customize Theme</title>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/main.css'/>
@@ -20,13 +20,12 @@
           <li class="submenu">
             <a href="#">Settings</a>
             <ul>
+              <li><a href="/addemployees">Employees</a></li>
               <li><a href="/manageforms">Manage Forms</a></li>
-              <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
-              <li><a href="/uploadlogo">Upload Logo</a></li>
+              <li><a href="/setdisclosure">Disclosure Agreements</a></li>
               <li><a href="/customizetheme">Customize Theme</a></li>
               <li><a href="/accountSettings">Account Settings</a></li>
               <li><a href="/businesssetting" >Company Settings</a></li>
-              <li><a href="/addemployees">Employees</a></li>
             </ul>
           </li>
 
@@ -35,11 +34,10 @@
       </nav>
     </header>
 
-<!--
     {{#message}}
    <div class="alert alert-danger">{{message}}</div>
     {{/message}}
-  -->
+
   <article id="main">
 
     <header class="special container">

@@ -16,3 +16,5 @@ exports.get = function (req, res) {
     //mailerClient.sendSimpleEmail("michael.chang25@gmail.com", "Calling all doctors!", "This is an automated message");
     //twilioClient.sendSmsToPhoneNumber("+16508623873", "Paging all doctors!");
 };
+
+
