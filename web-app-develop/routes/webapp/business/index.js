@@ -15,12 +15,11 @@ var registerDevice = require('./registerdevice');
 var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
 var viewForm = require('./viewform');
-var customizeTheme = require('./customize_theme');
-var manageForms = require('./manage_forms');
+var customizeTheme = require('./customizetheme');
+var manageForms = require('./manageforms');
 var businesssetting = require('./businesssetting');
 var setdisclosure = require('./setdisclosure');
 module.exports = function (passport) {
-
 
 
     //Pass in passport

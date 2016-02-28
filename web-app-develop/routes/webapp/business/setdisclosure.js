@@ -8,6 +8,9 @@ exports.get = function(req, res) {
 	business.find({_id: bid}, function (err, result) {
 		var dbBusiness = result[0];
 		var disclosure = dbBusiness.disclosure;
+        if (!disclosure) {
+            disclosure = ">>>>>>>>Add a disclosure agreement here."
+        }
 
 		disclosure = disclosure.slice(3);
 		disclosure = disclosure.replace(/<p>/g, '\n');
