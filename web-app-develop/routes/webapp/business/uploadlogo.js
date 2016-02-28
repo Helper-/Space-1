@@ -42,7 +42,7 @@ exports.post = function(req, res, next){
                     return next(err);
                 }
 
-                fs.unlink('public/'+results.logo);
+                fs.unlink('public'+results.logo);
             }
         );
 

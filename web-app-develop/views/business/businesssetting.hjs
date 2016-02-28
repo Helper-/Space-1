@@ -11,8 +11,8 @@
   <body>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#" onclick='location.reload(true); return false;'>
-            <img id = "company-logo" src="images/logo.png">
+        <a class="navbar-brand" href="/dashboard">
+            <img id = "company-logo" src="images/corner.gif">
         </a>
       </div>
       <div class="navbar-padding-right">
@@ -29,6 +29,7 @@
             <li  class="active">
               <a href="/businesssetting">Company Name</a>
             </li>
+            <li><a href="/api/auth">Logout</a></li>
         </ul>
       </div>
     </nav>

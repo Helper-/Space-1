@@ -59,6 +59,7 @@ body {
   z-index: 5;
 }
 
+
 .customBG {
   width: 100%;
   height: auto;
@@ -197,12 +198,12 @@ body {
 /********************* Landing Page **************************/
 
 .custom-button {
-  background-color: #008080; /*button color*/
+  background-color: #008EAF; /*button color*/
   color: #ffffff; /*text color*/
   font-family: 'Lato', sans-serif;
   border-radius: 6px; /* Overrides bootstrap rounded corners*/
-  border-color: #008081;
-  width: 150px;
+  border-color: #008080
+;  width: 150px;
 }
 
 .custom-button:visited, .custom-button:link, .btn:visited, .btn:link {
@@ -210,7 +211,7 @@ body {
 }
 
 .custom-button:hover {
-  background-color: #1eb962;
+  background-color: #009ACD;
   color: #ffffff;
 }
 
@@ -235,7 +236,7 @@ body {
 }
 
 #first-section {
-  background-image: url('../images/bg.jpg');
+  background-image: url('../images/defaultBG.jpg');
   height: 100vh;
   padding-top: 160px;
   background-repeat: no-repeat;
@@ -278,7 +279,7 @@ body {
 .testimonial {
   margin: 50px auto;
   background: #42444F;
-  padding: 20px 30px;
+  padding: 20px;
   color: #ffffff;
   font-style: italic;
   width: 70%;
@@ -295,21 +296,20 @@ body {
 }
 
 .testimonial-author {
-  margin: 10px 0 0 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   color: #999999;
   text-align: left;
 }
 
 .testimonial-image {
-  margin: 10px 0 0 120px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #999999;
+  margin: -30px 0 0 0;
+  font-family: Helvetica, sans-serif;
+  color: #008080;
   text-align:left;
-  height: 80px;
-  width: 80px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
-  border: 5px solid black;
+  border: 2px solid #008080;
 }
 
 .testimonial-grey {
@@ -322,7 +322,7 @@ body {
 }
 
 .testimonial-author {
-    font-size: 12px;
+    font-size: 15px;
     color: #666666;
 }
 
@@ -454,6 +454,7 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .innerInfo {

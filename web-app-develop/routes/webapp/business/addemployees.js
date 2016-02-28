@@ -25,11 +25,10 @@ exports.get = function(req,res){
 
                     if (err) { return next(err);  }
                     if(!results) { return next(new Error('Error finding employee'));}
-                     
+
                         employeee = results;
-                        console.log(employeee);
                        cb();
-                
+
                 });
             },
             nonemployee: function(cb){
@@ -38,7 +37,7 @@ exports.get = function(req,res){
 
                     if (err) { return next(err); }
                     if(!results) { return next(new Error('Error finding employee'));}
-                      
+
                          notemployee = results;
                          cb();
                 });
@@ -52,7 +51,7 @@ exports.get = function(req,res){
             }
             res.render('business/addemployees',{title: 'Express',notsigned: notemployee, signed: employeee});
 
-        });  
+        });
 }
 
 /**
@@ -91,14 +90,14 @@ exports.post = function(req,res){
                 from: 'test@localhost',
                 subject: 'Employee Signup',
                 text: 'Hello ' + username + ',\n\n' + 'Please click on the following link, or paste this into your browser to complete sign-up the process: \n\n' +
-                'http://robobetty-dev.herokuapp.com/employeeregister?token=' + token 
+                'http://robobetty-dev.herokuapp.com/employeeregister?token=' + token
             }, function (err){
                 if (err) {
                     return next(err);
                 }
               });
-        }   
-        res.redirect('/addemployees'); 
+        }
+        res.redirect('/addemployees');
 }
 
 

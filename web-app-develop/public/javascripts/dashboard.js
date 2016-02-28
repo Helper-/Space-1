@@ -55,11 +55,11 @@ function checkTime(i) {
 }
 
 function table() {
-  
+
     var cols,$btn;
 
     $.get('/api/employee/'+eid+'/appointments/today', function( data ){
-        
+
         var count = 0;
         //empty's the table
         $('#tblBody').empty();
@@ -124,9 +124,9 @@ function table() {
 
 function poll() {
     setTimeout(function(){
-        table();
+        //table();
 
-        poll();
+        //poll();
     },1000);//checks every 1000 millisecond
 }
 
@@ -153,7 +153,7 @@ function getAppDate(date){
     appTime = hoursPM+':'+minutesPM + ' PM';
   }
 
-  return appTime;  
+  return appTime;
 }
 
 // JQuery Insert Row

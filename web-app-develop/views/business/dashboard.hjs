@@ -1,59 +1,115 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-    <title>{{ title }}</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    {{{ newrelic.getBrowserTimingHeader }}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script>
-      eid = "{{eid}}";
-    </script>
-    <script src="/javascripts/dashboard.js"></script>
+  <head>
+    <title>Breeze - Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!-- Scripts -->
+  </head>
 
-</head>
-<body>
+  <body class="no-sidebar">
+    <div id="page-wrapper">
 
-  <!--Holds the main tabs for the business-->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#" onclick='location.reload(true); return false;'>
-          <img id = "company-logo" src="images/logo.png">
-      </a>
-    </div>
-    <div class="navbar-padding-right">
-      <ul class="nav navbar-nav navbar-right navbar-padding">
-          <li class="active">
-            <a href="/dashboard">Dashboard</a>
-          </li>
-          <li>
-            <a href="/addemployees">Employees</a>
-          </li>
-          <li>
-            <a href="/customizetheme">Settings</a>
-          </li>
-          <li>
-            <a href="/businesssetting">Company Name</a>
-          </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="container container-margin-no-secondary">
+      <!-- Header -->
+        <header id="header">
+          <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+          <nav id="nav">
+            <ul>
+              <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
 
-  </div>
+              <li class="submenu">
+                <a href="#">Settings</a>
+                <ul>
+                  <li><a href="/manageforms">Manage Forms</a></li>
+                  <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
+                  <li><a href="/uploadlogo">Upload Logo</a></li>
+                  <li><a href="/customizetheme">Customize Theme</a></li>
+                  <li><a href="/accountSettings">Account Settings</a></li>
+                  <li><a href="/businesssetting" >Company Settings</a></li>
+                  <li><a href="/addemployees">Employees</a></li>
+                </ul>
+              </li>
 
-<div class="container"style=" box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px white, 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 15px -4px rgba(31, 73, 125, 0.8);;">
+              <li><a href="/api/auth" class="button special">Logout</a></li>
+            </ul>
+          </nav>
+        </header>
 
-{{#message}}
-   <div class="alert alert-danger">{{message}}</div>
-{{/message}}
+      <!-- Main -->
+        <article id="main">
 
-  <h1><strong><div>Hi, {{employeeName}} {{employeeID}}</div></strong></h1>
+          <header class="special container">
+            <h2><strong>Hi, {{employeeName}} {{employeeID}}!</strong></h2>
+            <h1 class="text-center">Today</h1>
+            <h1 class="text-center" id="currentDate" ></h1>
+            <div id="txt" class="text-center"></div>
+          </header>
 
-  <div class="dashboardTopInfo text-center">
+          <!-- One -->
+            <section class="wrapper style4 container">
 
+              <!-- Content -->
+                <div class="content">
+                    <div class="row">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th>Appointment Time</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th>Picture</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+
+                        <tbody id="tblBody">
+                          <tr>
+
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+
+            </section>
+
+          </article>
+
+      <!-- Footer -->
+        <footer id="footer">
+          <!--
+          <ul class="icons">
+            <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+            <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+          </ul>
+          -->
+
+          <ul class="copyright">
+            <li>Space-1 &copy;2016</li>
+          </ul>
+
+        </footer>
+<!-- TODO: I believe this code populates the table, but we are temporarily taking it out in order to merge. Take a look at fix soon -->
+<!--
       <h1 class="text-center">Today</h1>
       <h1 class="text-center" id="currentDate" ></h1>
       <div id="txt" class="text-center"></div>
@@ -77,10 +133,10 @@
           <tr>
 
             <td></td>
+            <td>{{fname}}  {{lname}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{dob}}</td>
+            <td>{{state}}</td>
             <td></td>
             <td></td>
             <td></td>
@@ -88,18 +144,18 @@
           </tr>
         </tbody>
       </table>
+-->
     </div>
-  </div>
-  <footer class="footer">
-        <div class="container">
-            <ul class="list-inline footer-links text-center">
-
-                <!--<li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Support</a></li>-->
-                <li class = "footer-copyright">Copyright &#169; Gold Team-CSE 112, Winter 2015. All Rights Reserved.</li>
-            </ul>
-        </div>
-    </footer>
-</body>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/main.js"></script>
+  <script>
+    eid = "{{eid}}";
+  </script>
+  </body>
 </html>
