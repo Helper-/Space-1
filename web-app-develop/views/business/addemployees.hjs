@@ -23,13 +23,12 @@
             <li class="submenu">
               <a href="#">Settings</a>
               <ul>
+                <li><a href="/addemployees">Employees</a></li>
                 <li><a href="/manageforms">Manage Forms</a></li>
-                <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
-                <li><a href="/uploadlogo">Upload Logo</a></li>
+                <li><a href="/setdisclosure">Disclosure Agreements</a></li>
                 <li><a href="/customizetheme">Customize Theme</a></li>
                 <li><a href="/accountSettings">Account Settings</a></li>
                 <li><a href="/businesssetting" >Company Settings</a></li>
-                <li><a href="/addemployees">Employees</a></li>
               </ul>
             </li>
 
@@ -42,7 +41,7 @@
         <article id="main">
 
             <header class="special container">
-                        <span class="icon fa-laptop"></span>
+                        <span class="icon fa-inbox"></span>
                         <h2><strong>Register Employees</strong></h2>
                         <div class="container container-margin">
         
