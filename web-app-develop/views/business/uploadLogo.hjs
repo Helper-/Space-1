@@ -4,7 +4,7 @@
     <title>{{ title }}</title>
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
     {{#newrelic}}
         {{{ newrelic.getBrowserTimingHeader }}}
     {{/newrelic}}
@@ -16,53 +16,32 @@
 </head>
 
 <body>
-    <!--Holds the main tabs for the business-->
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                <img id = "company-logo" src="images/logo.png">
-            </a>
-        </div>
-        <div class="navbar-padding-right">
-        <ul class="nav navbar-nav navbar-right navbar-padding">
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/addemployees">Employees</a></li>
-            <li class="active">
-                <a href="/customizetheme">Settings</a>
-            </li>
-            <li><a href="/businesssetting">Company Name</a></li>
-            <li><a href="/api/auth">Logout</a></li>
-        </ul>
-    </div>
-    <!--Secondary navbar for the Settings tab-->
-    <div class="navbar-secondary navbar-tabs">
+  <!-- Header -->
+    <header id="header">
+      <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+      <nav id="nav">
         <ul>
-            <li><a href="/registerDevice">Configurations</a></li>
-            <li><a href="/manageforms">Manage Forms</a></li>
-            <li><a href="/setdisclosure">Add Disclosure Agreement</a></li>
-            <li class="active"><a href="/uploadlogo">Upload Logo</a></li>
-            <li>
-                <a href="/customizetheme">Customize Theme</a>
-            </li>
-            <li><a href="/accountSettings">More Settings</a></li>
+          <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+          <li><a href="/customizetheme">Customize Theme</a></li>
+
+
+          <li><a href="/api/auth" class="button special">Logout</a></li>
         </ul>
-    </div>
-    </nav>
-
+      </nav>
+    </header>
+      <article id="main">
+              <header class="special container">
+                  <span class="icon fa-laptop"></span>
+                  <h2><strong>Upload Logo</strong></h2>
+                 <br />
+              </header>
     <!-- Container to hold instructions & upload form-->
-    <div class="container">
+    <div class="content">
 
-        <div class ="row">
 
-            <div class="col-sm-6">
-                <h1>Uploading a Logo</h1>
-                <p style="color:grey">Upload your own logo to match your office.</p>
-                <br>
-            </div>
-        </div>
 
-        <div class="row">
-             <div class="col-md-4 col-md-offset-4 ">
+        <div class="row" style="text-align:center">
+             <div class="12u 12u">
 
                 {{#logo}}
                     <h2 class="">Current Logo</h2>
@@ -72,58 +51,74 @@
                 {{/logo}}
 
                 {{^logo}}
-                    <h2>There is currently no logo to display for your business</h2>
+                    <h3>There is currently no logo to display for your business</h2>
                 {{/logo}}
+                {{#error}}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                {{/error}}
 
+                {{#success}}
+                    <div class="alert alert-success" role="alert">
+                        {{ success }}
+                    </div>
+                {{/success}}
+
+
+                <form id        =  "uploadForm"
+                     enctype   =  "multipart/form-data"
+                     action    =  "/uploadlogo"
+                     method    =  "post"
+                     style = "text-align:center"
+                >
+                    <input type="file" name="userLogo" style="margin-left:775px" />
+                    <br><br>
+                    <input type="hidden" value="54eca979f2a2d47937757617" name="business" class="text-center"/>
+                    <input class ="button" style = "width:120px" type="submit" value="Upload Image" name="Upload Button"/>
+                </form>
             </div>
         </div>
-
-        <br><br>
-        <h2 class = "text-center">Click the upload button to browse for a picture</h2>
         <br>
 
 
-        {{#error}}
-            <div class="alert alert-danger" role="alert">
-                {{ error }}
-            </div>
-        {{/error}}
 
-        {{#success}}
-            <div class="alert alert-success" role="alert">
-                {{ success }}
-            </div>
-        {{/success}}
-
-
-        <form id        =  "uploadForm"
-             enctype   =  "multipart/form-data"
-             action    =  "/uploadlogo"
-             method    =  "post"
-             class="uploadFormCenterHack bottomOfPage"
-        >
-            <input type="file" name="userLogo" class="text-center" />
-            <br><br>
-            <input type="hidden" value="54eca979f2a2d47937757617" name="business" class="text-center"/>
-            <input class ="btn custom-button " style = "width:120px" type="submit" value="Upload Image" name="Upload Button"/>
-        </form>
 
     </div>
-
+  </article>
     <!--Footer to display the about info,etc-->
-    <footer class="footer navbar-fixed-bottom">
-        <div class="container">
-            <ul class="list-inline footer-links text-center">
-                <!--<li><a href="#">About Us</a></li>
-                <li><a href="#">Store</a></li>
-                <li><a href="#">Jobs</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Support</a></li>-->
-                <li class = "footer-copyright">Copyright &#169; Gold Team-CSE 112, Winter 2015. All Rights Reserved.</li>
-            </ul>
-        </div>
-    </footer>
+        <footer id="footer">
+          <!--
+          <ul class="icons">
+            <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+            <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+          </ul>
+          -->
+
+          <ul class="copyright">
+            <li>Space-1 &copy;2016</li>
+          </ul>
+
+        </footer>
+
+
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/main.js"></script>
+    <script src="/javascripts/customizetheme.js"></script>
+    <script>
+    eid = "{{eid}}";
+    </script>
 
 </body>
 
