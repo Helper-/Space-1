@@ -1,106 +1,106 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+    Twenty by HTML5 UP
+    html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/dashboard">
-            <img id = "company-logo" src="images/corner.gif">
-        </a>
-      </div>
-      <div class="navbar-padding-right">
-        <ul class="nav navbar-nav navbar-right navbar-padding">
-            <li>
-              <a href="/dashboard">Dashboard</a>
-            </li>
-            <li>
-              <a href="/addemployees">Employees</a>
-            </li>
-            <li>
-              <a href="/customizetheme">Settings</a>
-            </li>
-            <li  class="active">
-              <a href="/businesssetting">Company Name</a>
-            </li>
-            <li><a href="/api/auth">Logout</a></li>
-        </ul>
-      </div>
-    </nav>
+    <head>
+        <title>Breeze - Company Settings</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="stylesheets/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    </head>
 
+    <body class="contact">
+        <div id="page-wrapper">
 
-    <div class="row business-setting-margin">
-      <div class="col-md-8 col-md-offset-2">
-        <div>
-          <div>
-            <h1>Company Settings</h1>
-            <p>Configure other parts of your company account</p>
-            <div class="row" style="text-align:center">
-              {{#edited}}
-                <div class="alert alert-success" role="alert">
-                  {{edited}}
-                </div>
-              {{/edited}}
-              {{#error}}
-                <div class="alert alert-danger" role="alert">
-                  {{error}}
-                </div>
-              {{/error}}
-            </div>
-            <hr>
-          </div>
-          <div>
-              <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                  <div>
-                      <h3>Company Info</h3>
-                      <hr>
-                    </div>
-                    <div class="panel-body">
-                      <form class="form" action="" method="post">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                              <label for="email">Company Name</label>
-                              <input type="text" id="companyName" name="companyName" class="form-control input-lg" value="{{companyName}}">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                              <label>Phone Number </label>
-                              <input type="text" id="phone" name ="phone"class="form-control input-lg" value="{{phone}}">
-                            </div>
-                          </div>
-                        </div>
-                        <button   type="submit" class="custom-center btn custom-button">Save</button>
-                      </form>
+            <!-- Header -->
+      <header id="header">
+        <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
 
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
+            <li class="submenu">
+              <a href="#">Settings</a>
+              <ul>
+                <li><a href="/addemployees">Employees</a></li>
+                <li><a href="/manageforms">Manage Forms</a></li>
+                <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
+                <li><a href="/customizetheme">Customize Theme</a></li>
+                <li><a href="/accountSettings">Account Settings</a></li>
+                <li><a href="/businesssetting">Company Settings</a></li>
+              </ul>
+            </li>
+
+            <li><a href="/api/auth" class="button special">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+
+            <!-- Main -->
+                <article id="main">
+
+                    <header class="special container">
+                        <span class="icon featured fa-laptop"></span>
+                        <h2>Company Settings</h2>
+                        <p>Change the name and phone number of your company displayed</p>
+                    </header>
+
+                    <!-- One -->
+                        <section class="wrapper style4 special container 50%">
+
+                            <!-- Content -->
+
+                                <div class="content">
+                                    
+                                    <form class="form" action="" method="post">
+                                        <div class="row">
+                                          <div class="12u 12u">
+                                            <div class="form-group">
+                                              <label for="email">Company Name</label>
+                                              <input type="text" id="companyName" name="companyName" class="form-control input-lg" value="{{companyName}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="12u 12u">
+                                            <div class="form-group">
+                                              <label>Phone Number </label>
+                                              <input type="text" id="phone" name ="phone"class="form-control input-lg" value="{{phone}}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <br />
+                                        <button type="submit" class="button special">Save</button>
+                                      </form>
+                                </div>
+
+                        </section>
+
+                </article>
+
+            <!-- Footer -->
+                <footer id="footer">
+                    <ul class="copyright">
+                        <li>Space-1 &copy;2016</li>
+                    </ul>
+                </footer>
+
         </div>
-      </div>
-    </div>
-    <footer class="footer">
-        <div class="container">
-            <ul class="list-inline footer-links text-center">
 
-                <!--<li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="#">Support</a></li>-->
-                <li class = "footer-copyright">Copyright &#169; Gold Team-CSE 112, Winter 2015. All Rights Reserved.</li>
-            </ul>
-        </div>
-    </footer>
-  </body>
+    <!-- Scripts -->
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/jquery.dropotron.min.js"></script>
+            <script src="/js/jquery.scrolly.min.js"></script>
+            <script src="/js/jquery.scrollgress.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+            <script src="/js/main.js"></script>
+    </body>
 </html>

@@ -3265,3 +3265,8 @@
   margin-right: auto;
   border: 2px solid black;
 }
+
+.editNotify {
+  text-decoration: underline;
+  font-size: 18px;
+}
