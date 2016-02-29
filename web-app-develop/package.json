@@ -65,7 +65,7 @@
     "yargs": "^3.4.4"
   },
   "scripts": {
-    "start": "node ./bin/www",
-    "build": "gulp"
+    "build": "gulp",
+    "start": "node ./bin/www"
   }
 }
