@@ -65,6 +65,7 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "build": "npm install && gulp"
+    "postinstall": "npm install",
+    "build": "gulp"
   }
 }
