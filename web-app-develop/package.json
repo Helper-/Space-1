@@ -1,8 +1,8 @@
 {
-  "name": "breeze",
-  "version": "0.0.1",
-  "description": "apiDoc for Breeze",
-  "title": "Breeze API",
+  "name": "Robobetty",
+  "version": "0.6.0",
+  "description": "Mobile REST API",
+  "title": "Robobetty",
   "scripts": {
     "build": "gulp",
     "start": "node ./bin/www"
