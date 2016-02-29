@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../web-app-develp/');
+var app = require('../web-app-develop/');
 var debug = require('debug')('robobetty:server');
 var http = require('http');
 
