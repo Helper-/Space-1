@@ -364,11 +364,3 @@ gulp.task('apidoc-url', function(){
   .pipe(plugins.open('', options));
 });
 gulp.task('doc-deploy', ['apidoc','deploy-gh','apidoc-url']);
-
-gulp.task('serveprod', function() {
-  connect.server({
-    root: /web-app-develp/,
-    port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
-  });
-});
