@@ -2129,6 +2129,16 @@
 					color: #fff !important;
 				}
 
+			.wrapper.style2 .button.red {
+				border-color: #fff;
+				background: #f03131 !important;
+			}
+
+				.wrapper.style2 .button.red:hover {
+					border-color: inherit !important;
+					color: #fff !important;
+				}
+
 		.wrapper.style3 {
 			background: #fff;
 			color: inherit;
@@ -3243,7 +3253,7 @@
 }
 
 /* Dashboard */
-#currentDate {
+.currentDate {
   text-align: center;
 }
 

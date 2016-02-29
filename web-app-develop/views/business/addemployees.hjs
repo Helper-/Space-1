@@ -23,13 +23,12 @@
             <li class="submenu">
               <a href="#">Settings</a>
               <ul>
+                <li><a href="/addemployees">Employees</a></li>
                 <li><a href="/manageforms">Manage Forms</a></li>
-                <li><a href="/setdisclosure">Add Disclosure Agreements</a></li>
-                <li><a href="/uploadlogo">Upload Logo</a></li>
+                <li><a href="/setdisclosure">Disclosure Agreements</a></li>
                 <li><a href="/customizetheme">Customize Theme</a></li>
                 <li><a href="/accountSettings">Account Settings</a></li>
                 <li><a href="/businesssetting" >Company Settings</a></li>
-                <li><a href="/addemployees">Employees</a></li>
               </ul>
             </li>
 
@@ -42,21 +41,48 @@
         <article id="main">
 
             <header class="special container">
-                        <span class="icon fa-laptop"></span>
+                        <span class="icon fa-inbox"></span>
                         <h2><strong>Register Employees</strong></h2>
-                        <p>Register all your employee(s) through a CSV file!</p> <br />
+                        <div class="container container-margin"><br />
+        
+              <div class="row" id="regis-container">
+                <div class="4u 12u"></div>
+                <div class="4u 12u">
+                      <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+                                                <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
+                                            </div>
 
+                                            <div class="6u 12u(mobile)">
+                                                <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
 
-                        <div class="row" id="regis-container">
-                            <div class="4u 12u(mobile)"></div>
-                            <div class="4u 12u(mobile)">
-                                <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
-                                <textarea class="add-email" type="text" name="csvEmployees"
-                                    placeholder="CSV of Employees EMAILS" rows="4" required></textarea> <br />
-                                <input class="button special" name="submit" type="submit" href="/addemployees" value="Upload">
-                                </form>
-                            </div>
-                        </div>
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="(123) 345-6789" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                                <input class="regis" type="email" name="email" value="{{ email }}" placeholder="Email Address" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Fifth Row -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                                <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
+                                            </div>
+                                        </div><br />
+                          
+                          <input class="button special" name="submit" type="submit" href="/addemployees" value="Register Employee">
+                      </form>
+                </div>
+              </div>
+
             </header>
 
           <!-- Special Container -->
@@ -71,6 +97,7 @@
                                     <tr style="text-align: left">
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
 
@@ -78,31 +105,13 @@
                                 <tr style="text-align: left">
                                     <td>{{fname}} {{lname}}</td>
                                     <td>{{email}}</td>
+                                    <td><button type="submit">Delete</button></td>
                                 </tr>
                                 {{/signed}}
                             </table>
                 </div>
 
-                <div class="12u 12u(mobile)">
-                    <h2 style="text-align: center">Not Registered Employees</h2>
-                    <div class="12u 12u(mobile)">
-                            <table class="table" id="registeredEmployees">
-                                <thead style="font-weight: bold">
-                                    <tr style="text-align: left">
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                    </tr>
-                                </thead>
-
-                                {{#notsigned}}
-                                <tr style="text-align: left">
-                                    <td>{{fname}} {{lname}}</td>
-                                    <td>{{email}}</td>
-                                </tr>
-                                {{/notsigned}}
-                            </table>
-                    </div>
-                </div>
+                
 
             </div>
 
