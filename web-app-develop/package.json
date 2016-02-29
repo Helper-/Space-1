@@ -1,13 +1,11 @@
 {
   "name": "breeze",
-  "version": "0.0.1",
+  "version": "0.7.0",
   "description": "apiDoc for Breeze",
   "title": "Breeze API",
   "engines": {
-    "node": "0.14.0",
     "npm": "3.5.1"
   },
-
   "dependencies": {
     "async": "^0.9.0",
     "babyparse": "^0.4.1",
@@ -65,7 +63,6 @@
     "mongobackup": "^0.1.8",
     "yargs": "^3.4.4"
   },
-
   "scripts": {
     "start": "node ./bin/www",
     "build": "npm install && gulp"
