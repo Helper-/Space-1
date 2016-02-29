@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "apiDoc for Breeze",
   "title": "Breeze API",
+  "engines": {
+    "node": "0.14.0",
+    "npm": "3.5.1"
+  },
 
   "dependencies": {
     "async": "^0.9.0",
