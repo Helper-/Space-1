@@ -1,12 +1,9 @@
 {
-  "name": "robobetty",
-  "version": "0.6.0",
-  "description": "apiDoc for Robobetty",
-  "title": "Robobetty API",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
+  "name": "breeze",
+  "version": "0.0.1",
+  "description": "apiDoc for Breeze",
+  "title": "Breeze API",
+
   "dependencies": {
     "async": "^0.9.0",
     "babyparse": "^0.4.1",
@@ -63,5 +60,12 @@
     "karma-jasmine": "^0.3.5",
     "mongobackup": "^0.1.8",
     "yargs": "^3.4.4"
-  }
+  },
+
+  "scripts": {
+    
+    "start": "node ./bin/www"
+  },
+
+
 }
