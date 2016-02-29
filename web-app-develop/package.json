@@ -4,6 +4,7 @@
   "description": "apiDoc for Breeze",
   "title": "Breeze API",
   "engines": {
+    "node": "4.2.6",
     "npm": "2.1.x"
   },
   "dependencies": {
