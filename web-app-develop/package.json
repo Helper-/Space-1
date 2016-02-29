@@ -1,5 +1,5 @@
 {
-  "name": "Robobetty",
+  "name": "robobetty",
   "version": "0.6.0",
   "description": "Mobile REST API",
   "title": "Robobetty",
@@ -66,5 +66,11 @@
     "karma-jasmine": "^0.3.5",
     "mongobackup": "^0.1.8",
     "yargs": "^3.4.4"
-  }
+  },
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
 }
