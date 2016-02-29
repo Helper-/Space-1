@@ -65,7 +65,7 @@
   },
   "scripts": {
     "build": "gulp",
-    "start": "node ./bin/www",
+    "start": "node ./bin/www && app.js",
     "postinstall": "gulp build"
   }
 }
