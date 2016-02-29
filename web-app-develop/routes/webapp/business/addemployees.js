@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-var baby = require('babyparse');
+//var baby = require('babyparse');
 var async = require('async');
 var sendgrid  = require('sendgrid')('robobetty', 'NoKcE0FGE4bd');
 var ObjectId = require('mongodb').ObjectID;
@@ -19,6 +19,7 @@ exports.get = function(req,res){
 
         async.parallel({
             employee: function(cb){
+
                 employeeDB.find({registrationToken: {$exists: false}, business: ObjectId(businessID)},function (err,results){
 
                     if (err) { return next(err);  }
@@ -29,17 +30,17 @@ exports.get = function(req,res){
 
                 });
             },
-            nonemployee: function(cb){
-                employeeDB.find({registrationToken: {$exists: true}, business: ObjectId(businessID)}, function (err,results){
+            // nonemployee: function(cb){
+            //     employeeDB.find({registrationToken: {$exists: true}, business: ObjectId(businessID)}, function (err,results){
 
 
-                    if (err) { return next(err); }
-                    if(!results) { return next(new Error('Error finding employee'));}
+            //         if (err) { return next(err); }
+            //         if(!results) { return next(new Error('Error finding employee'));}
 
-                         notemployee = results;
-                         cb();
-                });
-            }
+            //              notemployee = results;
+            //              cb();
+            //     });
+            // }
         },
 
         function(err,results){
@@ -59,46 +60,59 @@ exports.get = function(req,res){
  * @returns The appropriate data about the employee
  */
 exports.post = function(req,res){
-	   var parsed = baby.parse(req.body.csvEmployees);
-       var rows = parsed.data;
+	   // var parsed = baby.parse(req.body.csvEmployees);
+    //    var rows = parsed.data;
        var database =  req.db;
        var employeeDB = database.get('employees');
        var businessID = req.user[0].business;
+        //console.log(req.body.fname);
+//console.log(req.body.email);
 
 
-        for(var i = 0; i < rows.length; i++){
-           var username = rows[i][0];
-           var email = rows[i][1];
-					 var nameArr = username.split(' ');
-					 var fname = nameArr[0];
-					 var lname = nameArr[1];
-            var token = randomToken();
-            employeeDB.insert({
-                business: ObjectId(businessID),
-                fname: fname,
-				lname: lname,
-                email: email,
-                registrationToken : token,
-                admin: false
-            });
+        employeeDB.find({email: req.body.email },function (err,results){
+            //console.log(results);
 
+                //if (err) { return next(err);  }
+                if(results[0]==null) {
+                    //console.log("we are in");
+                     //var token = randomToken();
+                    employeeDB.insert({
+                        // business: ObjectId(businessID),
+                        business: businessID,
+                        fname: req.body.fname,
+                        lname: req.body.lname,
+                        email: req.body.email,
+                        //registrationToken : token,
+                        admin: false
+                    });
 
-              sendgrid.send({
-                to: email,
-                from: 'test@localhost',
-                subject: 'Employee Signup',
-                text: 'Hello ' + username + ',\n\n' + 'Please click on the following link, or paste this into your browser to complete sign-up the process: \n\n' +
-                'http://robobetty-dev.herokuapp.com/employeeregister?token=' + token
-            }, function (err){
-                if (err) {
-                    return next(err);
+                    res.redirect('/addemployees');
+
+                } else{
+                    //res.send("user already exists");
+                    req.flash("user exists!");
+                    res.redirect('back');
                 }
-              });
-        }
-        res.redirect('/addemployees');
+
+        });
+
+
+
+
+        //   sendgrid.send({
+        //     to: email,
+        //     from: 'test@localhost',
+        //     subject: 'Employee Signup',
+        //     text: 'Hello ' + username + ',\n\n' + 'Please click on the following link, or paste this into your browser to complete sign-up the process: \n\n' +
+        //     'http://robobetty-dev.herokuapp.com/employeeregister?token=' + token
+        // }, function (err){
+        //     if (err) {
+        //         return next(err);
+        //     }
+        //   });
 }
 
 
  function randomToken() {
         return crypto.randomBytes(24).toString('hex');
-    }
+}
