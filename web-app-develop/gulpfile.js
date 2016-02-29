@@ -215,7 +215,7 @@ gulp.task('stage', ['test'], function(){
         return gulp.src('')
                 .pipe(plugins.shell([
                     '<%= setKillTimer() %>',
-                    'heroku git:remote -a space-1-test<%= getArg()%> -r test<%= getArg() %>',
+                    'heroku git:remote -a space-1<%= getArg()%> -r test<%= getArg() %>',
                     '<%= clearKillTimer() %>',
                     'git push -f test<%= getArg() %> <%= determineBranch() %>'
                 ], {
