@@ -1,9 +1,3 @@
-var newrelic = false;
-
-if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
-    newrelic = require('newrelic');
-}
-
 var express = require('express');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
@@ -16,6 +10,12 @@ var passport = require('passport');
 var async = require('async');
 var subdomain = require('express-subdomain');
 var app = express();
+
+var newrelic = false;
+
+if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
+    newrelic = require('newrelic');
+}
 
 global.__base = __dirname + '/';
 

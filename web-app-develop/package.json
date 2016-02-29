@@ -3,6 +3,7 @@
   "version": "0.6.0",
   "description": "Mobile REST API",
   "title": "Robobetty",
+  "main": "app.js",
   "scripts": {
     "build": "gulp",
     "start": "node ./bin/www"
@@ -67,10 +68,9 @@
     "mongobackup": "^0.1.8",
     "yargs": "^3.4.4"
   },
-  "main": "app.js",
-  "directories": {
-    "test": "test"
-  },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+      "node",
+      "heroku",
+      "express"
+    ]
 }
