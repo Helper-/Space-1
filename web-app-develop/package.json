@@ -4,7 +4,7 @@
   "description": "apiDoc for Breeze",
   "title": "Breeze API",
   "engines": {
-    "npm": "3.5.1"
+    "npm": "2.1.x"
   },
   "dependencies": {
     "async": "^0.9.0",
