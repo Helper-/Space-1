@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../Space-1');
+var app = require('../app');
 var debug = require('debug')('robobetty:server');
 var http = require('http');
 
