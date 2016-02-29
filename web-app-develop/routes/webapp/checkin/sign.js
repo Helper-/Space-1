@@ -1,3 +1,4 @@
+var slackClient = require('../../../slack-client');
 var style = require('./../../../lib/style.js');
 
 exports.get = function(req, res, next) {
@@ -42,6 +43,7 @@ exports.post = function (req, res, next) {
             if (err) {
                 return next(err);
             }
+            slackClient.sendSlackMessage();
             res.redirect('done');
         });
     }
