@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "gulp",
-    "start": "node /bin/www"
+    "start": "node bin/www"
   },
   "engines": {
     "node": "4.2.6"
