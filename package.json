@@ -37,7 +37,6 @@
     "nodemailer-smtp-transport": "^2.4.1",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
-    "plivo-node": "^0.2.5",
     "plugin": "^0.3.3",
     "sendgrid": "^1.6.0",
     "serve-favicon": "~2.2.0",
