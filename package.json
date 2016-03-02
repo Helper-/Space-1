@@ -5,7 +5,7 @@
   "title": "Breeze API",
   "scripts": {
     "postinstall": "npm install gulp && gulp build",
-    "start": "node bin/www"
+    "start": "node app.js"
   },
   "engines": {
     "node": "4.2.6"
