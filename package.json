@@ -4,7 +4,7 @@
   "description": "apiDoc for Breeze",
   "title": "Breeze API",
   "scripts": {
-    "postinstall": "npm install gulp",
+    "postinstall": "npm install gulp && gulp build",
     "build": "gulp",
     "start": "node bin/www"
   },
