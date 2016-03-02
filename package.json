@@ -1,9 +1,8 @@
 {
-  "name": "robobetty",
-  "version": "0.6.0",
-  "description": "apiDoc for Robobetty",
-  "title": "Robobetty API",
-  "private": true,
+  "name": "breeze",
+  "version": "0.1.0",
+  "description": "apiDoc for Breeze",
+  "title": "Breeze API",
   "scripts": {
     "build": "gulp",
     "start": "node bin/www"
