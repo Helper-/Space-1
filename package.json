@@ -5,7 +5,6 @@
   "title": "Breeze API",
   "scripts": {
     "build": "gulp",
-    "postinstall": "gulp nodemon",
     "start": "node /bin/www"
   },
   "engines": {
