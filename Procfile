@@ -1,1 +1,1 @@
-web: node gulp nodemon
+web: node gulp build
