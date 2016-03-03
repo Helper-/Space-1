@@ -48,7 +48,7 @@ exports.get = function(req,res){
             if(err){
                 throw err;
             }
-            res.render('business/addemployees',{title: 'Express',notsigned: notemployee, signed: employeee});
+            res.render('business/addemployees',{message: req.flash("employee"), title: 'Express',notsigned: notemployee, signed: employeee});
 
         });
 }
@@ -59,22 +59,17 @@ exports.get = function(req,res){
  * @param req and res The two parameters passed in to get the apprporiate employee,
  * @returns The appropriate data about the employee
  */
-exports.post = function(req,res){
+exports.post = function(req,res, next){
 	   // var parsed = baby.parse(req.body.csvEmployees);
     //    var rows = parsed.data;
        var database =  req.db;
        var employeeDB = database.get('employees');
        var businessID = req.user[0].business;
         //console.log(req.body.fname);
-//console.log(req.body.email);
-
-
         employeeDB.find({email: req.body.email },function (err,results){
-            //console.log(results);
-
                 //if (err) { return next(err);  }
                 if(results[0]==null) {
-                    //console.log("we are in");
+                    console.log("we are in");
                      //var token = randomToken();
                     employeeDB.insert({
                         // business: ObjectId(businessID),
@@ -85,12 +80,10 @@ exports.post = function(req,res){
                         //registrationToken : token,
                         admin: false
                     });
-
-                    res.redirect('/addemployees');
-
+                    req.flash("employee", "employee is added successfully!");
+                    res.redirect('back');
                 } else{
-                    //res.send("user already exists");
-                    req.flash("user exists!");
+                    req.flash("employee", "employee's email address already exists!");
                     res.redirect('back');
                 }
 

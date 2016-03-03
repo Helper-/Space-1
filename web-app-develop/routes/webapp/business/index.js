@@ -24,6 +24,7 @@ module.exports = function (passport) {
 
     //Pass in passport
 
+
     //Setup the routes
     router.get('/', landing.get);
     router.post('/', landing.post);
