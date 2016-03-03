@@ -32,7 +32,7 @@
                 </ul>
               </li>
 
-              <li><a href="/api/auth" class="button special">Logout</a></li>
+              <li><a href="/login" class="button special">Logout</a></li>
             </ul>
           </nav>
         </header>
