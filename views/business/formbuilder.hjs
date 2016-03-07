@@ -1,76 +1,109 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <meta charset='utf-8'>
-      <meta http-equiv="X-UA-Compatible" content="chrome=1">
-      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/formbuilder_extras.css">
-      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-builder.min.css">
-      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-render.min.css">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-      <link rel='stylesheet' href='/stylesheets/style.css'/>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/formbuilder_extras.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-builder.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-render.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel='stylesheet' href='/stylesheets/main.css'/>
+        <title>Breeze - Form Builder</title>
     </head>
-    <body class="customBG">
-
-      <div class="demo-wrap">
-        <div id="main_content_wrap" class="outer">
-          <section id="main_content" class="inner">
-            <div class="build-form">
-              <h2><strong>Build Your Form Here:</strong></h2>
-              <form action="">
-                <textarea name="form-builder-template" id="form-builder-template" cols="30" rows="10"></textarea>
-              </form>
-              <br style="clear:both">
+    <body class="no-sidebar">
+        <header id="header">
+            <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+                    <li class="submenu">
+                        <a href="#">Settings</a>
+                        <ul>
+                            <li><a href="/addemployees">Employees</a></li>
+                            <li><a href="/manageforms">Manage Forms</a></li>
+                            <li><a href="/setdisclosure">Disclosure Agreements</a></li>
+                            <li><a href="/customizetheme">Customize Theme</a></li>
+                            <li><a href="/accountSettings">Account Settings</a></li>
+                            <li><a href="/businesssetting" >Company Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/login" class="button special">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br style="clear:both">
+        <div class="demo-wrap">
+            <div id="main_content_wrap" class="outer">
+                <section id="main_content" class="inner">
+                <div class="build-form">
+                    <h2><strong>Build Your Form Here:</strong></h2>
+                    <form action="">
+                        <textarea name="form-builder-template" id="form-builder-template" cols="30" rows="10"></textarea>
+                    </form>
+                    <br style="clear:both">
+                </div>
+                <div class="render-form">
+                    <h2><strong>Your Form Looks Like:</strong></h2>
+                    <form id="rendered-form">
+                        <p class="cta">Add some fields to the formBuilder above and render them here.</p>
+                    </form>
+                    <div class="render-description">
+                        <button id="render-form-button" class="btn btn-primary">Render form</button>
+                        <button class="btn btn-primary" onclick="window.location='/manageforms'">Return to Forms</button>
+                    </div>
+                </div>
+                <br style="clear:both">
+                </section>
             </div>
-            <div class="render-form">
-              <h2><strong>Your Form Looks Like:</strong></h2>
-              <form id="rendered-form">
-                <p class="cta">Add some fields to the formBuilder above and render them here.</p>
-              </form>
-              <div class="render-description">
-                <button id="render-form-button" class="btn btn-primary">Render form</button>
-                <a href="/manageforms">
-                    <input type="button" value="Return to Forms" class="btn btn-primary" id="return" />
-                </a>
-              </div>
-            </div>
-            <br style="clear:both">
-          </section>
         </div>
-      </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
-      <script src="javascripts/form-builder.min.js"></script>
-      <script src="javascripts/form-render.min.js"></script>
-      <script>
-      jQuery(document).ready(function($) {
-        'use strict';
-        var template = document.getElementById('form-builder-template'),
-          formContainer = document.getElementById('rendered-form'),
-          renderBtn = document.getElementById('render-form-button');
-        $(template).formBuilder();
-        $(renderBtn).click(function(e) {
-          e.preventDefault();
-          $(template).formRender({
-            container: $(formContainer)
-          });
-        });
-        $(saving).click(function(){
-            alert("clicked save button");
-            var json = {business: "{{{findID}}}", fields: $(template)};
-            console.log($(json));
-            $.ajax({
-                url:'/api/form',
-                type:'POST',
-                data: JSON.stringify(json),
-                contentType:'application/json',
-                dataType:'json',
-                success:function(){alert('Form Submitted!');}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+        <script src="javascripts/form-builder.min.js"></script>
+        <script src="javascripts/form-render.min.js"></script>
+        <script>
+            jQuery(document).ready(function($) {
+                'use strict';
+                var template = document.getElementById('form-builder-template'),
+                formContainer = document.getElementById('rendered-form'),
+                renderBtn = document.getElementById('render-form-button');
+                $(template).formBuilder();
+                $(renderBtn).click(function(e) {
+                    e.preventDefault();
+                    $(template).formRender({
+                        container: $(formContainer)
+                    });
+                });
+                $(saving).click(function(){
+                    alert("clicked save button");
+                    var json = {business: "{{{findID}}}", fields: $(template)};
+                    alert("{{{findID}}}");
+                    console.log($(json));
+                    $.ajax({
+                        url:'/api/form',
+                        type:'POST',
+                        data: JSON.stringify(json),
+                        contentType:'application/json',
+                        dataType:'json',
+                        success:function(){alert('Form Submitted!');}
+                    });
+                });
             });
-        });
-
-      });
-      </script>
+        </script>
+        <footer id="footer">
+            <ul class="copyright">
+                <li>Space-1 &copy;2016</li>
+            </ul>
+        </footer>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/jquery.dropotron.min.js"></script>
+        <script src="/js/jquery.scrolly.min.js"></script>
+        <script src="/js/jquery.scrollgress.min.js"></script>
+        <script src="/js/skel.min.js"></script>
+        <script src="/js/util.js"></script>
+        <script src="/js/main.js"></script>
+        <script src="/javascripts/dashboard.js"></script>
     </body>
 </html>
 
