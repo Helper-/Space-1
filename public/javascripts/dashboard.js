@@ -8,6 +8,50 @@ $(function(){
 
 });
 
+/* Drop Down Dates */
+var monthtext=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+
+function populatedropdown(dayfield, monthfield, yearfield) {
+  var today=new Date();
+  var dayfield=document.getElementById(dayfield);
+  var monthfield=document.getElementById(monthfield);
+  var yearfield=document.getElementById(yearfield);
+  for (var i=0; i<31; i++) {
+    dayfield.options[i]=new Option(i+1, i+2);
+    dayfield.options[today.getDate()]=new Option(today.getDate(), today.getDate(), true, true); //select today's day
+  }
+  for (var m=0; m<12; m++) {
+    monthfield.options[m]=new Option(monthtext[m], monthtext[m]);
+    monthfield.options[today.getMonth()]=new Option(monthtext[today.getMonth()], monthtext[today.getMonth()], true, true); //select today's month
+  }
+  var thisyear=today.getFullYear();
+  for (var y=0; y<20; y++){
+    yearfield.options[y]=new Option(thisyear, thisyear);
+    thisyear+=1;
+  }
+  yearfield.options[0]=new Option(today.getFullYear(), today.getFullYear(), true, true); //select today's year
+}
+
+/* Drop Down Times */
+var nighttext=['AM','PM'];
+
+function timedropdown(hourfield, minutefield, nightfield) {
+  var today=new Date();
+  var hourfield=document.getElementById(hourfield);
+  var minutefield=document.getElementById(minutefield);
+  var nightfield=document.getElementById(nightfield);
+  for (var h=0; h<12; h++) {
+    hourfield.options[h]=new Option(h+1, h+2);
+  }
+  for (var n=0; n<60; n++) {
+    minutefield.options[n]=new Option(n+1);
+  }
+  for (var g=0; g<2; g++) {
+    nightfield.options[g]=new Option(nighttext[g], nighttext[g]);
+  }
+}
+
+/* Gold Team Scripts */
 function dateToString(date) {
 	var monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December' ];
@@ -17,8 +61,6 @@ function dateToString(date) {
     dateOfString += (('' + day).length < 2 ? '0' : '') + day + ' ';
     dateOfString += date.getFullYear();
     return dateOfString;
-
-
 }
 
 function getDate(){
