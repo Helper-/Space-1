@@ -91,6 +91,7 @@
                           </tr>
                         </tbody>
                       </table>
+                      <a class="button special" type="button" href="/add-appointment">New Appointment</a>
                     </div>
                 </div>
 

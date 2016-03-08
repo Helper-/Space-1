@@ -11,6 +11,7 @@ var accountSettings = require('./accountsettings');
 var uploadLogo = require('./uploadlogo');
 var register = require('./register');
 var dashboard = require('./dashboard');
+var addappointment = require('./add-appointment');
 var registerDevice = require('./registerdevice');
 var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
@@ -57,6 +58,9 @@ module.exports = function (passport) {
     }));
 
     router.get('/dashboard', isLoggedIn, dashboard.get);
+
+    router.get('/add-appointment', isLoggedIn, addappointment.get);
+    router.post('/add-appointment', isLoggedIn, addappointment.post);
 
     router.get('/registerdevice', isLoggedIn, registerDevice.get);
 
