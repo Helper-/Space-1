@@ -166,7 +166,7 @@ function table() {
 
 function poll() {
     setTimeout(function(){
-        //table();
+        table();
 
         //poll();
     },1000);//checks every 1000 millisecond
