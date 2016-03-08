@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var passport = require('passport');
 var async = require('async');
-var subdomain = require('express-subdomain');
+var subdomain = require('../');
 var app = express();
 
 global.__base = __dirname + '/';
@@ -128,9 +128,8 @@ app.use(function(req, res, next) {
 
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
-app.use(subdomain('boatsnhoes', businessRoutes)(passport));
+app.use(subdomain('boatsnhoes', businessRoutes));
 //app.use('/', businessRoutes);
-app.listen();
 
 
 // Set Mobile Routes
