@@ -102,8 +102,10 @@
 
                 <div class="btn-group-vertical" role="group" aria-label="..." style="margin: 0 auto; width:155px; display: block;">
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-bg-img">Background Image</button>
+                <!--
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-buttons">Buttons</button>
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-content-container">Content Container</button>
+                -->
                 </div>
 
                 <button type="button" class="btn btn-success paddingTopButton" id="save">Save Changes</button>
