@@ -57,11 +57,11 @@ require('./config/passport')(passport); // pass passport for configuration
 var businessRoutes = require('./routes/webapp/business')(passport);
 
 // Load Routes for Mobile
-var mobileAuth = require('./routes/api/auth');
-var mobileForm = require('./routes/api/form');
-var mobileAppointment = require('./routes/api/appointment');
-var mobileToken = require('./routes/api/mobiletoken');
-var business = require('./routes/api/business');
+//var mobileAuth = require('./routes/api/auth');
+//var mobileForm = require('./routes/api/form');
+//var mobileAppointment = require('./routes/api/appointment');
+//var mobileToken = require('./routes/api/mobiletoken');
+//var business = require('./routes/api/business');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -93,8 +93,6 @@ app.use(multer({
     console.log(file.fieldname + ' uploaded to  ' + file.path);
   }
 }));
-
-
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -136,13 +134,13 @@ app.use('/', businessRoutes);
 
 
 // Set Mobile Routes
-app.use('/', mobileAuth);
-app.use('/api/m/form', mobileForm);
-app.use('/api/m/appointment', mobileAppointment);
-app.use('/api/m/mobiletoken', mobileToken);
-app.use('/api/m/business', business);
-app.use('/api/m/example', require('./routes/api/example'));
-app.use('/api', require('./routes/webapi'));
+//app.use('/', mobileAuth);
+//app.use('/api/m/form', mobileForm);
+//app.use('/api/m/appointment', mobileAppointment);
+//app.use('/api/m/mobiletoken', mobileToken);
+//app.use('/api/m/business', business);
+//app.use('/api/m/example', require('./routes/api/example'));
+//app.use('/api', require('./routes/webapi'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
