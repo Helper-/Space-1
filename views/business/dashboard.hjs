@@ -29,8 +29,7 @@
                     <h2 style="text-align:center">Create Appointment</h2>
 
                     <div class="content">
-                                    <form method="post" action="" enctype="application/x-www-form-urlencoded">
-
+                        <form method="post" action="" enctype="application/x-www-form-urlencoded">
                                         <!-- First Row -->
                                         <div class="row 50%">
                                             <div class="6u 12u(mobile)">
@@ -65,6 +64,9 @@
                                                <select id="hourdropdown"></select>
                                                <select id="minutedropdown"></select>
                                                <select id="nightdropdown"></select></center>
+
+                                            <div class="12u">
+                                               <input class="regis" type="text" name="apttime" value="{{ apttime }}" placeholder="Appointment Time" required>
                                             </div>
                                         </div>
 
@@ -76,12 +78,20 @@
                                               </center>
                                             </div>
                                         </div>
-                                        </form>
+                        </form>
                   </div>
                 </div>
 
               <!-- Check-in button to go to check-in-->
               <li class="current"><a href="/dashboard" class="button">Check-In Mode</a></li>
+
+            <input class="button special" name="submit" type="submit" href="/dashboard" value="Create Appointment">
+            </center>
+          </div>
+            </div>
+                  </div>
+                </div>
+
 
               <li class="submenu">
                 <a href="#">Settings</a>

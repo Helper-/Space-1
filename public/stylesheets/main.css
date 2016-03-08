@@ -3257,6 +3257,7 @@
   text-align: center;
 }
 
+/* Customize Theme */
 .logoRow {
   border: 2px solid black;
 }
@@ -3276,11 +3277,16 @@
   border: 2px solid black;
 }
 
+
 /* Pop-up */
 
 .modalDialog {
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
+
+/* Pop-Up Window on Dash */
+	position: fixed;
+	font-family: 'Lato', sans-serif;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -3305,5 +3311,7 @@
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
+	background: #fff;
+	border-radius: 2px;
 	background: #fff;
 }

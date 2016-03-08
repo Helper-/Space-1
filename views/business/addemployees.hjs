@@ -42,9 +42,15 @@
 
             <header class="special container">
                         <span class="icon fa-inbox"></span>
+
                         <h2><strong>Register Employees</strong></h2><br />
-        
+
               <a href="#openModal"><input class="button special" value="Register Employee"></a>
+
+                        <h2><strong>Register Employees</strong></h2>
+                        <div class="container container-margin"><br />
+                          <a href="#openModal"><input class="button special" value="Register Employee"></a>
+
 
                 <div id="openModal" class="modalDialog">
                   <div>
@@ -53,7 +59,10 @@
                     <h2 style="text-align:center">Register Employee</h2>
 
                     <div class="row" id="regis-container">
+
                       <div class="12u 12u">
+                <div class="12u 12u">
+
                       <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
                                         <div class="row 50%">
                                             <div class="6u 12u(mobile)">
@@ -83,7 +92,7 @@
                                                 <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
                                             </div>
                                         </div><br />
-                          
+
                           <input class="button special" name="submit" type="submit" href="/addemployees" value="Register Employee">
                       </form>
                 </div>
@@ -119,7 +128,7 @@
                             </table>
                 </div>
 
-                
+
 
             </div>
 
