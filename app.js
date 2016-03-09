@@ -129,8 +129,7 @@ app.use(function(req, res, next) {
 
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
-app.use(subdomain("boatsnhoes", businessRoutes));
-//app.use('/', businessRoutes);
+app.use('/', businessRoutes);
 
 
 
