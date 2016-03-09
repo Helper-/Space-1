@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Breeze - Employees</title>
+    <title>Breeze - New Appointment</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -42,28 +42,13 @@
 
             <header class="special container">
                         <span class="icon fa-inbox"></span>
-
-                        <h2><strong>Register Employees</strong></h2><br />
-
-              <a href="#openModal"><input class="button special" value="Register Employee"></a>
-
-                        <h2><strong>Register Employees</strong></h2>
+                        <h2><strong>New Appointment</strong></h2>
                         <div class="container container-margin"><br />
-                          <a href="#openModal"><input class="button special" value="Register Employee"></a>
 
-
-                <div id="openModal" class="modalDialog">
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-
-                    <h2 style="text-align:center">Register Employee</h2>
-
-                    <div class="row" id="regis-container">
-
-                      <div class="12u 12u">
-                <div class="12u 12u">
-
-                      <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
+              <div class="row" id="regis-container">
+                <div class="4u 12u"></div>
+                <div class="4u 12u">
+                      <form method="post" action="add-appointment" enctype="application/x-www-form-urlencoded">
                                         <div class="row 50%">
                                             <div class="6u 12u(mobile)">
                                                 <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
@@ -76,64 +61,21 @@
 
                                         <div class="row 50%">
                                             <div class="12u">
-                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="(123) 345-6789" required>
+                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="(123) 345-6789">
                                             </div>
                                         </div>
 
                                         <div class="row 50%">
                                             <div class="12u">
-                                                <input class="regis" type="email" name="email" value="{{ email }}" placeholder="Email Address" required>
-                                            </div>
-                                        </div>
-
-                                        <!-- Fifth Row -->
-                                        <div class="row 50%">
-                                            <div class="12u">
-                                                <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
+                                                <input class="regis" type="email" name="email" value="{{ email }}" placeholder="Email Address">
                                             </div>
                                         </div><br />
 
-                          <input class="button special" name="submit" type="submit" href="/addemployees" value="Register Employee">
+                          <input class="button special" name="submit" type="submit" href="/dashboard" value="Create">
                       </form>
                 </div>
               </div>
-            </div>
-          </div>
-
             </header>
-
-          <!-- Special Container -->
-            <section class="wrapper style4 container 75%">
-
-              <!-- Content -->
-            <div class="row">
-                <div class="12u 12u(mobile)">
-                    <h2 style="text-align: center">Registered Employees</h2>
-                            <table class="table" id="registeredEmployees">
-                                <thead style="font-weight: bold">
-                                    <tr style="text-align: left">
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-
-                                {{#signed}}
-                                <tr style="text-align: left">
-                                    <td>{{fname}} {{lname}}</td>
-                                    <td>{{email}}</td>
-                                    <td><button type="submit">Delete</button></td>
-                                </tr>
-                                {{/signed}}
-                            </table>
-                </div>
-
-
-
-            </div>
-
-            </section>
-
           </article>
 
       <!-- Footer -->

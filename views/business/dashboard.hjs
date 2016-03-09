@@ -20,6 +20,79 @@
             <ul>
               <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
 
+              <!-- Create Appointment Pop-up-->
+              <li class="current"><a href="#openModal">Create Appointment</a>
+                <div id="openModal" class="modalDialog">
+                  <div>
+                    <a href="#close" title="Close" class="close">X</a>
+
+                    <h2 style="text-align:center">Create Appointment</h2>
+
+                    <div class="content">
+                        <form method="post" action="" enctype="application/x-www-form-urlencoded">
+                                        <!-- First Row -->
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+                                                <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
+                                            </div>
+
+                                            <div class="6u 12u(mobile)">
+                                                <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Second Row -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="Phone Number" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Third Row -->
+                                        <div class="row 50%">
+                                            <div class="12u"><center>
+                                               <select id="daydropdown"></select>
+                                               <select id="monthdropdown"></select>
+                                               <select id="yeardropdown"></select></center>
+                                            </div>
+                                        </div>
+
+                                        <!-- Third Row -->
+                                        <div class="row 50%">
+                                            <div class="12u"><center>
+                                              Time:
+                                               <select id="hourdropdown"></select>
+                                               <select id="minutedropdown"></select>
+                                               <select id="nightdropdown"></select></center>
+
+                                            <div class="12u">
+                                               <input class="regis" type="text" name="apttime" value="{{ apttime }}" placeholder="Appointment Time" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Button -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                              <center>
+                                                <input class="button special" name="submit" type="submit" href="/add-appointment" value="Create Appointment">
+                                              </center>
+                                            </div>
+                                        </div>
+                        </form>
+                  </div>
+                </div>
+
+              <!-- Check-in button to go to check-in-->
+              <li class="current"><a href="/dashboard" class="button">Check-In Mode</a></li>
+
+            <input class="button special" name="submit" type="submit" href="/dashboard" value="Create Appointment">
+            </center>
+          </div>
+            </div>
+                  </div>
+                </div>
+
+
               <li class="submenu">
                 <a href="#">Settings</a>
                 <ul>
@@ -44,16 +117,6 @@
             <span class="icon fa-clock-o"></span>
             <h2><strong>Hi, {{employeeName}} {{employeeID}}!</strong></h2>
             <h1 class="text-center" id="currentDate"></h1>
-            <!--
-            <div class="row">
-              <div class="4u 12u(mobile)"></div>
-              <div class="4u 12u(mobile)">
-              </div>
-              <div class="4u 12u(mobile)">
-                <button class="button special" type="submit">Create Appointment</button>
-              </div>
-            </div>
-          -->
           </header>
 
           <!-- One -->
@@ -153,5 +216,14 @@
   <script>
     eid = "{{eid}}";
   </script>
+
+  <script type="text/javascript">
+    //populatedropdown(id_of_day_select, id_of_month_select, id_of_year_select)
+    window.onload=function(){
+      populatedropdown("daydropdown", "monthdropdown", "yeardropdown")
+      timedropdown("hourdropdown", "minutedropdown", "nightdropdown")
+    }
+  </script>
+
   </body>
 </html>

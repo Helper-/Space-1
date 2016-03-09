@@ -53,7 +53,6 @@ passport.deserializeUser(function (id, done) {
 
 require('./config/passport')(passport); // pass passport for configuration
 
-
 var businessRoutes = require('./routes/webapp/business')(passport);
 
 // Load Routes for Mobile
@@ -129,8 +128,9 @@ app.use(function(req, res, next) {
 
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
-app.use('/', businessRoutes);
-
+app.use(subdomain('boatsnhoes', businessRoutes)(passport));
+//app.use('/', businessRoutes);
+app.listen();
 
 
 // Set Mobile Routes

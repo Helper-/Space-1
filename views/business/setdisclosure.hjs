@@ -56,12 +56,12 @@
     
     <div class="wrapper style4 container">
       <form class="form-horizontal" action="" method="post">
-      <textarea rows="20" cols="50" action="setdisclosure" class="disclosure" type="text" id ="disclosure" name="disclosure" required>{{disclosure}}</textarea><br />
+      <textarea rows="10" cols="50" action="setdisclosure" class="disclosure" type="text" id ="disclosure" name="disclosure" required>{{disclosure}}</textarea><br />
 
       <div class="row">
         <div class="4u 12u(mobile)"></div>
         <div class="4u 12u(mobile)">
-          <button class="button" type="submit">Save</button>
+          <button class="button special" type="submit">Save</button>
         </div>
       </div>
 
