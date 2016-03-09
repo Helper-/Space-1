@@ -66,7 +66,7 @@
                                 <div class="content">  
                                     <div class="row">
 									    <div class="12u 12u">
-									      <h2>Hello, Dr. {{ lname }}!</h2>
+									      <h2>Hello, {{ fname }} {{ lname }}!</h2>
 									    </div>
 									</div>
 							<!-- Name row -->

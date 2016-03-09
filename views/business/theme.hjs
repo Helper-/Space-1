@@ -98,7 +98,7 @@
         <div id="theme-toolbar" class="col-md-2">
             <div id="toolbar-main" class="active-page">
                 
-                <h3>What would you like to change?</h3>
+                <h3>Customize Background</h3>
 
                 <div class="btn-group-vertical" role="group" aria-label="..." style="margin: 0 auto; width:155px; display: block;">
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-bg-img">Background Image</button>
@@ -131,7 +131,7 @@
                 <img src="images/bg/thumb/bg10.jpg" data-bg="bg10.jpg" class="bg-image" />
 
             </div>
-
+<!--
             <div id="toolbar-buttons" class="hidden-page">
                 <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-main">Main Menu</button>
 
@@ -159,7 +159,7 @@
                     <input type="text" id="content-container-font-color"/>
                 </p>
             </div>
-            
+-->
         </div>
 
     </div>
