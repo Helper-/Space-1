@@ -63,6 +63,7 @@
         <script src="javascripts/form-builder.min.js"></script>
         <script src="javascripts/form-render.min.js"></script>
         <script>
+            var findID = "{{{findID}}}";
             jQuery(document).ready(function($) {
                 'use strict';
                 var template = document.getElementById('form-builder-template'),
@@ -77,8 +78,8 @@
                 });
                 $(saving).click(function(){
                     alert("clicked save button");
-                    var json = {business: "{{{findID}}}", fields: $(template)};
-                    alert("{{{findID}}}");
+                    alert("ID is: " + JSON.stringify(findID, null, 4));
+                    var json = {business: findID, fields: $(template)};
                     console.log($(json));
                     $.ajax({
                         url:'/api/form',
