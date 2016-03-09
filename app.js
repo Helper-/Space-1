@@ -14,7 +14,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var passport = require('passport');
 var async = require('async');
-var subdomain = require('../');
+var subdomain = require('express-subdomain');
 var app = express();
 
 global.__base = __dirname + '/';
@@ -52,6 +52,7 @@ passport.deserializeUser(function (id, done) {
 });
 
 require('./config/passport')(passport); // pass passport for configuration
+
 
 var businessRoutes = require('./routes/webapp/business')(passport);
 
@@ -128,8 +129,8 @@ app.use(function(req, res, next) {
 
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
-//app.use(subdomain('boatsnhoes', businessRoutes));
 app.use('/', businessRoutes);
+
 
 
 // Set Mobile Routes
