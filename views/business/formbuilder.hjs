@@ -57,11 +57,7 @@
           </div>
 
           <div class="render-form" >
-            <form id="rendered-form" style="border: solid; border-color: white">
-              <p style="text-align: center">Preview the form your visitor will see when signing-in.</p>
-            </form>
 
-            <br style="clear:both">
           </div>
       <div class="container margin">
         <a href="/manageforms">

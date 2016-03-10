@@ -1,3 +1,7 @@
+exports.get = function (req, res) {
+    res.render('business/manage_forms', {title: 'Express'});
+};
+
 /**
 var _ = require('underscore');
 
@@ -95,7 +99,7 @@ function makeForm(db, businessId, body, fn) {
 }
 **/
 
-exports.get = function (req, res, next) {
+exports.get = function (req, res) {
     var forms = req.db.get('forms');
     var businessID = req.user[0].business;
     forms.findOne({business: businessID}, function (err, form_data) {
