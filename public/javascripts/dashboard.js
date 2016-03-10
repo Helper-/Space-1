@@ -165,11 +165,11 @@ function table() {
 
 
 function poll() {
-    setTimeout(function(){
-        table();
+  //  setTimeout(function(){
+  //      table();
 
         //poll();
-    },1000);//checks every 1000 millisecond
+  //  },1000);//checks every 1000 millisecond
 }
 
 //function to get the appointment's time in a formatted string
