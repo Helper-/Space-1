@@ -2,7 +2,7 @@ $(function(){
 
   getDate();
   $(startTime);
-  $(table);
+//  $(table);
   $(poll);
 
 
