@@ -63,9 +63,26 @@
         <script src="javascripts/form-builder.min.js"></script>
         <script src="javascripts/form-render.min.js"></script>
         <script>
-            var findID = "{{{findID}}}";
+            //var findID = "{{findID}}";
+            var value = "";
+            //var businesses = db.get('businesses');
+            //var user = db.user[0];
+            //var forms = db.get('forms');
+            //var ObjectId = require('mongodb').ObjectID;
+            /*function (err, result) {
+                if (err) {
+                    throw err;
+                }
+
+                var businessID = result._id.toString();
+                alert( "BUSINESS ID: ");
+                alert(ObjectId(businessID));
+            });*/
             jQuery(document).ready(function($) {
+                var findID = "{{{findID}}}";
+                //alert("object id: " + ObjectId);
                 'use strict';
+                //alert("user is: " + user);
                 var template = document.getElementById('form-builder-template'),
                 formContainer = document.getElementById('rendered-form'),
                 renderBtn = document.getElementById('render-form-button');
@@ -78,8 +95,9 @@
                 });
                 $(saving).click(function(){
                     alert("clicked save button");
-                    alert("ID is: " + JSON.stringify(findID, null, 4));
-                    var json = {business: findID, fields: $(template)};
+                    //alert("ID is: " + business._id);
+                    alert("ID is: " + !(findID));
+                    var json = {business: value, fields: $(template)};
                     console.log($(json));
                     $.ajax({
                         url:'/api/form',
@@ -89,7 +107,11 @@
                         dataType:'json',
                         success:function(){alert('Form Submitted!');}
                     });
-                });
+                    /*forms.insert({
+                        "business": business._id,
+                        "fields": $(template)
+                        });*/
+                    });
             });
         </script>
         <footer id="footer">
