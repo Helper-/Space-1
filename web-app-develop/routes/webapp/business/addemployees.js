@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-//var baby = require('babyparse');
+var baby = require('babyparse');
 var async = require('async');
 var sendgrid  = require('sendgrid')('robobetty', 'NoKcE0FGE4bd');
 var ObjectId = require('mongodb').ObjectID;
@@ -19,7 +19,6 @@ exports.get = function(req,res){
 
         async.parallel({
             employee: function(cb){
-
                 employeeDB.find({registrationToken: {$exists: false}, business: ObjectId(businessID)},function (err,results){
 
                     if (err) { return next(err);  }
@@ -48,7 +47,7 @@ exports.get = function(req,res){
             if(err){
                 throw err;
             }
-            res.render('business/addemployees',{message: req.flash("employee"), title: 'Express',notsigned: notemployee, signed: employeee});
+            res.render('business/addemployees',{title: 'Express',notsigned: notemployee, signed: employeee});
 
         });
 }
@@ -59,14 +58,16 @@ exports.get = function(req,res){
  * @param req and res The two parameters passed in to get the apprporiate employee,
  * @returns The appropriate data about the employee
  */
-exports.post = function(req,res, next){
+exports.post = function(req,res,next){
 	   // var parsed = baby.parse(req.body.csvEmployees);
     //    var rows = parsed.data;
        var database =  req.db;
        var employeeDB = database.get('employees');
        var businessID = req.user[0].business;
-        //console.log(req.body.fname);
-        employeeDB.find({email: req.body.email },function (err,results){
+        //console.log(next);
+        // if(req.body.id != "delete")
+        // {
+            employeeDB.find({email: req.body.email },function (err,results){
                 //if (err) { return next(err);  }
                 if(results[0]==null) {
                     console.log("we are in");
@@ -87,7 +88,60 @@ exports.post = function(req,res, next){
                     res.redirect('back');
                 }
 
-        });
+            });  
+        // } else{
+        //     employeeDB.find({email: req.body.email },function (err,results){
+        //     //if (err) { return next(err);  }
+        //     if(results[0]==null) {
+        //         console.log("we are in");
+        //          //var token = randomToken();
+
+        //         req.flash("employee", "There is no such employee in the database");
+        //         res.redirect('back');
+        //     } else{
+        //         console.log("we are ready to delete");
+        //         employeeDB.remove({
+        //             email: req.body.email
+        //         })
+        //         req.flash("employee", "employee has been deleted!");
+        //         res.redirect('back');
+        //     }
+
+        //     });
+
+
+        // }
+
+    }
+
+
+
+// exports.delete = function(req, res, next){
+
+//     var database = req.db;
+//     var employeeDB = database.get('employees');
+//     var businessID = req.user[0].business;
+
+//     employeeDB.find({email: req.body.email },function (err,results){
+//         //if (err) { return next(err);  }
+//         if(results[0]==null) {
+//             console.log("we are in");
+//              //var token = randomToken();
+
+//             req.flash("employee", "There is no such employee in the database");
+//             res.redirect('back');
+//         } else{
+//             console.log("we are ready to delete");
+//             employeeDB.remove({
+//                 email: req.body.email
+//             })
+//             req.flash("employee", "employee has been deleted!");
+//             res.redirect('back');
+//         }
+
+//     });
+
+// }
 
 
 
@@ -103,9 +157,7 @@ exports.post = function(req,res, next){
         //         return next(err);
         //     }
         //   });
-}
-
 
  function randomToken() {
         return crypto.randomBytes(24).toString('hex');
-}
+    }

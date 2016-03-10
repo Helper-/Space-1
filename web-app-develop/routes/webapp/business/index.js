@@ -24,7 +24,6 @@ module.exports = function (passport) {
 
     //Pass in passport
 
-
     //Setup the routes
     router.get('/', landing.get);
     router.post('/', landing.post);
@@ -63,6 +62,8 @@ module.exports = function (passport) {
 
     router.get('/addemployees',isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees',isLoggedInBusiness, addEmployees.post);
+    //router.delete('/addemployees',isLoggedInBusiness, addEmployees.delete);
+
 
     router.get('/customizetheme', isLoggedIn, customizeTheme.get);
 

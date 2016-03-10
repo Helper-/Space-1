@@ -110,7 +110,6 @@
                                         {{ message }}
                                     </div>
                                 {{/message}}
-
                             <table class="table" id="registeredEmployees">
                                 <thead style="font-weight: bold">
                                     <tr style="text-align: left">
@@ -119,14 +118,17 @@
                                         <th></th>
                                     </tr>
                                 </thead>
+                                <form method = "post" action = "addemployees">
 
-                                {{#signed}}
-                                <tr style="text-align: left">
-                                    <td>{{fname}} {{lname}}</td>
-                                    <td>{{email}}</td>
-                                    <td><button type="submit">Delete</button></td>
-                                </tr>
-                                {{/signed}}
+                                    {{#signed}}
+                                    <tr style="text-align: left">
+                                        <td>{{fname}} {{lname}}</td>
+                                        <td>{{email}}</td>
+                                        <td><button type="submit" id="delete">Delete</button></td>
+                                    </tr>
+                                    {{/signed}}
+                                </form>
+
                             </table>
                 </div>
 
