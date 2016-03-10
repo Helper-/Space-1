@@ -1,6 +1,6 @@
+/**
 var _ = require('underscore');
 
-/**
 function makeDropdown(options, name, body) {
     var s = '<select class="form-control" name="'+name+'" id="'+name+'">';
     _.each(options, function (option) {
@@ -105,7 +105,6 @@ exports.get = function (req, res, next) {
         res.render('business/manage_forms', { title: 'Express',
           form: form_data.data
         });
-        console.log(form_data.data);
     });
 };
 
