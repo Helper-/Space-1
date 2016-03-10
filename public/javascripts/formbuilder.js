@@ -1,3 +1,4 @@
+/**
 // Script to add, remove, preview and submit form elements
 
 var dropOptions = [];
@@ -333,3 +334,4 @@ $(document).ready(function () {
         return'<input type="text" class="form-control" name="'+name+'" id="' + name + '"value="' + (body[name] || '') + '">';
     }
 });
+**/

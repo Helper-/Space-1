@@ -11,7 +11,7 @@ var ObjectID = require('mongodb').ObjectID;
  * @returns {JSON} A JSON object containing the created form.
  */
 exports.createForm = function (req, res, next) {
-
+/**
     // grab our db object from the request
     var db = req.db;
     var forms = db.get('forms');
@@ -23,10 +23,11 @@ exports.createForm = function (req, res, next) {
         }
         return res.json(201, doc);
     });
+    **/
 };
 
 exports.updateForm = function (req, res, next) {
-    // grab our db object from the request
+/**    // grab our db object from the request
     var db = req.db;
     var forms = db.get('forms');
 
@@ -40,4 +41,5 @@ exports.updateForm = function (req, res, next) {
         }// res.send is deprecated
         return res.json(doc);
     });
+    **/
 };

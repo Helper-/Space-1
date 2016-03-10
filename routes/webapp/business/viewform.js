@@ -1,6 +1,7 @@
 var ObjectID = require('mongodb').ObjectID;
 
 exports.get = function (req, res, next) {
+  /**
     var db = req.db;
     var formResponses = db.get('formResponses');
     var appointments = db.get('appointments');
@@ -29,4 +30,5 @@ exports.get = function (req, res, next) {
             });
         });
     });
+    **/
 };

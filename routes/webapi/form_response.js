@@ -1,9 +1,9 @@
 /**
- * Obtains form responses for the business' custom form for the given 
- * appointment. 
+ * Obtains form responses for the business' custom form for the given
+ * appointment.
  */
 exports.get  = function (req, res) {
-    // grab our db object from the request
+/**    // grab our db object from the request
     var db = req.db;
     var response = db.get('formResponses');
     // query the collection
@@ -11,4 +11,5 @@ exports.get  = function (req, res) {
         if (err) { return res.sendStatus(500, err); }
         return res.json(200, data);
     });
+    **/
 };

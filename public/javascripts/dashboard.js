@@ -95,7 +95,7 @@ function checkTime(i) {
     if (i<10) {i = '0' + i;}  // add zero in front of numbers < 10
     return i;
 }
-
+/**
 function table() {
 
     var cols,$btn;
@@ -162,7 +162,7 @@ function table() {
 
     });//end of $get()
 }//end of table()
-
+**/
 
 function poll() {
   //  setTimeout(function(){

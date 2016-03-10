@@ -92,20 +92,22 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 
   <script>
-  jQuery(document).ready(function($) {
-    'use strict';
-    var template = document.getElementById('formBuilder'),
-    formContainer = document.getElementById('rendered-form');
-    $(template).formRender({
-      container: $(formContainer)
+  (function($) {
+    $(document).ready(function() {
+      'use strict';
+      preventDefault();
+      var template = document.getElementById('formBuilder'),
+      formContainer = document.getElementById('rendered-form');
+      $(template).formRender({
+        container: $(formContainer)
+      });
     });
-  });
+  })(jquery);
   </script>
 
   <script>
     eid = "{{eid}}";
   </script>
 </body>
-
 
 </html>

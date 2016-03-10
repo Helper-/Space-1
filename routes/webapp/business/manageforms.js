@@ -1,6 +1,6 @@
-exports.get = function (req, res) {
-    res.render('business/manage_forms', {title: 'Express'});
-};
+//exports.get = function (req, res) {
+//    res.render('business/manage_forms', {title: 'Express'});
+//};
 
 /**
 var _ = require('underscore');
@@ -108,7 +108,7 @@ exports.get = function (req, res) {
         }
         res.render('business/manage_forms', { title: 'Express',
           message: req.flash('permission'),
-          form: form_data.data
+          form: form_data.data,
         });
     });
 };
