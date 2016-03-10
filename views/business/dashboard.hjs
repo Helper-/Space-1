@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Breeze - Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+  </head>
+
+  <body class="no-sidebar">
+    <div id="page-wrapper">
+
+      <!-- Header -->
+        <header id="header">
+          <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+          <nav id="nav">
+            <ul>
+              <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+
+              <!-- Create Appointment Pop-up-->
+              <li class="current"><a href="#openModal">Create Appointment</a>
+                <div id="openModal" class="modalDialog">
+                  <div>
+                    <a href="#close" title="Close" class="close">X</a>
+
+                    <h2 style="text-align:center">Create Appointment</h2>
+
+                    <div class="content">
+                        <form method="post" action="" enctype="application/x-www-form-urlencoded">
+                                        <!-- First Row -->
+                                        <div class="row 50%">
+                                            <div class="6u 12u(mobile)">
+                                                <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
+                                            </div>
+
+                                            <div class="6u 12u(mobile)">
+                                                <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="Last Name" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Second Row -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="Phone Number" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Third Row -->
+                                        <div class="row 50%">
+                                            <div class="12u"><center>
+                                               <select id="daydropdown"></select>
+                                               <select id="monthdropdown"></select>
+                                               <select id="yeardropdown"></select></center>
+                                            </div>
+                                        </div>
+
+                                        <!-- Third Row -->
+                                        <div class="row 50%">
+                                            <div class="12u"><center>
+                                              Time:
+                                               <select id="hourdropdown"></select>
+                                               <select id="minutedropdown"></select>
+                                               <select id="nightdropdown"></select></center>
+
+                                            <div class="12u">
+                                               <input class="regis" type="text" name="apttime" value="{{ apttime }}" placeholder="Appointment Time" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Button -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                              <center>
+                                                <input class="button special" name="submit" type="submit" href="/add-appointment" value="Create Appointment">
+                                              </center>
+                                            </div>
+                                        </div>
+                        </form>
+                  </div>
+                </div>
+
+              <!-- Check-in button to go to check-in-->
+              <li class="current"><a href="/dashboard" class="button">Check-In Mode</a></li>
+
+            <input class="button special" name="submit" type="submit" href="/dashboard" value="Create Appointment">
+            </center>
+          </div>
+            </div>
+                  </div>
+                </div>
+
+
+              <li class="submenu">
+                <a href="#">Settings</a>
+                <ul>
+                  <li><a href="/addemployees">Employees</a></li>
+                  <li><a href="/manageforms">Manage Forms</a></li>
+                  <li><a href="/setdisclosure">Disclosure Agreements</a></li>
+                  <li><a href="/customizetheme">Customize Theme</a></li>
+                  <li><a href="/accountSettings">Account Settings</a></li>
+                  <li><a href="/businesssetting" >Company Settings</a></li>
+                </ul>
+              </li>
+
+              <li><a href="/login" class="button special">Logout</a></li>
+            </ul>
+          </nav>
+        </header>
+
+      <!-- Main -->
+        <article id="main">
+
+          <header class="special container">
+            <span class="icon fa-clock-o"></span>
+            <h2><strong>Hi, {{employeeName}} {{employeeID}}!</strong></h2>
+            <h1 class="text-center" id="currentDate"></h1>
+          </header>
+
+          <!-- One -->
+            <section class="wrapper style4 container">
+
+              <!-- Content -->
+                <div class="content">
+                    <div class="row">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th></th>
+                            <th>Appointment Time</th>
+                            <th>Status</th>
+                            <th></th>
+                            <th>Picture</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+
+                        <tbody id="tblBody">
+                          <tr>
+
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+
+            </section>
+
+          </article>
+
+      <!-- Footer -->
+        <footer id="footer">
+          <ul class="copyright">
+            <li>Space-1 &copy;2016</li>
+          </ul>
+        </footer>
+<!-- TODO: I believe this code populates the table, but we are temporarily taking it out in order to merge. Take a look at fix soon -->
+<!--
+      <h1 class="text-center">Today</h1>
+      <h1 class="text-center" id="currentDate" ></h1>
+      <div id="txt" class="text-center"></div>
+    </div>
+      <p></p>
+      <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th></th>
+            <th>Appointment Time</th>
+            <th>Status</th>
+            <th></th>
+            <th>Picture</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tblBody">
+          <tr>
+
+            <td></td>
+            <td>{{fname}}  {{lname}}</td>
+            <td></td>
+            <td>{{dob}}</td>
+            <td>{{state}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+          </tr>
+        </tbody>
+      </table>
+-->
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/javascripts/dashboard.js"></script>
+  <script>
+    eid = "{{eid}}";
+  </script>
+
+  <script type="text/javascript">
+    //populatedropdown(id_of_day_select, id_of_month_select, id_of_year_select)
+    window.onload=function(){
+      populatedropdown("daydropdown", "monthdropdown", "yeardropdown")
+      timedropdown("hourdropdown", "minutedropdown", "nightdropdown")
+    }
+  </script>
+
+  </body>
+</html>
