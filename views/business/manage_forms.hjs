@@ -6,89 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel='stylesheet' href='/stylesheets/main.css'/>
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/form-render.min.css">
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-  </head>
 
-  <body class="no-sidebar">
-    <div id="page-wrapper">
+</head>
 
-<!-- Header -->
-        <header id="header">
-          <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
-          <nav id="nav">
+<body class="no-sidebar">
+  <div id="page-wrapper">
+    <!-- Header -->
+    <header id="header">
+      <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+      <nav id="nav">
+        <ul>
+          <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+          <li class="submenu">
+            <a href="#">Settings</a>
             <ul>
-              <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
-
-              <li class="submenu">
-                <a href="#">Settings</a>
-                <ul>
-                  <li><a href="/addemployees">Employees</a></li>
-                  <li><a href="/manageforms">Manage Forms</a></li>
-                  <li><a href="/setdisclosure">Disclosure Agreements</a></li>
-                  <li><a href="/customizetheme">Customize Theme</a></li>
-                  <li><a href="/accountSettings">Account Settings</a></li>
-                  <li><a href="/businesssetting" >Company Settings</a></li>
-                </ul>
-              </li>
-
-              <li><a href="/login" class="button special">Logout</a></li>
+              <li><a href="/addemployees">Employees</a></li>
+              <li><a href="/manageforms">Manage Forms</a></li>
+              <li><a href="/setdisclosure">Disclosure Agreements</a></li>
+              <li><a href="/customizetheme">Customize Theme</a></li>
+              <li><a href="/accountSettings">Account Settings</a></li>
+              <li><a href="/businesssetting" >Company Settings</a></li>
             </ul>
-          </nav>
-        </header>
+          </li>
+          <li><a href="/login" class="button special">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
 
     {{#message}}
-   <div class="alert alert-danger">{{message}}</div>
+    <div class="alert alert-danger">{{message}}</div>
     {{/message}}
 
     <article id="main">
 
-        <header class="special container">
-            <span class="icon fa-cog"></span>
-            <h2><strong>Customize Forms</strong></h2>
-            <p>Below is what your current check-in form looks like!</p>
-          </header>
+      <header class="special container">
+        <span class="icon fa-cog"></span>
+        <h2><strong>Customize Forms</strong></h2>
+        <p>Below is what your current check-in form looks like!</p>
+      </header>
 
-           <section class="wrapper style4 container 50%">
-                <div class="content">   
-                    <div class="row">
-                        <div class="12u 12u">
-                            {{{form}}}
-                        </div>
-                    </div>              
-                </div>
-            </section>
-
-            <div class="row" style="text-align:center">
-                <div class="12u 12">
-                    <a type="button" class="button" href="/formbuilder">
-                        Go to Form Builder
-                    </a>
-                </div>
+      <section class="wrapper style4 container 50%">
+        <div class="content">
+          <div class="row">
+            <div class="12u 12u">
+              <form id="rendered-form" style="border: solid; border-color: white">
+                <textarea id="formBuilder">{{{form}}}</textarea>
+              </form>
             </div>
-</div>
+          </div>
+        </div>
+      </section>
 
-</article>
+      <div class="row" style="text-align:center">
+        <div class="12u 12">
+          <a type="button" class="button" href="/formbuilder">
+            Go to Form Builder
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
 
 <!-- Footer -->
-        <footer id="footer">
-          <ul class="copyright">
-            <li>Space-1 &copy;2016</li>
-          </ul>
-        </footer>
+  <footer id="footer">
+    <ul class="copyright">
+      <li>Space-1 &copy;2016</li>
+    </ul>
+  </footer>
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.dropotron.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/jquery.scrollgress.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/javascripts/dashboard.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.dropotron.min.js"></script>
+  <script src="/js/jquery.scrolly.min.js"></script>
+  <script src="/js/jquery.scrollgress.min.js"></script>
+  <script src="/js/skel.min.js"></script>
+  <script src="/js/util.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/javascripts/dashboard.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="js/form-render.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+  <script>
+  jQuery(document).ready(function($) {
+    'use strict';
+    var template = document.getElementById('formBuilder'),
+    formContainer = document.getElementById('rendered-form');
+    $(template).formRender({
+      container: $(formContainer)
+    });
+  });
+  </script>
+
   <script>
     eid = "{{eid}}";
   </script>
-
 </body>
 
 

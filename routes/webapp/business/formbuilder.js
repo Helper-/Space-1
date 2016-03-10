@@ -2,6 +2,29 @@ exports.get = function (req, res) {
     res.render('business/formbuilder', {title: 'Express'});
 };
 
+exports.post = function (req, res) {
+    var formData = (req.body.saveData);
+    var bId = req.user[0].business;
+    var formDB = req.db.get('forms');
+
+    formDB.find({business: bId}, function (err, result) {
+      if (err) {
+        res.render('business/formBuilder', {title: 'Express', error: 'Error occurred, please try again.'});
+        return;
+      }
+
+      formDB.insert({business: bId, data: formData}, function (err, result) {
+        if (err) {
+          res.render('business/formBuilder', {title: 'Express', error: 'Error occurred, please try again.'});
+          return;
+        }
+        console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
+        res.render('business/formBuilder', {title: 'Express', error: 'Form successfully saved.'});
+      });
+    });
+};
+
+/**
 exports.get = function (req, res, next) {
     var forms = req.db.get('forms');
     var businessID = req.user[0].business;
@@ -11,8 +34,9 @@ exports.get = function (req, res, next) {
         }
         res.render('business/formbuilder', {
             title: 'Express',
-            form: JSON.stringify(form),
+            form: form,
             findID: businessID
         });
     });
 };
+**/

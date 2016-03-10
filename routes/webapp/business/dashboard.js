@@ -9,12 +9,10 @@ exports.get = function (req, res) {
 
     res.render('business/dashboard', {title: 'Express',
         eid: employeeId,
-		employeeName: employeename,
-		message: req.flash("permission"),
-	});
+				employeeName: employeename,
+				message: req.flash("permission"),
+		});
 
     //mailerClient.sendSimpleEmail("michael.chang25@gmail.com", "Calling all doctors!", "This is an automated message");
     //twilioClient.sendSmsToPhoneNumber("+16508623873", "Paging all doctors!");
 };
-
-

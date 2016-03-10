@@ -1,5 +1,6 @@
 var _ = require('underscore');
 
+/**
 function makeDropdown(options, name, body) {
     var s = '<select class="form-control" name="'+name+'" id="'+name+'">';
     _.each(options, function (option) {
@@ -30,6 +31,7 @@ function makeFormGroup(field, index, body) {
     s += '</div>';
     return s;
 }
+**/
 /**
  *
  *
@@ -38,6 +40,7 @@ function makeFormGroup(field, index, body) {
  * @param body The form body (used to prefill form)
  * @param fn Callback function `fn(formHtml)`
  */
+ /**
 function makeForm(db, businessId, body, fn) {
     var businesses = db.get('businesses');
     var forms = db.get('forms');
@@ -90,7 +93,23 @@ function makeForm(db, businessId, body, fn) {
         });
     });
 }
+**/
 
+exports.get = function (req, res, next) {
+    var forms = req.db.get('forms');
+    var businessID = req.user[0].business;
+    forms.findOne({business: businessID}, function (err, form_data) {
+        if (err) {
+            return next(err);
+        }
+        res.render('business/manage_forms', { title: 'Express',
+          form: form_data.data
+        });
+        console.log(form_data.data);
+    });
+};
+
+/**
 exports.get = function (req, res, next) {
     makeForm(req.db, req.user[0].business, {}, function (err, formHtml) {
         if (err) {
@@ -103,3 +122,4 @@ exports.get = function (req, res, next) {
         });
     });
 };
+**/

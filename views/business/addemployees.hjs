@@ -91,7 +91,14 @@
                                             <div class="12u">
                                                 <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
                                             </div>
-                                        </div><br />
+                                        </div>
+                                        <!-- Sixth Row -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                                <input class="regis" type="password" name="confirm_password" value="{{ confirm_password }}" placeholder="Confirm Password" required>
+                                            </div>
+                                        </div>
+                                        <br />
 
                           <input class="button special" name="submit" type="submit" href="/addemployees" value="Register Employee">
                       </form>

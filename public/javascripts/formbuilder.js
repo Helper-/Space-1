@@ -151,7 +151,7 @@ $(document).ready(function () {
         var fieldcount = 0;
         var dropcounter = 0;
 
-        var fieldSet = $('<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>');
+        var fieldSet = $('<fieldset id=\"yourform\"><legend> <br> </legend></fieldset>');
 
         // Iterate through each field and append its HTML to the preview form
         $('#buildyourform div').each(function () {

@@ -45,7 +45,7 @@
 						</header>
 						<p>This is <strong>Breeze</strong>,
 						<br />
-						the check-in app that 
+						the check-in app that
 						<br />
 						will make it easy
 						<br /></p>
@@ -71,17 +71,17 @@
 						<br />
 					  <center><img src = "images/ipad.gif" style="width:20%"></center>
 						<br />
-						<p>	   This is where interpersonal relationships and technology will meet. 
+						<p>	   This is where interpersonal relationships and technology will meet.
 						<br /> Let Breeze do all your check-in work for you, taking out the need
 					  	<br /> for messy paper and pens. Use our system to effortlessly create
-						<br /> your own customizable forms to suit all kinds of check-in needs. 
+						<br /> your own customizable forms to suit all kinds of check-in needs.
 						<br /> Breeze will handle the check-in, you can focus on your business.</p>
 					</header>
 
 					<!-- Two -->
 						<section class="wrapper style1 container special">
 							<div class="row">
-								
+
 								<!-- Left column -->
 								<div class="4u 12u(narrower)">
 
@@ -103,7 +103,7 @@
 										<header>
 											<h3>Simplistic check-in</h3>
 										</header>
-										<p>Guests will check-in to your business with just a few form fields. Breeze will automatically notify their host that they are here, ready for their appointment. 
+										<p>Guests will check-in to your business with just a few form fields. Breeze will automatically notify their host that they are here, ready for their appointment.
 										</p>
 									</section>
 
@@ -147,7 +147,7 @@
                     </blockquote>
                     <img src="images/leonard.jpg" class="testimonial-image"> <br />
                     <span class="testimonial-author">Dr. Leonard McCoy, M.D. | <span>New York City, New York</span></span>
-                    
+
                 </div>
 
                 <div>

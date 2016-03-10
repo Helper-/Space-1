@@ -53,7 +53,6 @@ passport.deserializeUser(function (id, done) {
 
 require('./config/passport')(passport); // pass passport for configuration
 
-
 var businessRoutes = require('./routes/webapp/business')(passport);
 
 // Load Routes for Mobile
@@ -74,7 +73,6 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
 
 app.use(multer({
   dest: __dirname + '/public/images/uploads/',

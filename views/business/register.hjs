@@ -49,9 +49,9 @@
                             <!-- Content -->
 
                                 <div class="content">
-                                    <form method="post" action="" enctype="application/x-www-form-urlencoded" 
+                                    <form method="post" action="" enctype="application/x-www-form-urlencoded"
                                         onSubmit = "return showMessage()">
-                                        
+
 
                                         <!-- First Row -->
                                         <div class="row 50%">
@@ -90,6 +90,13 @@
                                         <div class="row 50%">
                                             <div class="12u">
                                                 <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sixth Row -->
+                                        <div class="row 50%">
+                                            <div class="12u">
+                                                <input class="regis" type="password" name="confirm_password" value="{{ confirm_password }}" placeholder="Confirm_Password" required>
                                             </div>
                                         </div>
 

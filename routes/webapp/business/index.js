@@ -12,7 +12,6 @@ var uploadLogo = require('./uploadlogo');
 var register = require('./register');
 var dashboard = require('./dashboard');
 var addappointment = require('./add-appointment');
-var registerDevice = require('./registerdevice');
 var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
 var viewForm = require('./viewform');
@@ -38,8 +37,8 @@ module.exports = function (passport) {
         failureFlash: true
     }));
 
-    router.get('/formbuilder',isLoggedIn, formbuilder.get);
-
+    router.get('/formbuilder', isLoggedIn, formbuilder.get);
+    router.post('/formbuilder', isLoggedIn, formbuilder.post);
 
     router.get('/accountSettings', isLoggedIn, accountSettings.get);
     router.post('/accountSettings', isLoggedIn, accountSettings.post);
@@ -62,8 +61,6 @@ module.exports = function (passport) {
 
     router.get('/add-appointment', isLoggedIn, addappointment.get);
     router.post('/add-appointment', isLoggedIn, addappointment.post);
-
-    router.get('/registerdevice', isLoggedIn, registerDevice.get);
 
     router.get('/addemployees',isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees',isLoggedInBusiness, addEmployees.post);
