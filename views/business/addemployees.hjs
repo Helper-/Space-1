@@ -40,6 +40,7 @@
       <!-- Main -->
         <article id="main">
 
+
             <header class="special container">
                         <span class="icon fa-inbox"></span>
 
@@ -48,7 +49,22 @@
               <a href="#openModal"><input class="button special" value="Register Employee"></a>
 
                         <h2><strong>Register Employees</strong></h2>
+                         <!-- show any messages that come back with authentication -->
+                                                         {{#message}} <!-- Only display if `error` is set -->
+                                                            <div class="alert alert-danger" role="alert">
+                                                                {{ message }}
+                                                            </div>
+                                                        {{/message}}
+
+
+
                         <div class="container container-margin"><br />
+<<<<<<< HEAD:web-app-develop/views/business/addemployees.hjs
+
+              <div class="row" id="regis-container">
+                <div class="4u 12u"></div>
+                <div class="4u 12u">
+=======
                           <a href="#openModal"><input class="button special" value="Register Employee"></a>
 
 
@@ -63,6 +79,7 @@
                       <div class="12u 12u">
                 <div class="12u 12u">
 
+>>>>>>> master:views/business/addemployees.hjs
                       <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
                                         <div class="row 50%">
                                             <div class="6u 12u(mobile)">
@@ -91,6 +108,9 @@
                                             <div class="12u">
                                                 <input class="regis" type="password" name="password" value="{{ password }}" placeholder="Password" required>
                                             </div>
+<<<<<<< HEAD:web-app-develop/views/business/addemployees.hjs
+                                        </div><br />
+=======
                                         </div>
                                         <!-- Sixth Row -->
                                         <div class="row 50%">
@@ -99,6 +119,7 @@
                                             </div>
                                         </div>
                                         <br />
+>>>>>>> master:views/business/addemployees.hjs
 
                           <input class="button special" name="submit" type="submit" href="/addemployees" value="Register Employee">
                       </form>
@@ -109,6 +130,7 @@
 
             </header>
 
+
           <!-- Special Container -->
             <section class="wrapper style4 container 75%">
 
@@ -116,6 +138,13 @@
             <div class="row">
                 <div class="12u 12u(mobile)">
                     <h2 style="text-align: center">Registered Employees</h2>
+
+                    <!-- show any messages that come back with authentication -->
+                                 {{#message}} <!-- Only display if `error` is set -->
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {{/message}}
                             <table class="table" id="registeredEmployees">
                                 <thead style="font-weight: bold">
                                     <tr style="text-align: left">
@@ -126,12 +155,17 @@
                                 </thead>
 
                                 {{#signed}}
+                                <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
                                 <tr style="text-align: left">
                                     <td>{{fname}} {{lname}}</td>
                                     <td>{{email}}</td>
-                                    <td><button type="submit">Delete</button></td>
+                                    <input name= "email" type="hidden" value = "{{email}}">
+                                    <td><input class="button special" name="submit" type="submit" href="/addemployees" value="delete">
+</td>
                                 </tr>
+                                </form>
                                 {{/signed}}
+
                             </table>
                 </div>
 
@@ -163,7 +197,7 @@
 
     </div>
 
-    <!-- Scripts -->
+
       <script src="/js/jquery.min.js"></script>
       <script src="/js/jquery.dropotron.min.js"></script>
       <script src="/js/jquery.scrolly.min.js"></script>

@@ -4,6 +4,7 @@ if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     newrelic = require('newrelic');
 }
 
+
 var express = require('express');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
@@ -157,6 +158,5 @@ app.use(function (err, req, res) {
         error: {}
     });
 });
-
 
 exports = module.exports = app;
