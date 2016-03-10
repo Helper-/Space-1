@@ -103,6 +103,7 @@ exports.get = function (req, res, next) {
             return next(err);
         }
         res.render('business/manage_forms', { title: 'Express',
+          message: req.flash('permission'),
           form: form_data.data
         });
     });
