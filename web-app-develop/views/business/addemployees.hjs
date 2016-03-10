@@ -118,16 +118,18 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <form method = "post" action = "addemployees">
 
-                                    {{#signed}}
-                                    <tr style="text-align: left">
-                                        <td>{{fname}} {{lname}}</td>
-                                        <td>{{email}}</td>
-                                        <td><button type="submit" id="delete">Delete</button></td>
-                                    </tr>
-                                    {{/signed}}
+                                {{#signed}}
+                                <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
+                                <tr style="text-align: left">
+                                    <td>{{fname}} {{lname}}</td>
+                                    <td>{{email}}</td>
+                                    <input name= "email" type="hidden" value = "{{email}}">
+                                    <td><input class="button special" name="submit" type="submit" href="/addemployees" value="delete">
+</td>
+                                </tr>
                                 </form>
+                                {{/signed}}
 
                             </table>
                 </div>
