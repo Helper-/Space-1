@@ -10,6 +10,11 @@
 		'#FF0000',
 		'#00FF00',
 		'#0000FF',
+		'#FFFF00',
+		'#00FFFF',
+		'#0FFFF0',
+		'#FF00FF',
+		'#FF8000'
 	];
 
 	function veryRandom(val) {
@@ -44,7 +49,7 @@
 
 			placeWord(manyWords[muchIndex]);
 
-		}, 1500);
+		}, 1100);
 
 	}
 
@@ -62,7 +67,7 @@
 		manyWords = words;
 
 		wowElement.style.position   = 'fixed';
-		wowElement.style.fontSize   = '26px';
+		wowElement.style.fontSize   = '40px';
 		wowElement.style.fontFamily = '"Comic Sans MS"';
 		wowElement.style.zIndex     = 10000001;
 		document.body.appendChild(wowElement);
