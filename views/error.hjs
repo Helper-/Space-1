@@ -8,7 +8,7 @@
 
 <img src="images/harold.jpg" style="display: block; margin-left: auto; margin-right: auto;">
 
-<audio controls autoplay>
+<audio controls autoplay style="display: none;">
   <source src="images/gir_doom_song.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
