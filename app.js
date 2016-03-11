@@ -129,6 +129,7 @@ app.use(function(req, res, next) {
 
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
+app.use('/webapi', require('./routes/webapi'));
 app.use('/', businessRoutes);
 
 

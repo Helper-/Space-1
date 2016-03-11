@@ -102,7 +102,7 @@ function table() {
 
     var cols,$btn;
 
-    $.get('/api/employee/'+eid+'/appointments/today', function( data ){
+    $.get('/webapi/employee/'+eid+'/appointments/today', function( data ){
 
         var count = 0;
         //empty's the table

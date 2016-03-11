@@ -7,12 +7,18 @@ exports.get = function(req,res) {
 exports.post = function(req,res) {
     var db = req.db;
     var appointments = db.get('appointments');
-    var year = document.getElementById("yeardropdown");
-    var month = document.getElementById("monthdropdown");
-    var day = document.getElementById("daydropdown");
-    var hour = document.getElementById('hourdropdown');
-    var minute = document.getElementById("minutedropdown");
-    var date = new Date(year,month,day,hour,minute);
+    var night = req.body.night;
+    var year = Number(req.body.year);
+    var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'].indexOf(req.body.month);
+    var day = Number(req.body.day);
+    var hour = Number(req.body.hour) -1;
+    var minute =Number(req.body.minute);
+
+    if(night === "PM") {
+        hour += 12;
+    }
+
+    var date = new Date(year, month, day, hour, minute);
 
     console.log('Date: ');
     console.log(date);
