@@ -7,10 +7,11 @@ exports.post = function (req, res) {
     var bId = req.user[0].business;
     var formDB = req.db.get('forms');
 
-    var query = {
+    var query = ({
       query: {business: bId},
-      update: {$set: {data: formData}}
-    }
+      update: {$set: {data: formData}},
+      upsort: true
+    })
 
     formDB.findAndModify(query, function (err, result) {
       if (err) {
