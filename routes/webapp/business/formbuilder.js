@@ -7,20 +7,19 @@ exports.post = function (req, res) {
     var bId = req.user[0].business;
     var formDB = req.db.get('forms');
 
-    formDB.find({business: bId}, function (err, result) {
+    var query = {
+      query: {business: bId},
+      update: {$set: {data: formData}}
+    }
+
+    formDB.findAndModify(query, function (err, result) {
       if (err) {
         res.render('business/formBuilder', {title: 'Express', error: 'Error occurred, please try again.'});
         return;
       }
 
-      formDB.insert({business: bId, data: formData}, function (err, result) {
-        if (err) {
-          res.render('business/formBuilder', {title: 'Express', error: 'Error occurred, please try again.'});
-          return;
-        }
-        console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
-        res.render('business/formBuilder', {title: 'Express', error: 'Form successfully saved.'});
-      });
+      console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
+      res.render('business/formBuilder', {title: 'Express', error: 'Form successfully saved.'});
     });
 };
 

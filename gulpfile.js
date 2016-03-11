@@ -146,7 +146,7 @@ gulp.task('mongoend', function() {
 })
 
 gulp.task('browser-sync', ['nodemon', 'mongostart', 'watch-check'], function () {
-/**
+
   // for more browser-sync config options: http://www.browsersync.io/docs/options/
   browserSync.init({
 
@@ -154,23 +154,22 @@ gulp.task('browser-sync', ['nodemon', 'mongostart', 'watch-check'], function () 
     notify: false,
 
     // watch the following files; changes will be injected (css & images) or cause browser to refresh
-    files: ['public/**/ //*.*', 'views/**/*.*', 'public/javascripts/*.js'],
+    files: ['public/**/*.*', 'views/**/*.*', 'public/javascripts/*.js'],
 
     // informs browser-sync to proxy our expressjs app which would run at the following location
-  //  proxy: 'http://localhost:3000',
+    proxy: 'http://localhost:3000',
 
     // informs browser-sync to use the following port for the proxied app
     // notice that the default port is 3000, which would clash with our expressjs
-  //  port: 4000,
+    port: 4000,
 
     //Change whether browser will auto open
-//    open: true,
+    open: true,
 
     // open the proxied app in chrome
-  //  browser: ['google chrome']
+    browser: ['google chrome']
 
-//  });
-	
+  });
 });
 
 // mongodump - dump all databases on localhost

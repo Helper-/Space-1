@@ -106,10 +106,20 @@ exports.get = function (req, res) {
         if (err) {
             return next(err);
         }
-        res.render('business/manage_forms', { title: 'Express',
-          message: req.flash('permission'),
-          form: form_data.data,
-        });
+        if(form_data !== null) {
+          res.render('business/manage_forms', { title: 'Express',
+            message: req.flash('permission'),
+            form: form_data.data,
+          });
+        }
+
+        else {
+          res.render('business/manage_forms', { title: 'Express',
+            message: req.flash('permission'),
+            form: "You don't have a a form yet.",
+          });
+        }
+
     });
 };
 

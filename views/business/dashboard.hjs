@@ -54,15 +54,15 @@
                                             <div class="12u"><center>
                                                <select>
                                                   <option value = "{{ date }}"> 01 </option>
-                                                  <option value = "{{ date }}"> 02 </option> 
-                                                  <option value = "{{ date }}"> 03 </option> 
-                                                  <option value = "{{ date }}"> 04 </option> 
-                                                  <option value = "{{ date }}"> 05 </option> 
-                                                  <option value = "{{ date }}"> 06 </option> 
-                                                  <option value = "{{ date }}"> 07 </option> 
-                                                  <option value = "{{ date }}"> 08 </option> 
-                                                  <option value = "{{ date }}"> 09 </option> 
-                                                  <option value = "{{ date }}"> 10 </option> 
+                                                  <option value = "{{ date }}"> 02 </option>
+                                                  <option value = "{{ date }}"> 03 </option>
+                                                  <option value = "{{ date }}"> 04 </option>
+                                                  <option value = "{{ date }}"> 05 </option>
+                                                  <option value = "{{ date }}"> 06 </option>
+                                                  <option value = "{{ date }}"> 07 </option>
+                                                  <option value = "{{ date }}"> 08 </option>
+                                                  <option value = "{{ date }}"> 09 </option>
+                                                  <option value = "{{ date }}"> 10 </option>
                                                   <option value = "{{ date }}"> 11 </option>
                                                   <option value = "{{ date }}"> 12 </option>
                                                   <option value = "{{ date }}"> 13 </option>
@@ -87,29 +87,29 @@
 
                                                <select>
                                                   <option value = "{{ month }}"> JAN </option>
-                                                  <option value = "{{ month }}"> FEB </option> 
-                                                  <option value = "{{ month }}"> MAR </option> 
-                                                  <option value = "{{ month }}"> APR </option> 
-                                                  <option value = "{{ month }}"> MAY </option> 
-                                                  <option value = "{{ month }}"> JUN </option> 
-                                                  <option value = "{{ month }}"> JUL </option> 
-                                                  <option value = "{{ month }}"> AUG </option> 
-                                                  <option value = "{{ month }}"> SEP </option> 
-                                                  <option value = "{{ month }}"> OCT </option> 
+                                                  <option value = "{{ month }}"> FEB </option>
+                                                  <option value = "{{ month }}"> MAR </option>
+                                                  <option value = "{{ month }}"> APR </option>
+                                                  <option value = "{{ month }}"> MAY </option>
+                                                  <option value = "{{ month }}"> JUN </option>
+                                                  <option value = "{{ month }}"> JUL </option>
+                                                  <option value = "{{ month }}"> AUG </option>
+                                                  <option value = "{{ month }}"> SEP </option>
+                                                  <option value = "{{ month }}"> OCT </option>
                                                   <option value = "{{ month }}"> NOV </option>
                                                   <option value = "{{ month }}"> DEC </option> </select>
 
                                               <select>
                                                   <option value = "{{ year }}"> 2016 </option>
-                                                  <option value = "{{ year }}"> 2017 </option> 
-                                                  <option value = "{{ year }}"> 2018 </option> 
-                                                  <option value = "{{ year }}"> 2019 </option> 
-                                                  <option value = "{{ year }}"> 2020 </option> 
-                                                  <option value = "{{ year }}"> 2021 </option> 
-                                                  <option value = "{{ year }}"> 2022 </option> 
-                                                  <option value = "{{ year }}"> 2023 </option> 
-                                                  <option value = "{{ year }}"> 2024 </option> 
-                                                  <option value = "{{ year }}"> 2025 </option> 
+                                                  <option value = "{{ year }}"> 2017 </option>
+                                                  <option value = "{{ year }}"> 2018 </option>
+                                                  <option value = "{{ year }}"> 2019 </option>
+                                                  <option value = "{{ year }}"> 2020 </option>
+                                                  <option value = "{{ year }}"> 2021 </option>
+                                                  <option value = "{{ year }}"> 2022 </option>
+                                                  <option value = "{{ year }}"> 2023 </option>
+                                                  <option value = "{{ year }}"> 2024 </option>
+                                                  <option value = "{{ year }}"> 2025 </option>
                                                   <option value = "{{ year }}"> 2026 </option>
                                                   <option value = "{{ year }}"> 2027 </option>
                                                   <option value = "{{ year }}"> 2028 </option>
@@ -126,23 +126,23 @@
                                               Time:
                                                <select>
                                                   <option value = "{{ hour }}"> 01 </option>
-                                                  <option value = "{{ hour }}"> 02 </option> 
-                                                  <option value = "{{ hour }}"> 03 </option> 
-                                                  <option value = "{{ hour }}"> 04 </option> 
-                                                  <option value = "{{ hour }}"> 05 </option> 
-                                                  <option value = "{{ hour }}"> 06 </option> 
-                                                  <option value = "{{ hour }}"> 07 </option> 
-                                                  <option value = "{{ hour }}"> 08 </option> 
-                                                  <option value = "{{ hour }}"> 09 </option> 
-                                                  <option value = "{{ hour }}"> 10 </option> 
+                                                  <option value = "{{ hour }}"> 02 </option>
+                                                  <option value = "{{ hour }}"> 03 </option>
+                                                  <option value = "{{ hour }}"> 04 </option>
+                                                  <option value = "{{ hour }}"> 05 </option>
+                                                  <option value = "{{ hour }}"> 06 </option>
+                                                  <option value = "{{ hour }}"> 07 </option>
+                                                  <option value = "{{ hour }}"> 08 </option>
+                                                  <option value = "{{ hour }}"> 09 </option>
+                                                  <option value = "{{ hour }}"> 10 </option>
                                                   <option value = "{{ hour }}"> 11 </option>
                                                   <option value = "{{ hour }}"> 12 </option>
                                                  </select>
-                                               
+
                                                <select>
                                                   <option value = "{{ min }}"> 00 </option>
-                                                  <option value = "{{ min }}"> 15 </option> 
-                                                  <option value = "{{ min }}"> 30 </option> 
+                                                  <option value = "{{ min }}"> 15 </option>
+                                                  <option value = "{{ min }}"> 30 </option>
                                                   <option value = "{{ min }}"> 45 </option>
                                                  </select>
 

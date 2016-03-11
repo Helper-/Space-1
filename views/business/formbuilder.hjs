@@ -87,7 +87,6 @@
     $(template).formBuilder();
 
     $(saveBtn).click(function(e){
-      e.preventDefault();
       $(saveData).attr("value", $(template).val());
       console.log($(template).val());
       $(saveBtn).submit();
