@@ -1,3 +1,25 @@
-<h1>{{ message }}</h1>
-<h2>{{ error.status }}</h2>
-<pre>{{ error.stack }}</pre>
+
+<script src="js/doge.js"></script>
+<h1 style="text-align: center;">{{ message }}</h1>
+<h2 style="text-align: center;">{{ error.status }}</h2>
+<!-- <pre>{{ error.stack }}</pre> -->
+
+<img src="images/harold.jpg" style="display: block; margin-left: auto; margin-right: auto;">
+
+<script>
+    //Once document is ready.
+    //Many mistakes.
+    var doge = new Doge([
+        'wow',
+        'much words',
+        'such random',
+        'very pretty',
+        'much confuse',
+        'javascript skillz',
+        'only 2 week webdesign course',
+        'very jshint',
+        'cse112 got me like',
+        'super error',
+        'many mistakes'
+        ]);
+</script>
