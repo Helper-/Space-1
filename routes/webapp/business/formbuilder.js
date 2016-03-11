@@ -14,12 +14,12 @@ exports.post = function (req, res) {
 
     formDB.findAndModify(query, function (err, result) {
       if (err) {
-        res.render('/formBuilder', {title: 'Express', error: 'Error occurred, please try again.'});
+        res.render('business/formbuilder', {title: 'Express', error: 'Error occurred, please try again.'});
         return;
       }
 
       console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
-      res.render('/formBuilder', {title: 'Express', error: 'Form successfully saved.'});
+      res.render('business/formbuilder', {title: 'Express', error: 'Form successfully saved.'});
     });
 };
 
