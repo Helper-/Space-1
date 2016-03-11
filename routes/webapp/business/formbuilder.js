@@ -14,13 +14,24 @@ exports.post = function (req, res) {
     })
 
     formDB.findAndModify(query, function (err, result) {
-      if (err) {
+      if(err) {
         res.render('business/formbuilder', {title: 'Express', error: 'Error occurred, please try again.'});
         return;
       }
-
-      console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
-      res.render('business/formbuilder', {title: 'Express', error: 'Form successfully saved.'});
+      if(result !== null) {
+        console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
+        res.render('business/formbuilder', {title: 'Express', error: 'Form successfully saved.'});
+      }
+      else {
+        formDB.insert({business: bId, data: formData}, function (err, result) {
+          if(err) {
+            res.render('business/formbuilder', {title: 'Express', error: 'Error occurred, please try again.'});
+            return;
+          }
+          console.log("Inserted form: " + "\n formData: " + formData + "\n business: " + bId);
+          res.render('business/formbuilder', {title: 'Express', error: 'Form successfully saved.'});
+        });
+      }
     });
 };
 
