@@ -10,7 +10,7 @@ exports.post = function (req, res) {
     var query = ({
       query: {business: bId},
       update: {$set: {data: formData}},
-      upsort: true
+      upsert: true
     })
 
     formDB.findAndModify(query, function (err, result) {
