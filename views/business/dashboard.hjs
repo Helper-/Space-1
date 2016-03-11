@@ -29,7 +29,8 @@
                     <h2 style="text-align:center">Create Appointment</h2>
 
                     <div class="content">
-                        <form method="post" action="" enctype="application/x-www-form-urlencoded">
+                                    <form method="post" action="" enctype="application/x-www-form-urlencoded">
+
                                         <!-- First Row -->
                                         <div class="row 50%">
                                             <div class="6u 12u(mobile)">
@@ -48,25 +49,107 @@
                                             </div>
                                         </div>
 
-                                        <!-- Third Row -->
+                                        <!-- DAY (DD) / MONTH (MMM) / YEAR (YYYY) -->
                                         <div class="row 50%">
                                             <div class="12u"><center>
-                                               <select id="daydropdown"></select>
-                                               <select id="monthdropdown"></select>
-                                               <select id="yeardropdown"></select></center>
+                                               <select>
+                                                  <option value = "{{ date }}"> 01 </option>
+                                                  <option value = "{{ date }}"> 02 </option> 
+                                                  <option value = "{{ date }}"> 03 </option> 
+                                                  <option value = "{{ date }}"> 04 </option> 
+                                                  <option value = "{{ date }}"> 05 </option> 
+                                                  <option value = "{{ date }}"> 06 </option> 
+                                                  <option value = "{{ date }}"> 07 </option> 
+                                                  <option value = "{{ date }}"> 08 </option> 
+                                                  <option value = "{{ date }}"> 09 </option> 
+                                                  <option value = "{{ date }}"> 10 </option> 
+                                                  <option value = "{{ date }}"> 11 </option>
+                                                  <option value = "{{ date }}"> 12 </option>
+                                                  <option value = "{{ date }}"> 13 </option>
+                                                  <option value = "{{ date }}"> 14 </option>
+                                                  <option value = "{{ date }}"> 15 </option>
+                                                  <option value = "{{ date }}"> 16 </option>
+                                                  <option value = "{{ date }}"> 17 </option>
+                                                  <option value = "{{ date }}"> 18 </option>
+                                                  <option value = "{{ date }}"> 19 </option>
+                                                  <option value = "{{ date }}"> 20 </option>
+                                                  <option value = "{{ date }}"> 21 </option>
+                                                  <option value = "{{ date }}"> 22 </option>
+                                                  <option value = "{{ date }}"> 23 </option>
+                                                  <option value = "{{ date }}"> 24 </option>
+                                                  <option value = "{{ date }}"> 25 </option>
+                                                  <option value = "{{ date }}"> 26 </option>
+                                                  <option value = "{{ date }}"> 27 </option>
+                                                  <option value = "{{ date }}"> 28 </option>
+                                                  <option value = "{{ date }}"> 29 </option>
+                                                  <option value = "{{ date }}"> 30 </option>
+                                                  <option value = "{{ date }}"> 31 </option> </select>
+
+                                               <select>
+                                                  <option value = "{{ month }}"> JAN </option>
+                                                  <option value = "{{ month }}"> FEB </option> 
+                                                  <option value = "{{ month }}"> MAR </option> 
+                                                  <option value = "{{ month }}"> APR </option> 
+                                                  <option value = "{{ month }}"> MAY </option> 
+                                                  <option value = "{{ month }}"> JUN </option> 
+                                                  <option value = "{{ month }}"> JUL </option> 
+                                                  <option value = "{{ month }}"> AUG </option> 
+                                                  <option value = "{{ month }}"> SEP </option> 
+                                                  <option value = "{{ month }}"> OCT </option> 
+                                                  <option value = "{{ month }}"> NOV </option>
+                                                  <option value = "{{ month }}"> DEC </option> </select>
+
+                                              <select>
+                                                  <option value = "{{ year }}"> 2016 </option>
+                                                  <option value = "{{ year }}"> 2017 </option> 
+                                                  <option value = "{{ year }}"> 2018 </option> 
+                                                  <option value = "{{ year }}"> 2019 </option> 
+                                                  <option value = "{{ year }}"> 2020 </option> 
+                                                  <option value = "{{ year }}"> 2021 </option> 
+                                                  <option value = "{{ year }}"> 2022 </option> 
+                                                  <option value = "{{ year }}"> 2023 </option> 
+                                                  <option value = "{{ year }}"> 2024 </option> 
+                                                  <option value = "{{ year }}"> 2025 </option> 
+                                                  <option value = "{{ year }}"> 2026 </option>
+                                                  <option value = "{{ year }}"> 2027 </option>
+                                                  <option value = "{{ year }}"> 2028 </option>
+                                                  <option value = "{{ year }}"> 2029 </option>
+                                                  <option value = "{{ year }}"> 2030 </option>
+                                                  <option value = "{{ year }}"> 2031 </option>
+                                                  <option value = "{{ year }}"> 2032 </option> </select>
                                             </div>
                                         </div>
 
-                                        <!-- Third Row -->
+                                        <!-- HOUR (HH) / MIN (MM) / DAYNIGHT (AM/PM) -->
                                         <div class="row 50%">
                                             <div class="12u"><center>
                                               Time:
-                                               <select id="hourdropdown"></select>
-                                               <select id="minutedropdown"></select>
-                                               <select id="nightdropdown"></select></center>
+                                               <select>
+                                                  <option value = "{{ hour }}"> 01 </option>
+                                                  <option value = "{{ hour }}"> 02 </option> 
+                                                  <option value = "{{ hour }}"> 03 </option> 
+                                                  <option value = "{{ hour }}"> 04 </option> 
+                                                  <option value = "{{ hour }}"> 05 </option> 
+                                                  <option value = "{{ hour }}"> 06 </option> 
+                                                  <option value = "{{ hour }}"> 07 </option> 
+                                                  <option value = "{{ hour }}"> 08 </option> 
+                                                  <option value = "{{ hour }}"> 09 </option> 
+                                                  <option value = "{{ hour }}"> 10 </option> 
+                                                  <option value = "{{ hour }}"> 11 </option>
+                                                  <option value = "{{ hour }}"> 12 </option>
+                                                 </select>
+                                               
+                                               <select>
+                                                  <option value = "{{ min }}"> 00 </option>
+                                                  <option value = "{{ min }}"> 15 </option> 
+                                                  <option value = "{{ min }}"> 30 </option> 
+                                                  <option value = "{{ min }}"> 45 </option>
+                                                 </select>
 
-                                            <div class="12u">
-                                               <input class="regis" type="text" name="apttime" value="{{ apttime }}" placeholder="Appointment Time" required>
+                                               <select>
+                                                  <option value = "{{ daynight }}"> AM </option>
+                                                  <option value = "{{ daynight }}"> PM </option>
+                                               </select></center>
                                             </div>
                                         </div>
 
@@ -78,20 +161,12 @@
                                               </center>
                                             </div>
                                         </div>
-                        </form>
+                                        </form>
                   </div>
                 </div>
 
               <!-- Check-in button to go to check-in-->
               <li class="current"><a href="/dashboard" class="button">Check-In Mode</a></li>
-
-            <input class="button special" name="submit" type="submit" href="/dashboard" value="Create Appointment">
-            </center>
-          </div>
-            </div>
-                  </div>
-                </div>
-
 
               <li class="submenu">
                 <a href="#">Settings</a>
@@ -145,7 +220,7 @@
                             <td>1</td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td> </script></td>
                             <td></td>
                             <td></td>
                             <td></td>
