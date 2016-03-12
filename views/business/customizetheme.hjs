@@ -55,9 +55,31 @@
             <h3>Current Logo</h3>
             <img class="bgImage" src="{{logo}}" alt="Company's Logo"/>
             <br/>
-            <a type="button" class="button" href="/uploadLogo">
-                Customize My Logo
-            </a>
+            <!-- Upload Logo -->
+            <a type="button" class="button" href="#openModal">Customize My Logo</a>
+              <div id="openModal" class="modalDialog">
+
+                  <div class="content">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                    </div>
+
+                    <h2 style="text-align:center">Upload Logo</h2>
+                      <form method="post" action="" enctype="application/x-www-form-urlencoded">
+                                      <!-- First Row -->
+                        <div class="row 50%">
+                          <div class="6u 12u(mobile)">
+                            <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
+                          </div>
+
+                          <div class="6u 12u(mobile)">
+                            <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="Last Name" required>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+              </div>
+
           <!--  {{/logo}} -->
         </div>
 
@@ -65,9 +87,30 @@
             <h3>Current Background Image</h3>
             <img class="bgImage" src="{{bg}}" alt="Company's Custom Background Image"/>
             <br/>
-            <a type="button" class="button" href="/theming">
-                Customize My Theme
-            </a>
+            <!-- Upload BG-->
+            <a type="button" class="button" href="#openModal">Customize My Background</a>
+              <div id="openModal" class="modalDialog">
+
+                  <div class="content">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                    </div>
+
+                    <h2 style="text-align:center">Upload Background</h2>
+                      <form method="post" action="" enctype="application/x-www-form-urlencoded">
+                                      <!-- First Row -->
+                        <div class="row 50%">
+                          <div class="6u 12u(mobile)">
+                            <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
+                          </div>
+
+                          <div class="6u 12u(mobile)">
+                            <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="Last Name" required>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+              </div>
         </div>
 
     </div>
@@ -76,20 +119,9 @@
 
     <!--Footer to display the about info,etc-->
         <footer id="footer">
-          <!--
-          <ul class="icons">
-            <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
-            <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
-            <li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
-          </ul>
-          -->
-
           <ul class="copyright">
             <li>Space-1 &copy;2016</li>
           </ul>
-
         </footer>
 
 </div>
@@ -102,14 +134,11 @@
   <script src="/js/jquery.scrollgress.min.js"></script>
   <script src="/js/skel.min.js"></script>
   <script src="/js/util.js"></script>
-  <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
   <script src="/js/main.js"></script>
   <script src="/javascripts/customizetheme.js"></script>
 <script>
   eid = "{{eid}}";
 </script>
 </body>
-
-
 
 </html>

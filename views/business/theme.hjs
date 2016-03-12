@@ -83,7 +83,7 @@
 </head>
 
 <body class="customBG">
-<!--
+
 <div class="container">
 
     <div class="row">
@@ -102,10 +102,12 @@
 
                 <div class="btn-group-vertical" role="group" aria-label="..." style="margin: 0 auto; width:155px; display: block;">
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-bg-img">Background Image</button>
+                    <!--
           //these were commented out
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-buttons">Buttons</button>
                     <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-content-container">Content Container</button>
           //these were commented out
+        -->
                 </div>
 
                 <button type="button" class="btn btn-success paddingTopButton" id="save">Save Changes</button>
@@ -145,7 +147,7 @@
                     <input type="text" id="button-font-color"/>
                 </p>
             </div>
-
+<!--
             <div id="toolbar-content-container" class="hidden-page">
                 <button type="button" class="btn btn-default change-toolbar-page" data-to="toolbar-main">Main Menu</button>
 
@@ -159,7 +161,7 @@
                     <input type="text" id="content-container-font-color"/>
                 </p>
             </div>
-
+-->
         </div>
 
     </div>
@@ -167,7 +169,7 @@
 </div>
 
 
--->
+
 
 
 
