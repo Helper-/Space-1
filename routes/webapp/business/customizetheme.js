@@ -34,7 +34,7 @@ exports.post = function(req, res, next){
       if(err) {
         return next(err);
       }
-      if(results.logo) {
+      if(results.logo !== '/images/uploads/defaultLogo.png') {
         fs.unlink('public' + results.logo);
       }
       stuff = results.bg
@@ -61,7 +61,7 @@ exports.post = function(req, res, next){
       if(err) {
         return next(err);
       }
-      if(results.bg) {
+      if(results.bg !== '/images/uploads/defaultBg.jpg') {
         fs.unlinkSync('public' + results.bg);
       }
       stuff = results.logo

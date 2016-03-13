@@ -3,6 +3,7 @@
 //monk and db are neeeded because pass.deserialize doesnt pass a req parameter,
 //so in order to find the correct id in mongo, we need to make a connection to database and findbyid
 
+var fs = require('fs');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = require('../lib/auth');
 var ObjectId = require('mongodb').ObjectID;
@@ -31,6 +32,7 @@ module.exports = function (passport) {
             var fname = req.body.fname;
             var lname = req.body.lname;
             var phone = req.body.phone;
+
             if (!phone) {
                 phone = '';
             }
@@ -80,10 +82,8 @@ module.exports = function (passport) {
                             phone: phone,
                             fname: fname,
                             lname: lname,
-                            logo: 'defaultLogo.jpg',
-                            style: {
-                                bg: 'defaultBG.jpg'
-                            },
+                            logo: '/images/uploads/defaultLogo.png',
+                            bg: '/images/uploads/defaultBg.jpg',
                             walkins: false
                         }, function (err, result) {
                             if (err) {

@@ -100,28 +100,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- Seventh Row -->
-                                        <div class="row 50%">
-                                          <div class="12u 12u(mobile)">
-                                            <h2>Company Logo</h2>
-                                            <form id="uploadLogo" enctype="multipart/form-data" action='/customizetheme'
-                                              method="post">
-                                            <input type="file" name="userLogo">
-                                          </form>
-                                          </div>
-                                        </div>
-
-                                        <!-- Eight Row -->
-                                        <div class="row 50%">
-                                          <div class="12u 12u(mobile)">
-                                            <form id="uploadBG" enctype="multipart/form-data" action='/customizetheme'
-                                              method="post">
-                                            <h2>Company Background</h2>
-                                            <input type="file" name="userBG">
-                                          </form>
-                                          </div>
-                                        </div>
-
                                         <!-- Sign Up -->
                                         <div class="row">
                                             <div class="12u">

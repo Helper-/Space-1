@@ -14,7 +14,6 @@ var dashboard = require('./dashboard');
 var addappointment = require('./add-appointment');
 var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
-var viewForm = require('./viewform');
 var customizeTheme = require('./customizetheme');
 var manageForms = require('./manageforms');
 var businesssetting = require('./businesssetting');
@@ -75,8 +74,6 @@ module.exports = function (passport) {
         successRedirect : '/dashboard', // redirect to the secure profile section
         failureRedirect : '/register' // redirect back to the signup page if there is an error
     }));
-
-    router.get('/viewform/:id', viewForm.get);
 
     router.get('/setdisclosure', isLoggedInBusiness, setdisclosure.get);
     router.post('/setdisclosure', isLoggedInBusiness, setdisclosure.post);
