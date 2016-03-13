@@ -58,9 +58,10 @@
 
             <div class="row 50%">
 
-              <div class="6u 12u(mobile)">
+              <div class="6u 12u(mobile)" class="render-form">
                 <button id="saveButton" class="add button special">Save Form</button>
               </div>
+
               <div class="6u 12u(mobile)">
                   <a href="/manageforms">
                       <input type="button" value="Return to Forms" class="add btn btn-default" id="return" />
@@ -70,10 +71,8 @@
 
             <br style="clear:both">
             </div>
-
           <div class="render-form" >
           </div>
-
     </header>
   </div>
 

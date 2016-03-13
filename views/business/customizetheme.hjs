@@ -25,7 +25,7 @@
               <li><a href="/setdisclosure">Disclosure Agreements</a></li>
               <li><a href="/customizetheme">Customize Theme</a></li>
               <li><a href="/accountSettings">Account Settings</a></li>
-              <li><a href="/businesssetting" >Company Settings</a></li>
+              <li><a href="/businesssetting">Company Settings</a></li>
             </ul>
           </li>
 
@@ -47,9 +47,26 @@
     </header>
 
 <div class="content">
+<!-- Alert: Success and Failure of Upload -->
+  <div class="row 50%">
+    <div class="4u 12u(mobile)"></div>
+    <div class="4u 12u(mobile)">
+  {{#error}}
+      <div class="alert alert-danger" role="alert">
+          {{ error }}
+      </div>
+  {{/error}}
 
-    <div class="row" style="text-align:center">
-<!-- LOGO -->
+  {{#success}}
+      <div class="alert alert-success" role="alert">
+          {{ success }}
+      </div>
+  {{/success}}
+    </div>
+  </div>
+
+<div class="row" style="text-align:center">
+<!-- LOGO DISPLAY -->
         <div class="6u 12u(mobile)">
           {{#logo}}
             <h3>Current Logo</h3>
@@ -57,7 +74,8 @@
           {{/logo}}
 
             <br/>
-            <!-- Upload Logo -->
+
+            <!-- Upload Logo Window -->
             <a type="button" class="button" href="#openLogo">Customize My Logo</a>
               <div id="openLogo" class="modalDialog">
 
@@ -70,21 +88,12 @@
 
                                       <!-- First Row -->
                         <div class="row 50%">
-                          {{#error}}
-                              <div class="alert alert-danger" role="alert">
-                                  {{ error }}
-                              </div>
-                          {{/error}}
-
-                          {{#success}}
-                              <div class="alert alert-success" role="alert">
-                                  {{ success }}
-                              </div>
-                          {{/success}}
 
                           <form id="uploadLogo" enctype="multipart/form-data" action='/customizetheme'
                             method="post">
+                          
                           <input type="file" name="userLogo">
+
                           <center>
                             <input class ="button special" type="submit" value="Upload Image" name="Upload Button"/>
                           </center>
@@ -111,6 +120,7 @@
                     </div>
 
                     <h2 style="text-align:center">Upload Background</h2>
+
                                       <!-- First Row -->
                         <div class="row 50%">
                           {{#error}}
@@ -130,6 +140,10 @@
                                action    =  "/customizetheme"
                                method    =  "post">
                           <input type="file" name="userBG">
+
+                        <div class="row 50%">
+                          <form id="uploadForm" enctype="multipart/form-data" action="/customizetheme" method="post">
+                          <input type="file" name="userBG">
                           <center>
                             <input class ="button special" type="submit" value="Upload Image" name="Upload Button"/>
                           </center>
@@ -137,7 +151,7 @@
                             </div>
                           </form>
                 </div>
-              </form>
+
               </div>
 
 <!-- Other div stuff outside of the two things on screen -->
