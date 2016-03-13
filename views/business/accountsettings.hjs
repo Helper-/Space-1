@@ -63,23 +63,23 @@
 									    {{/alert}}
                         <section class="wrapper style4 special container 50%">
                             <!-- Content -->
-                                <div class="content">  
+                                <div class="content">
                                     <div class="row">
 									    <div class="12u 12u">
-									      <h2>Hello, Dr. {{ lname }}!</h2>
+									      <h2>Hello, {{ fname }} {{ lname }}!</h2>
 									    </div>
 									</div>
 							<!-- Name row -->
 							    <div class="12u 12u">
 							      <form class="form-horizontal" action="" method="post">
-							        <label>Name</label>							
+							        <label>Name</label>
 							        <input type="text" id="editName" name="editName" value="{{ fname }} {{lname}}" class="form-control" readonly>
 							   	  </form>
 							    </div><br />
 							<!-- Password row -->
 							    <div class="12u 12u">
 							      <form class="form-horizontal" action="" method="post">
-							        <label>New Password</label>							
+							        <label>New Password</label>
 							        <input type="password" id="editPassword" name="editPassword" placeholder="New Password" class="form-control">
 							        <div style="text-align: center">
 							          <button type="password" type="submit">Update</button>
@@ -95,7 +95,7 @@
 							          <button type="email" type="submit">Update</button>
 							        </div>
 							      </form>
-							    </div><br />							
+							    </div><br />
 
 							<!-- Phone row, has special phone bar class -->
 							    <div class="12u 12u">
@@ -107,14 +107,14 @@
 							          <button type="phone" type="submit">Update</button>
 							        </div>
 							      </form>
-							    </div><br />							
+							    </div><br />
 
 							<!-- Notification Settings -->
 							    <div class="12u 12u">
 							      <form class = "form-horizontal" action = "" method = "">
 							        <label><b>Notification settings when patient checks in: </b></label>
 							      </form>
-							    </div><br />					
+							    </div><br />
 
 							    <div  class="column">
 							      <div class="row">
@@ -132,7 +132,7 @@
 							              <input type="checkbox" name="sendText" value="1" onchange="this.form.submit();" />
 							            </form>
 							            {{/smsNotify}}
-							        </div>							
+							        </div>
 
 							        <div class="6u 12u">
 							          <label>Send me an email</label>
@@ -148,10 +148,10 @@
 							              <input type="checkbox" name="sendEmail" value="1" onchange="this.form.submit();" />
 							            </form>
 							            {{/emailNotify}}
-							        </div>							
+							        </div>
 
 							      </div>
-							    </div>							
+							    </div>
 
 							  </div> <!-- div for content at the top -->
                         </section>
