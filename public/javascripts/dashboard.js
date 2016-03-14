@@ -10,6 +10,7 @@ $(function(){
 
 /* Drop Down Dates */
 var monthtext=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+var name_element = document.getElementById('hourdropdown');
 
 function populatedropdown(dayfield, monthfield, yearfield) {
   var today=new Date();
@@ -43,9 +44,10 @@ function timedropdown(hourfield, minutefield, nightfield) {
   for (var h=0; h<12; h++) {
     hourfield.options[h]=new Option(h+1, h+2);
   }
-  for (var n=0; n<60; n++) {
-    minutefield.options[n]=new Option(n+1);
-  }
+    minutefield.options[0]=new Option(00);
+    minutefield.options[1]=new Option(15);
+    minutefield.options[2]=new Option(30);
+    minutefield.options[3]=new Option(45);
   for (var g=0; g<2; g++) {
     nightfield.options[g]=new Option(nighttext[g], nighttext[g]);
   }
@@ -100,7 +102,7 @@ function table() {
 
     var cols,$btn;
 
-    $.get('/api/employee/'+eid+'/appointments/today', function( data ){
+    $.get('/webapi/employee/'+eid+'/appointments/today', function( data ){
 
         var count = 0;
         //empty's the table

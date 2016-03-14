@@ -1,6 +1,4 @@
 var auth = require('../../../lib/auth');
-//var mailerClient = require('../../../mailer-client');
-//var twilioClient = require('../../../twilio-client');
 
 exports.get = function (req, res) {
 
@@ -15,6 +13,4 @@ exports.get = function (req, res) {
 				message: req.flash("permission"),
 		});
 
-    //mailerClient.sendSimpleEmail("michael.chang25@gmail.com", "Calling all doctors!", "This is an automated message");
-    //twilioClient.sendSmsToPhoneNumber("+16508623873", "Paging all doctors!");
 };
