@@ -1,5 +1,5 @@
 var style = require('./../../../lib/style.js');
-var slackClient = require('slack-client');
+var slackClient = require('../business/slack-client');
 //var mailerClient = require('mailer-client');
 //var twilioClient = require('twilio-client');
 
