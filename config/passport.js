@@ -103,7 +103,7 @@ module.exports = function (passport) {
                                 email: result.email,
                                 smsNotify: true,
                                 emailNotify: true,
-                                admin: true
+                                role: 'admin'
                             }, function(err, user){
                                 if (err) {
                                     throw err;
