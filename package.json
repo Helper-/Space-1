@@ -44,6 +44,7 @@
     "plugin": "^0.3.3",
     "sendgrid": "^1.6.0",
     "serve-favicon": "~2.2.0",
+    "slack-client": "^2.0.4",
     "twilio": "^2.9.0",
     "underscore": "^1.8.1",
     "xoauth2": "^1.1.0"
