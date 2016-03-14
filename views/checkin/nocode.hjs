@@ -16,7 +16,7 @@
         }
 
         .customBG {
-            background-image: url(/images/bg/full/{{bg}});
+            background-image: url({{bg}});
         }
 
         .btn {
@@ -72,11 +72,11 @@
                         <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control form-width-custom" required autofocus>
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="col-md-5 control-label inputDOB">Date of Birth</label>
                     <div class="col-md-4">
                         <input type="birthDate" id="inputDOB" name="inputDOB" value="{{ inputDOB }}" class="form-control form-width-custom" placeholder='MM/DD/YYYY' required autofocus>
-                    </div>
+                    </div> -->
                 </div>
                <button class="btn btn-lg btn-block custom-button custom-center" type="submit">Next</button>
 

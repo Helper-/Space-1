@@ -10,12 +10,12 @@ exports.get = function(req, res, next) {
     res.render('checkin/sign', {
         disclosure: business.disclosure,
         companyName: business.companyName,
-        bg: business.style.bg,
+        bg: business.bg,
         logo: business.logo,
-        buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
-        buttonText: style.rgbObjectToCSS(business.style.buttonText),
-        containerText: style.rgbObjectToCSS(business.style.containerText),
-        containerBg: style.rgbObjectToCSS(business.style.containerBg)
+        buttonBg: style.rgbObjectToCSS(business.buttonBg),
+        buttonText: style.rgbObjectToCSS(business.buttonText),
+        containerText: style.rgbObjectToCSS(business.containerText),
+        containerBg: style.rgbObjectToCSS(business.containerBg)
     });
 };
 
@@ -28,12 +28,12 @@ exports.post = function (req, res, next) {
             disclosure: business.disclosure,
             error: 'You must provide a signature',
             companyName: business.companyName,
-            bg: business.style.bg,
+            bg: business.bg,
             logo: business.logo,
-            buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
-            buttonText: style.rgbObjectToCSS(business.style.buttonText),
-            containerText: style.rgbObjectToCSS(business.style.containerText),
-            containerBg: style.rgbObjectToCSS(business.style.containerBg)
+            buttonBg: style.rgbObjectToCSS(business.buttonBg),
+            buttonText: style.rgbObjectToCSS(business.buttonText),
+            containerText: style.rgbObjectToCSS(business.containerText),
+            containerBg: style.rgbObjectToCSS(business.containerBg)
         });
     } else {
         //Update the state of the appointment

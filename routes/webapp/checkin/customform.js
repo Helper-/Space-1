@@ -1,7 +1,7 @@
 var ObjectID = require('mongodb').ObjectID;
 var _ = require('underscore');
 var style = require('./../../../lib/style.js');
-//var sms = require('./../../../lib/sms.js');
+var sms = require('./../../../lib/sms.js');
 
 //Custom Form
 function makeDropdown(options, name, body) {
@@ -183,7 +183,14 @@ exports.post = function (req, res, next) {
                         if (!employee) {
                             return next(new Error('Employee not found'));
                         }
-                        res.redirect('sign');
+
+                        sms.sendText(employee.phone, 'Your patient ' + appt.fname + ' ' + appt.lname + ' has checked in.', function (err) {
+                            if (err) {
+                                return next(err);
+                            }
+
+                            res.redirect('sign');
+                        });
                     });
                 });
             });
