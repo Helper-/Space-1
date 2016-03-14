@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel='stylesheet' href='/stylesheets/main.css'/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/main.css"/>
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
   </head>
@@ -112,6 +113,19 @@
                                                 <input class="regis" type="password" name="confirm_password" value="{{ confirm_password }}" placeholder="Confirm Password" required>
                                             </div>
                                         </div>
+
+                                        <!-- Seventh Row -->
+                                        <div class="9u" style="padding-left: 5em; padding-top: 1em;">
+                                          <select class="form-control" id="Employee Role" name="role">
+                                            <option selected disabled="disabled">Employee Role</option>
+                                            <option>admin</option>
+                                            <option>receptionist</option>
+                                            <option>employee</option>
+                                            <option>checkin</option>
+                                          </select>
+
+                                        </div>
+
                                         <br />
 
 
