@@ -1,7 +1,7 @@
 var style = require('./../../../lib/style.js');
 var slackClient = require('../business/slack-client');
-//var mailerClient = require('mailer-client');
-//var twilioClient = require('twilio-client');
+var mailerClient = require('../business/mailer-client');
+var twilioClient = require('../business/twilio-client');
 
 exports.get = function(req, res, next) {
     var business = req.session.business;
@@ -46,8 +46,8 @@ exports.post = function (req, res, next) {
                 return next(err);
             }
             var messageBody = req.session.patientFirstName + ' ' + req.session.patientLastName + ' has checked in!';
-            //mailerClient.sendSimpleEmail('michael.chang25@gmail.com', 'New Checkin!', messageBody);
-            //twilioClient.sendSmsToPhoneNumber('+16508623873', messageBody);
+            mailerClient.sendSimpleEmail('michael.chang25@gmail.com', 'New Checkin!', messageBody);
+            twilioClient.sendSmsToPhoneNumber('+16508623873', messageBody);
             slackClient.sendSlackMessage('#messages', 'Receptionist Administrator', messageBody);
             res.redirect('done');
         });
