@@ -122,13 +122,11 @@ app.use(function(req, res, next) {
 
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
-<<<<<<< HEAD
-app.use('/', businessRoutes);
-=======
-app.use('/webapi', require('./routes/webapi'));
 app.use('/', businessRoutes);
 
->>>>>>> 112dev-new
+app.use('/webapi', require('./routes/webapi'));
+
+
 
 
 // catch 404 and forward to error handler
