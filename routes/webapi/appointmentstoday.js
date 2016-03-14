@@ -29,11 +29,10 @@ exports.get = function (req, res) {
 
             appointments.find({
                 business: results[0].business,
-                //business: b[0].business
-                //date: {
-                //    $gte: begin,
-                //    $lte: end
-                //}
+                date: {
+                    $gte: begin,
+                    $lte: end
+                }
             },{sort : {date: 1}}, function (err, results) {
                 if (err) {
                     console.error('MongoDB Error in /api/employee/:eid/appointments/today: ' + err );
@@ -45,10 +44,10 @@ exports.get = function (req, res) {
         else{
             appointments.find({
                 employee: ObjectID(req.params.eid),
-                //date: {
-                //    $gte: begin,
-                //    $lte: end
-                //}
+                date: {
+                    $gte: begin,
+                    $lte: end
+                }
             },{sort : {date: 1}}, function (err, results) {
                 if (err) {
                     console.error('MongoDB Error in /api/employee/:eid/appointments/today: ' + err);

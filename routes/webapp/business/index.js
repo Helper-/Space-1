@@ -56,7 +56,7 @@ module.exports = function (passport) {
     }));
 
     router.get('/dashboard', isLoggedIn, dashboard.get);
-    router.post('/dashboard', isLoggedIn, addappointment.post);
+    //router.post('/dashboard', isLoggedIn, addappointment.post);
 
     router.get('/add-appointment', isLoggedIn, addappointment.get);
     router.post('/add-appointment', isLoggedIn, addappointment.post);

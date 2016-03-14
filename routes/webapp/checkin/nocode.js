@@ -197,6 +197,8 @@ exports.post = function (req, res, next) {
             var appt = result[0];
             var apptID = appt._id;
             req.session.appointmentId = apptID;
+            req.session.patientFirstName = inputFirst;
+            req.session.patientLastName = inputLast;
             req.session.save(function (err) {
                 if (err) {
                     console.error('Session save error:', err);

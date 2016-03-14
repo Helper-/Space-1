@@ -3,11 +3,11 @@
  */
 var https = require('https');
 
-module.exports.sendSlackMessage = function()
+module.exports.sendSlackMessage = function(channel, user, message)
 {
 
-    var postData =JSON.stringify({channel: '#messages', username: 'automated-messages',
-        text: 'Calling all bots.', icon_emoji: ':ghost:'});
+    var postData =JSON.stringify({channel: channel, username: user,
+        text: message, icon_emoji: ':monkey_face:'});
     console.log(postData);
 
     var options =
