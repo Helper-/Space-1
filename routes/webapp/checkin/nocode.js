@@ -5,11 +5,7 @@ var style = require('./../../../lib/style.js');
 exports.get = function (req, res, next) {
     var business = req.session.business;
     res.render('checkin/nocode', {
-        bg: business.style.bg,
-        buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
-        buttonText: style.rgbObjectToCSS(business.style.buttonText),
-        containerText: style.rgbObjectToCSS(business.style.containerText),
-        containerBg: style.rgbObjectToCSS(business.style.containerBg)
+        bg: business.bg,
     });
 };
 

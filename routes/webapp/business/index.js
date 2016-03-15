@@ -33,7 +33,7 @@ module.exports = function (passport) {
     router.post('/login', passport.authenticate('local-login', {
       successRedirect : '/dashboard',
       failureRedirect : '/login',
-      failureFlash: true,
+      failureFlash: true
     }));
 
     router.get('/formbuilder', isLoggedIn, formbuilder.get);
@@ -95,6 +95,7 @@ function isLoggedInBusiness(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('back');
 }
+
 
     return router;
 };

@@ -16,7 +16,7 @@
         }
 
         .customBG {
-            background-image: url(/images/bg/full/{{bg}});
+            background-image: url({{bg}});
         }
 
         .btn {
@@ -87,6 +87,3 @@
 </body>
 
 </html>
-
-
-
