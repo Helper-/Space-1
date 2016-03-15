@@ -1,7 +1,7 @@
 /**
  * Created by michaelchang on 2/25/16.
  */
-var settings = require('/mailer-settings');
+var settings = require('./mailer-settings');
 var client = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 

@@ -1,7 +1,7 @@
 var style = require('./../../../lib/style.js');
 var slackClient = require('../business/slack-client');
-//var mailerClient = require('mailer-client');
-//var twilioClient = require('twilio-client');
+var mailerClient = require('../business/mailer-client');
+var twilioClient = require('../business/twilio-client');
 
 exports.get = function(req, res, next) {
     var business = req.session.business;
@@ -10,12 +10,12 @@ exports.get = function(req, res, next) {
     res.render('checkin/sign', {
         disclosure: business.disclosure,
         companyName: business.companyName,
-        bg: business.style.bg,
+        bg: business.bg,
         logo: business.logo,
-        buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
-        buttonText: style.rgbObjectToCSS(business.style.buttonText),
-        containerText: style.rgbObjectToCSS(business.style.containerText),
-        containerBg: style.rgbObjectToCSS(business.style.containerBg)
+        buttonBg: style.rgbObjectToCSS(business.buttonBg),
+        buttonText: style.rgbObjectToCSS(business.buttonText),
+        containerText: style.rgbObjectToCSS(business.containerText),
+        containerBg: style.rgbObjectToCSS(business.containerBg)
     });
 };
 
@@ -28,12 +28,12 @@ exports.post = function (req, res, next) {
             disclosure: business.disclosure,
             error: 'You must provide a signature',
             companyName: business.companyName,
-            bg: business.style.bg,
+            bg: business.bg,
             logo: business.logo,
-            buttonBg: style.rgbObjectToCSS(business.style.buttonBg),
-            buttonText: style.rgbObjectToCSS(business.style.buttonText),
-            containerText: style.rgbObjectToCSS(business.style.containerText),
-            containerBg: style.rgbObjectToCSS(business.style.containerBg)
+            buttonBg: style.rgbObjectToCSS(business.buttonBg),
+            buttonText: style.rgbObjectToCSS(business.buttonText),
+            containerText: style.rgbObjectToCSS(business.containerText),
+            containerBg: style.rgbObjectToCSS(business.containerBg)
         });
     } else {
         //Update the state of the appointment
@@ -46,8 +46,8 @@ exports.post = function (req, res, next) {
                 return next(err);
             }
             var messageBody = req.session.patientFirstName + ' ' + req.session.patientLastName + ' has checked in!';
-            //mailerClient.sendSimpleEmail('michael.chang25@gmail.com', 'New Checkin!', messageBody);
-            //twilioClient.sendSmsToPhoneNumber('+16508623873', messageBody);
+            mailerClient.sendSimpleEmail('michael.chang25@gmail.com', 'New Checkin!', messageBody);
+            twilioClient.sendSmsToPhoneNumber('+16508623873', messageBody);
             slackClient.sendSlackMessage('#messages', 'Receptionist Administrator', messageBody);
             res.redirect('done');
         });
