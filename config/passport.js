@@ -32,6 +32,7 @@ module.exports = function (passport) {
             var fname = req.body.fname;
             var lname = req.body.lname;
             var phone = req.body.phone;
+            var lastCheckin = new Date().toLocaleDateString();
 
             if (!phone) {
                 phone = '';
@@ -48,7 +49,8 @@ module.exports = function (passport) {
                     lname: lname,
                     email: email
                 });
-            } else {
+            }
+            else {
 
                 var businesses = db.get('businesses');
                 var employees = db.get('employees');
@@ -82,9 +84,10 @@ module.exports = function (passport) {
                             phone: phone,
                             fname: fname,
                             lname: lname,
-                            logo: '/images/uploads/defaultLogo.png',
-                            bg: '/images/uploads/defaultBg.jpg',
-                            walkins: false
+                            logo: '/images/defaultLogo.png',
+                            bg: '/images/defaultBg.jpg',
+                            lastCheckin: lastCheckin,
+
                         }, function (err, result) {
                             if (err) {
                                 throw err;
@@ -164,6 +167,22 @@ module.exports = function (passport) {
     passReqToCallback: true // allows us to pass back the entire request to the callback
   }, function (req, email, password, done) { // callback with email and password from our form
     auth.validateLogin(req.db, email, password, function (user) {
+
+      function checkinDate(user) {
+        var businessDB = req.db.get('businesses');
+        var businessId = user.business;
+        var date = new Date().toLocaleDateString();
+
+        businessDB.updateById(businessId,
+          {$set: {checkin: date}},
+          {upsert: true },
+          function(err){
+        });
+        console.log(date);
+      }
+
+      checkinDate(user);
+
       if(!user) {
         return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
       }

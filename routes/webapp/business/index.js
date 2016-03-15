@@ -30,10 +30,10 @@ module.exports = function (passport) {
     router.get('/theming', isLoggedInBusiness, theming.get);
 
     router.get('/login', login.get);
-    router.post('/login',passport.authenticate('local-login',{
-        successRedirect : '/dashboard',
-        failureRedirect : '/login',
-        failureFlash: true
+    router.post('/login', passport.authenticate('local-login', {
+      successRedirect : '/dashboard',
+      failureRedirect : '/login',
+      failureFlash: true,
     }));
 
     router.get('/formbuilder', isLoggedIn, formbuilder.get);
@@ -78,13 +78,12 @@ module.exports = function (passport) {
     router.get('/setdisclosure', isLoggedInBusiness, setdisclosure.get);
     router.post('/setdisclosure', isLoggedInBusiness, setdisclosure.post);
 
-function isLoggedIn(req,res,next){
-        if(req.isAuthenticated()){
-            return next();
-        }
-
-        res.redirect('/');
-    }
+function isLoggedIn(req,res,next) {
+  if(req.isAuthenticated()) {
+      return next();
+  }
+  res.redirect('/');
+}
 
 // route middleware to make sure a user is logged in
 function isLoggedInBusiness(req, res, next) {
@@ -96,7 +95,6 @@ function isLoggedInBusiness(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('back');
 }
-
 
     return router;
 };
