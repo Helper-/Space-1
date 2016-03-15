@@ -32,6 +32,7 @@ module.exports = function (passport) {
             var fname = req.body.fname;
             var lname = req.body.lname;
             var phone = req.body.phone;
+            var lastCheckin = new Date().toLocaleDateString();
 
             if (!phone) {
                 phone = '';
@@ -48,7 +49,8 @@ module.exports = function (passport) {
                     lname: lname,
                     email: email
                 });
-            } else {
+            }
+            else {
 
                 var businesses = db.get('businesses');
                 var employees = db.get('employees');
@@ -82,9 +84,10 @@ module.exports = function (passport) {
                             phone: phone,
                             fname: fname,
                             lname: lname,
-                            logo: '/images/uploads/defaultLogo.png',
-                            bg: '/images/uploads/defaultBg.jpg',
-                            walkins: false
+                            logo: '/images/defaultLogo.png',
+                            bg: '/images/defaultBg.jpg',
+                            lastCheckin: lastCheckin,
+
                         }, function (err, result) {
                             if (err) {
                                 throw err;
@@ -103,7 +106,7 @@ module.exports = function (passport) {
                                 email: result.email,
                                 smsNotify: true,
                                 emailNotify: true,
-                                admin: true
+                                role: 'admin'
                             }, function(err, user){
                                 if (err) {
                                     throw err;
@@ -157,25 +160,35 @@ module.exports = function (passport) {
     // we are using named strategies since we have one for login and one for signup
     // by default, if there was no name, it would just be called 'local'
 
-    passport.use('local-login', new LocalStrategy({
-            // by default, local strategy uses username and password, we will override with email
-            usernameField: 'email',
-            passwordField: 'password',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
-        },
-        function (req, email, password, done) { // callback with email and password from our form
+  passport.use('local-login', new LocalStrategy({
+              // by default, local strategy uses username and password, we will override with email
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true // allows us to pass back the entire request to the callback
+  }, function (req, email, password, done) { // callback with email and password from our form
+    auth.validateLogin(req.db, email, password, function (user) {
 
+      function checkinDate(user) {
+        var businessDB = req.db.get('businesses');
+        var businessId = user.business;
+        var date = new Date().toLocaleDateString();
 
-            auth.validateLogin(req.db, email, password, function (user) {
-                if (!user) {
-                    return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
-                }
-                else {
-                    return done(null,user);
-                    }
-            });
-        }
-    ));
+        businessDB.updateById(businessId,
+          {$set: {checkin: date}},
+          {upsert: true },
+          function(err){
+        });
+        console.log(date);
+      }
 
+      checkinDate(user);
 
+      if(!user) {
+        return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
+      }
+      else {
+        return done(null,user);
+      }
+    });
+  }));
 };

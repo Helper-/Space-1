@@ -34,7 +34,7 @@ exports.post = function(req, res, next){
       if(err) {
         return next(err);
       }
-      if(results.logo !== '/images/uploads/defaultLogo.png') {
+      if(results.logo !== '/images/defaultLogo.png') {
         fs.unlink('public' + results.logo);
       }
       stuff = results.bg
@@ -61,7 +61,7 @@ exports.post = function(req, res, next){
       if(err) {
         return next(err);
       }
-      if(results.bg !== '/images/uploads/defaultBg.jpg') {
+      if(results.bg !== '/images/defaultBg.jpg') {
         fs.unlinkSync('public' + results.bg);
       }
       stuff = results.logo
@@ -82,38 +82,4 @@ exports.post = function(req, res, next){
         });
       });
   }
-/**
-     else{
-         businesses.findById(businessID, function (err, results) {
-                 if(err) { return next(err); }
-                 if(results.logo) {
-                     res.render('business/customizetheme',{
-                         title:'Upload Logo',
-                         logo:results.logo,
-                         bg: '/images/bg/full/' + results.style.bg,
-                         error:'Please select a valid image(png,jpg) file to upload.'
-                     });
-                 }
-                 else{
-                     res.render('business/customizetheme',{
-                         title:'Upload Logo',
-                         error:'Please select a valid image(png,jpg) file to upload.'
-                     });
-                 }
-             }
-         ); //Closes findByID
-     }
-
-
-     var query = ({
-        query: {business: businessID},
-        update: {$set: {
-          logo: '/images/uploads' + req.files.userLogo.name,
-          name: 'companyLogo'}},
-        upsert: true
-      })
-
-
-
-**/
- };
+};
