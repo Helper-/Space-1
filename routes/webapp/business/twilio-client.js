@@ -1,7 +1,7 @@
 /**
  * Created by michaelchang on 2/24/16.
  */
-var settings = require('/twilio-settings');
+var settings = require('./twilio-settings');
 var client = require('twilio')(settings.accountSid, settings.authToken);
 
 module.exports.sendSmsToPhoneNumber = function(to, message) {
