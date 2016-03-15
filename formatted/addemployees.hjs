@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+
+<!-- Employees: Can view current employees, add individual employees, or import
+via a .CSV file. Only viewable by the owner. -->
+
+<html>
+  <head>
+    <title>Breeze - Employees</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+  </head>
+
+  <body class="no-sidebar">
+    <div id="page-wrapper">
+      <!-- Navigation Bar -->
+      <header id="header">
+        <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+            <li class="submenu">
+              <a href="#">Settings</a>
+              <ul>
+                <li><a href="/addemployees">Employees</a></li>
+                <li><a href="/manageforms">Manage Forms</a></li>
+                <li><a href="/setdisclosure">Disclosure Agreements</a></li>
+                <li><a href="/customizetheme">Customize Theme</a></li>
+                <li><a href="/accountSettings">Account Settings</a></li>
+                <li><a href="/businesssetting">Company Settings</a></li>
+              </ul>
+            </li>
+            <li><a href="/login" class="button special">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Page Content -->
+      <article id="main">
+        <header class="special container">
+          <span class="icon fa-inbox"></span>
+          <h2><strong>Register Employees</strong></h2>
+          <!-- Notification: show any messages that come back with authentication -->
+          {{#message}} <!-- Only display if `error` is set -->
+          <div class="alert alert-danger" role="alert">
+          {{ message }}
+          </div>
+          {{/message}}
+
+            <!-- Form Input / Modal Box-->
+          <div class="container container-margin"><br />
+            <div class="row" id="regis-container">
+              <div class="4u 12u"></div>
+                <div class="4u 12u">
+                  <a href="#openModal"><input class="button special" value="Register Employee"></a>
+                  <div id="openModal" class="modalDialog">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                      <h2 style="text-align:center">Register Employee</h2>
+                      <div class="row" id="regis-container">
+                        <div class="12u 12u">
+                          <form method="post" action="addemployees"
+                          enctype="application/x-www-form-urlencoded">
+                          <!-- First Row Fields -->
+                          <div class="row 50%">
+                            <div class="6u 12u(mobile)">
+                              <input class="regis" type="text"
+                              name="fname" value="{{ fname }}"
+                              placeholder="First Name" required />
+                            </div>
+                            <div class="6u 12u(mobile)">
+                              <input class="regis" type="text"
+                              name="lname" value="{{ lname }}"
+                              placeholder="Last Name" required />
+                            </div>
+                          </div>
+                          <!-- Second Row Fields -->
+                          <div class="row 50%">
+                            <div class="12u">
+                              <input class="regis" type="text"
+                              name="phone" value="{{ phone }}"
+                              placeholder="(123) 345-6789" required />
+                            </div>
+                          </div>
+                          <!-- Third Row Fields -->
+                          <div class="row 50%">
+                            <div class="12u">
+                              <input class="regis" type="email"
+                              name="email" value="{{ email }}"
+                              placeholder="Email Address" required />
+                            </div>
+                          </div>
+                          <!-- Fourth Row Fields-->
+                          <div class="row 50%">
+                            <div class="12u">
+                              <input class="regis" type="password"
+                              name="password" value="{{ password }}"
+                              placeholder="Password" required />
+                            </div>
+                          </div>
+                          <!-- Fifth Row Fields -->
+                          <div class="row 50%">
+                            <div class="12u">
+                              <input class="regis" type="password"
+                              name="confirm_password" value="{{ confirm_password }}"
+                              placeholder="Confirm Password" required />
+                            </div>
+                          </div> <br />
+                            <input class="button special" name="submit"
+                            type="submit" href="/addemployees"
+                            value="Register Employee">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- Closes Modal Box -->
+                </div>
+              </div>
+            </div> <!-- Closes Form Inputs -->
+          </header>
+          <!-- Page Content -->
+        <section class="wrapper style4 container 75%">
+        <!-- Content -->
+          <div class="row">
+            <div class="12u 12u(mobile)">
+              <h2 style="text-align: center">Registered Employees</h2>
+              <!-- show any messages that come back with authentication -->
+              {{#message}} <!-- Only display if `error` is set -->
+                <div class="alert alert-danger" role="alert">
+              {{ message }}
+                </div>
+              {{/message}}
+              <!-- Table of Employees Registered -->
+              <table class="table" id="registeredEmployees">
+                <thead style="font-weight: bold">
+                  <tr style="text-align: left">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                  </tr>
+                </thead>
+              {{#signed}}
+                <form method="post" action="addemployees" enctype="application/x-www-form-urlencoded">
+                <!-- Populate -->
+                  <tr style="text-align: left">
+                    <td>{{fname}} {{lname}}</td>
+                    <td>{{email}}</td>
+                    <input name= "email" type="hidden" value = "{{email}}">
+                    <td><input class="button special" name="submit"
+                      type="submit" href="/addemployees" value="delete"></td>
+                  </tr>
+                </form>
+                {{/signed}}
+              </table>
+            </div>
+          </div>
+        </section>
+        <!-- Import Button -->
+        <center>
+          <input class="button special" name="submit" type="submit" value="Import   Employees">
+        </center>
+      </article>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="copyright">
+        <li>Space-1 &copy;2016</li>
+        </ul>
+      </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.dropotron.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollgress.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script> eid = "{{eid}}"; </script>
+  </body>
+</html>
