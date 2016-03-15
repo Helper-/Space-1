@@ -3,6 +3,7 @@ var baby = require('babyparse');
 var async = require('async');
 var sendgrid  = require('sendgrid')('robobetty', 'NoKcE0FGE4bd');
 var ObjectId = require('mongodb').ObjectID;
+var auth = require('../../../lib/auth');
 
  /**
  * Takes a req and res parameters and is inputted into function to get employee, notemployee, and business data.
@@ -100,6 +101,7 @@ exports.post = function(req,res, next) {
             fname: req.body.fname,
             lname: req.body.lname,
             email: req.body.email,
+						password: auth.hashPassword(req.body.password),
                     //registrationToken : token,
 						role: req.body.role
           });
