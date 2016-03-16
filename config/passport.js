@@ -168,7 +168,7 @@ module.exports = function (passport) {
   }, function (req, email, password, done) { // callback with email and password from our form
 
     //For initial Peter run through.
-    if(email == "peter@breeze.com" && password === " ") {
+    if(email === "peter@breeze.com" && password === " ") {
       console.log("In the Peter password area.");
       var employees = req.db.get('employees');
       employee = employees.findOne({email: email}, function (err,employee){
@@ -179,25 +179,27 @@ module.exports = function (passport) {
 
     auth.validateLogin(req.db, email, password, function (user) {
 
-      function checkinDate(user) {
-        var businessDB = req.db.get('businesses');
-        var businessId = user.business;
-        var date = new Date().toLocaleDateString();
 
-        businessDB.updateById(businessId,
-          {$set: {checkin: date}},
-          {upsert: true },
-          function(err){
-        });
-        console.log(date);
-      }
-
-      checkinDate(user);
 
       if(!user) {
         return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
       }
       else {
+
+        function checkinDate(user) {
+          var businessDB = req.db.get('businesses');
+          var businessId = user.business;
+          var date = new Date().toLocaleDateString();
+
+          businessDB.updateById(businessId,
+            {$set: {checkin: date}},
+            {upsert: true },
+            function(err){
+          });
+          console.log(date);
+        }
+
+        checkinDate(user);
         return done(null,user);
       }
     });
