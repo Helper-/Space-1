@@ -20,68 +20,8 @@
             <ul>
               <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
 
-              <!-- Create Appointment Pop-up-->
-              <li class="current"><a href="#openModal">Create Appointment</a>
-                <div id="openModal" class="modalDialog">
-                  <div>
-                    <a href="#close" title="Close" class="close">X</a>
-
-                    <h2 style="text-align:center">Create Appointment</h2>
-
-                    <div class="content">
-                                    <form method="post" action="add-appointment" enctype="application/x-www-form-urlencoded">
-
-                                        <!-- First Row -->
-                                        <div class="row 50%">
-                                            <div class="6u 12u(mobile)">
-                                                <input class="regis" type="text" name="fname" value="{{ fname }}" placeholder="First Name" required />
-                                            </div>
-
-                                            <div class="6u 12u(mobile)">
-                                                <input class="regis" type="text" name="lname" value="{{ lname }}" placeholder="Last Name" required>
-                                            </div>
-                                        </div>
-
-                                        <!-- Second Row -->
-                                        <div class="row 50%">
-                                            <div class="12u">
-                                               <input class="regis" type="text" name="phone" value="{{ phone }}" placeholder="Phone Number" >
-                                            </div>
-                                        </div>
-
-                                        <!-- Date dropdown -->
-                                        <div class="row 50%">
-                                            <div class="12u"><center>
-                                               <select id="daydropdown" name="day" value="{{ day }}"></select>
-                                               <select id="monthdropdown" name="month" value="{{ month }}"></select>
-                                               <select id="yeardropdown" name="year" value="{{ year }}"></select></center>
-                                            </div>
-                                        </div>
-
-                                        <!-- Time dropdown -->
-                                        <div class="row 50%">
-                                            <div class="12u"><center>
-                                              Time:
-                                               <select id="hourdropdown" name="hour" value="{{ year }}"></select>
-                                               <select id="minutedropdown" name="minute" value="{{ year }}"></select>
-                                               <select id="nightdropdown" name="night" value="{{ night }}"></select></center>
-                                            </div>
-                                        </div>
-
-                                        <!-- Submit Button -->
-                                        <div class="row 50%">
-                                            <div class="12u">
-                                              <center>
-                                                <input class="button special" name="submit" type="submit" value="Create Appointment">
-                                              </center>
-                                            </div>
-                                        </div>
-                                        </form>
-                  </div>
-                </div>
-
-              <!-- Check-in button to go to check-in-->
-              <li class="current"><a href="/office/{{bid}}/checkin" class="button">Check-In Mode</a></li>
+              <!-- Check-in button to go to the landing page-->
+              <li class="current"><a href="/landing" class="button">Landing Page</a></li>
 
               <li class="submenu">
                 <a href="#">Settings</a>
@@ -92,7 +32,6 @@
                   <li><a href="/customizetheme">Customize Theme</a></li>
                   <li><a href="/accountSettings">Account Settings</a></li>
                   <li><a href="/businesssetting" >Company Settings</a></li>
-                  <li><a href="/admindashboard">Testing</a></li>
                 </ul>
               </li>
 
@@ -120,10 +59,10 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Company Name</th>
                             <th></th>
-                            <th>Appointment Time</th>
-                            <th>Status</th>
+                            <th>Owner</th>
+                            <th>Last Login Date</th>
                             <th></th>
                             <th>Picture</th>
                             <th></th>
@@ -136,7 +75,7 @@
                             <td>1</td>
                             <td></td>
                             <td></td>
-                            <td> </script></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -169,14 +108,14 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th></th>
-            <th>Appointment Time</th>
-            <th>Status</th>
-            <th></th>
-            <th>Picture</th>
-            <th></th>
+           <th>#</th>
+           <th>Company Name</th>
+           <th></th>
+           <th>Owner</th>
+           <th>Last Login Date</th>
+           <th></th>
+           <th>Picture</th>
+           <th></th>
           </tr>
         </thead>
         <tbody id="tblBody">
