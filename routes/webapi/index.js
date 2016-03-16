@@ -8,12 +8,15 @@ var router = express.Router();
  * Loads modules for check-in operations:
  * appointmentsToday,setApptState, formResponse, signature
  */
+//var admindashboard = require('./admindashboard');
 var appointmentsToday = require('./appointmentstoday');
 var setApptState = require('./set_appt_state');
 var formResponse = require('./form_response');
 var signature = require('./signature');
 var form = require('./form_request');
 var updateStyle = require('./update_style');
+
+//router.get('/businesses', admindashboard.get);
 
 /**
  * Routes get request for url /employee/:eid/appointments/today to the get
