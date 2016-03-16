@@ -18,7 +18,7 @@
           <h1 id="logo">Breeze <span>by Space-1</span></a></h1>
           <nav id="nav">
             <ul>
-              <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
+              <li class="current"><a href="/admindashboard" class="button">Dashboard</a></li>
 
               <!-- Check-in button to go to the landing page-->
               <!--<li class="current"><a href="/landing" class="button">Landing Page</a></li>-->
