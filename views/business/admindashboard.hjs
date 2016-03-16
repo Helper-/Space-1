@@ -21,7 +21,7 @@
               <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
 
               <!-- Check-in button to go to the landing page-->
-              <li class="current"><a href="/landing" class="button">Landing Page</a></li>
+              <!--<li class="current"><a href="/landing" class="button">Landing Page</a></li>-->
 
               <li class="submenu">
                 <a href="#">Settings</a>

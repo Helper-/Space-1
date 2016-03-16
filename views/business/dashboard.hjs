@@ -19,7 +19,7 @@
           <nav id="nav">
             <ul>
               <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
-
+                <li class="current"><a href="/admindashboard" class="button">AdminDashboard</a></li>
               <!-- Create Appointment Pop-up-->
               <li class="current"><a href="#openModal">Create Appointment</a>
                 <div id="openModal" class="modalDialog">
@@ -92,7 +92,6 @@
                   <li><a href="/customizetheme">Customize Theme</a></li>
                   <li><a href="/accountSettings">Account Settings</a></li>
                   <li><a href="/businesssetting" >Company Settings</a></li>
-                  <li><a href="/admindashboard">Testing</a></li>
                 </ul>
               </li>
 
