@@ -2,7 +2,7 @@ $(function(){
 
   getDate();
   $(startTime);
-//  $(table);
+  $(table);
   $(poll);
 
 
@@ -98,7 +98,7 @@ function checkTime(i) {
     return i;
 }
 
-/**
+
 function table() {
 
     var cols,$btn;
@@ -165,7 +165,7 @@ function table() {
 
     });//end of $get()
 }//end of table()
-**/
+
 
 function poll() {
   //  setTimeout(function(){
