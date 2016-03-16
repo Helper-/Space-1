@@ -182,10 +182,6 @@ exports.post = function (req, res, next) {
                 inputLast: inputLast,
                 //inputDOB: inputDOB,
                 bg: business.bg,
-                buttonBg: style.rgbObjectToCSS(business.buttonBg),
-                buttonText: style.rgbObjectToCSS(business.buttonText),
-                containerText: style.rgbObjectToCSS(business.containerText),
-                containerBg: style.rgbObjectToCSS(business.containerBg)
             });
             return;
         }

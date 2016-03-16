@@ -15,7 +15,8 @@ exports.post = function (req, res, next) {
 
     if (companyName === '') {
         res.redirect('/register');
-    } else {
+    }
+		else {
         req.session.companyName = companyName;
 
         req.session.save(function (err) {
