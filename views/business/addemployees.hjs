@@ -162,7 +162,7 @@
                                     <td>{{fname}} {{lname}}</td>
                                     <td>{{email}}</td>
                                     <input name= "email" type="hidden" value = "{{email}}">
-                                    <td><input class="button special" name="submit" type="submit" href="/addemployees" value="delete">
+                                    <td><button class="btn btn-danger" name="submit" type="submit" href="/addemployees" value="delete">delete</button>
 </td>
                                 </tr>
                                 </form>
