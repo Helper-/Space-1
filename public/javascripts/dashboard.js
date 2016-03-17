@@ -119,7 +119,7 @@ function table() {
               continue;
             }
 
-            var $img = $('<img id="Image" src="http://placehold.it/50x50" />');
+            var $img = $('<img id="Image" src="http://placehold.it/50x50" style="vertical-align: middle"/>');
             count++;
 
             var appTime = getAppDate(data[i].date);
@@ -206,16 +206,16 @@ function getAppDate(date){
 
 // JQuery Insert Row
 function insRow(cols) {
-  var $row = $('<tr/>'); // Create a r
+  var $row = $('<tr></tr>'); // Create a row
 
   // Loop through data
   for (var i = 0; i < cols.length; i++) {
     var $col;
 
     if(i===cols.length-1 && cols[4]=="checkedIn"){
-        $col = $('<td/style="background-color:#00FF00;width:1px">'); // Create a column
+        $col = $('<td style="background-color:#00FF00;width:1px"></td>'); // Create a column
     } else{
-        $col= $('<td/>');
+        $col= $('<th></th>');
     }
 
     $col.append(cols[i]); // Append column data to column
@@ -223,4 +223,5 @@ function insRow(cols) {
   }
 
   $('#tblBody').append($row); // Append to top of element using prepend
+
 }

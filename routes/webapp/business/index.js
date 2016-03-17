@@ -19,10 +19,15 @@ var customizeTheme = require('./customizetheme');
 var manageForms = require('./manageforms');
 var businesssetting = require('./businesssetting');
 var setdisclosure = require('./setdisclosure');
+
+
+/**
+ * Sets up the express routes for the web page
+ *
+ * @param passport: the routes for the web page
+ * @returns router: the router for the webpage
+ */
 module.exports = function (passport) {
-
-
-    //Pass in passport
 
     //Setup the routes
     router.get('/', landing.get);
@@ -32,11 +37,12 @@ module.exports = function (passport) {
 
     router.get('/theming', isLoggedInBusiness, theming.get);
 
+    // log in redirect scheme if failure to log in
     router.get('/login', login.get);
     router.post('/login', passport.authenticate('local-login', {
-      successRedirect : '/dashboard',
-      failureRedirect : '/login',
-      failureFlash: true
+        successRedirect : '/dashboard',
+        failureRedirect : '/login',
+        failureFlash: true
     }));
 
     router.get('/formbuilder', isLoggedIn, formbuilder.get);
@@ -59,7 +65,6 @@ module.exports = function (passport) {
     }));
 
     router.get('/dashboard', isLoggedIn, dashboard.get);
-    //router.post('/dashboard', isLoggedIn, addappointment.post);
 
     router.get('/add-appointment', isLoggedIn, addappointment.get);
     router.post('/add-appointment', isLoggedIn, addappointment.post);
@@ -81,24 +86,38 @@ module.exports = function (passport) {
     router.get('/setdisclosure', isLoggedInBusiness, setdisclosure.get);
     router.post('/setdisclosure', isLoggedInBusiness, setdisclosure.post);
 
-function isLoggedIn(req,res,next) {
-  if(req.isAuthenticated()) {
-      return next();
-  }
-  res.redirect('/');
-}
+    /**
+    * Checks if a user is currently logged in and authenticated
+    * and redirects to the beginning of the web app if not
+    * @param passport: the routes for the web page
+    * @returns router: the router for the webpage
+    */
+    function isLoggedIn(req,res,next) {
 
-// route middleware to make sure a user is logged in
-function isLoggedInBusiness(req, res, next) {
-    // if user is authenticated in the session, carry on
-    if (req.isAuthenticated()&& (req.user[0].role === 'admin')){
-        return next();
+        if(req.isAuthenticated()) {
+          return next();
+        }
+
+        res.redirect('/');
     }
-    req.flash("permission", "You do not have permission to access that page");
-    // if they aren't redirect them to the home page
-    res.redirect('back');
-}
 
+    /**
+    * Checks if the user is logged in correctly in the right business
+    * and redirects to home if not
+    * @param passport: the routes for the web page
+    * @returns router: the router for the webpage
+    */
+    function isLoggedInBusiness(req, res, next) {
+
+        // if user is authenticated in the session, carry on
+        if (req.isAuthenticated()&& (req.user[0].role === 'admin')){
+            return next();
+        }
+
+        // if they aren't redirect them to the home page
+        req.flash("permission", "You do not have permission to access that page");
+        res.redirect('back');
+    }
 
     return router;
 };

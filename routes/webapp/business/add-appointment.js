@@ -1,9 +1,18 @@
 var auth = require('../../../lib/auth');
-
+/**
+ * Takes a req and res parameters and renders the add appointment page
+ * @param req and res The two parameters passed in to get the appointments
+ * @returns Renders the add appointment page
+ */
 exports.get = function(req,res) {
     res.render('business/add-appointment.hjs');
 };
 
+/**
+ * Takes a req and res parameters and inputs a new appointment into the list of appointments
+ * @param req and res The two parameters passed in to get the appointments and a new appointment
+ * @returns The new appointment data
+ */
 exports.post = function(req,res) {
     var db = req.db;
     var appointments = db.get('appointments');
@@ -11,7 +20,7 @@ exports.post = function(req,res) {
     var year = Number(req.body.year);
     var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'].indexOf(req.body.month);
     var day = Number(req.body.day);
-    var hour = Number(req.body.hour) -1;
+    var hour = Number(req.body.hour) +6;
     var minute =Number(req.body.minute);
 
     if(night === "PM") {
@@ -20,15 +29,7 @@ exports.post = function(req,res) {
 
     var date = new Date(year, month, day, hour, minute);
 
-    console.log('Date: ');
-    console.log(date);
-    console.log(hour);
-    console.log(minute);
-    console.log('req.user[0]:');
-    console.log(req.user[0]);
-    console.log('req.body:');
-    console.log(req.body);
-
+    // insert appointment to the list of appointments
     appointments.insert({
         business : req.user[0].business,
         employee : req.user[0]._id,
@@ -39,6 +40,7 @@ exports.post = function(req,res) {
         phone : req.body.phone,
         state : 'Upcoming'
     });
+
     res.redirect('dashboard#close');
 };
 

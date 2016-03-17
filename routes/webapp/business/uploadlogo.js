@@ -1,18 +1,27 @@
 var fs = require('fs');
 var auth = require('../../../lib/auth');
 
+/**
+ * Sets up the company upload logo page with the current company logo
+ * with the button to upload right next to the image
+ *
+ * @param req and res The two parameters passed in to get business and webpage
+ * @returns the company's current logos
+ */
 exports.get = function(req, res, next){
 
     var db = req.db;
     var businesses = db.get('businesses');
     var businessID = req.user[0].business;
 
+    // find the business's company logo and the
     businesses.findById(businessID,
         function (err, results){
             if(err){
                 return next(err);
             }
 
+            // places the buttons to upload right next to the current logos
             if(results.logo){
 
                 res.render('business/uploadLogo',
@@ -27,13 +36,20 @@ exports.get = function(req, res, next){
 
 };
 
+/**
+ * Updates the company logos with the user's uploaded images
+ *
+ * @param req and res The two parameters passed in to get business and webpage
+ * @returns the company's newly updated logos
+ */
 exports.post = function(req, res, next){
 
     var db = req.db;
     var businesses = db.get('businesses');
     var businessID = req.user[0].business;
 
-    if(req.files.userLogo){
+    // removes the company's old logo
+    if(req.files.userLogo) {
 
         businesses.findById(businessID,
             function (err, results){
@@ -46,6 +62,7 @@ exports.post = function(req, res, next){
             }
         );
 
+        // upates the companys logo with the uploaded image
         businesses.updateById(businessID, {
                 $set: {
                     logo: '/images/uploads/' + req.files.userLogo.name
@@ -66,6 +83,8 @@ exports.post = function(req, res, next){
 
         );
     }
+
+    // case where the user does not upload a valid image
     else{
 
         businesses.findById(businessID,

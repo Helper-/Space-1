@@ -150,7 +150,7 @@ if (app.get('env') === 'development') {
     });
 }
 
-// production error handler
+// product  ion error handler
 // no stacktraces leaked to user
 app.use(function (err, req, res) {
     res.status(err.status || 500);

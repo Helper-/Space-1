@@ -116,7 +116,7 @@ exports.get = function (req, res) {
         else {
           res.render('business/manage_forms', {
             message: req.flash('permission'),
-            form: "You don't have a a form yet.",
+            form: "You don't have a form yet.",
           });
         }
 
