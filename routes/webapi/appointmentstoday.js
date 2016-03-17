@@ -11,7 +11,6 @@ exports.get = function (req, res) {
     var appointments = db.get('appointments');
     var employees = db.get('employees');
 
-
     //Get the start and end of today
     var begin = new Date();
     begin.setHours(0,0,0,0);
@@ -21,6 +20,8 @@ exports.get = function (req, res) {
     console.error("req.params.eid: " + req.params.eid);
     console.error("req.user[0]._id" + req.user[0]._id);
 
+
+    // Check if employee is admin or receptionist
     employees.find({
         _id : ObjectID(req.params.eid)
         //admin : true,
@@ -30,6 +31,8 @@ exports.get = function (req, res) {
             console.error('MongoDB Error in /api/employee/:eid/appointments/today: ' + err);
             return res.send(500);
         }
+
+        // if employee is admin or receptionist, display all appointments
         if(results[0]){
 
             appointments.find({
@@ -48,6 +51,8 @@ exports.get = function (req, res) {
                 res.json(results);
             });
         }
+
+        // otherwise display only appointments of the employee
         else{
             appointments.find({
                 employee: ObjectID(req.params.eid),
