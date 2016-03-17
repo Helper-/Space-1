@@ -2,8 +2,14 @@
 //  This script is used to create the Peter role for
 //  our Breeze checkin app.
 //
-//  To run this script you just type:
-//  mongo > peter.js
+//  To run this script you:
+//  Need to start our app (gulp)
+//  In another terminal window run mongo > peter.js
+//  To log in the account is:
+//  peter@breeze.com
+//  _  <--- that is a space not underscore.
+//  Peter starts with his password as a space so Make
+//  sure to change it after first login.
 //
 
 use breeze
