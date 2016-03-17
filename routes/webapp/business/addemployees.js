@@ -17,7 +17,6 @@ exports.get = function(req,res){
         var employee;
         var notemployee;
         var businessID = req.user[0].business.toString();
-				console.log("hello get");
         async.parallel({
           employee: function(cb){
             employeeDB.find({registrationToken: {$exists: false}, business: ObjectId(businessID)},function (err,results){
@@ -47,7 +46,8 @@ exports.get = function(req,res){
 					if(err){
             throw err;
           }
-          res.render('business/addemployees',{notsigned: notemployee, signed: employeee});
+            res.render('business/addemployees',{message: req.flash("employee"), title: 'Express',notsigned: notemployee, signed: employeee});
+
         });
 }
 
@@ -59,41 +59,35 @@ exports.get = function(req,res){
  */
 
 exports.post = function(req,res, next) {
-    // var parsed = baby.parse(req.body.csvEmployees);
-    //    var rows = parsed.data;
-    console.log(req.body);
     var database = req.db;
     var employeeDB = database.get('employees');
     var businessID = req.user[0].business;
-    //console.log(req.body.fname);
 
     if(req.body.submit == "delete"){
 
-      console.log("hello delete");
       employeeDB.find({email: req.body.email}, function (err, results) {
-          //if (err) { return next(err);  }
         if (results[0] == null) {
-          console.log("we are in");
-              //var token = randomToken();
 
-          req.flash("employee", "employee is not in the database");
+          req.flash("employee", "Employee does not exists.");
           res.redirect('back');
         }
 				else {
           employeeDB.remove({
           	email: req.body.email
           });
-          req.flash("employee", "employee deleted");
+          req.flash("employee", "Employee has been deleted.");
           res.redirect('back');
         }
       });
     }
 		else {
-      console.log("hello post");
       employeeDB.find({email: req.body.email}, function (err, results) {
             //if (err) { return next(err);  }
         if (results[0] == null) {
-          console.log("we are in");
+            phone = req.body.phone;
+            if(!phone) {
+                phone = "";
+            }
                 //var token = randomToken();
           employeeDB.insert({
                     // business: ObjectId(businessID),
@@ -101,16 +95,17 @@ exports.post = function(req,res, next) {
             fname: req.body.fname,
             lname: req.body.lname,
             email: req.body.email,
+              phone: req.body.phone,
 						password: auth.hashPassword(req.body.password),
                     //registrationToken : token,
 						role: req.body.role
           });
 
-					req.flash("employee", "employee is added successfully!");
+					req.flash("employee", "Employee has been added successfully!");
           res.redirect('back');
         }
 				else {
-          req.flash("employee", "employee's email address already exists!");
+          req.flash("employee", "Employee's email address already exists!");
           res.redirect('back');
         }
       });

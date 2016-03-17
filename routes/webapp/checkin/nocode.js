@@ -1,5 +1,6 @@
 var ObjectID = require('mongodb').ObjectID;
 var style = require('./../../../lib/style.js');
+var _ = require('underscore');
 
 
 exports.get = function (req, res, next) {
@@ -11,11 +12,12 @@ exports.get = function (req, res, next) {
         if (err) {
             return next(err);
         }
+        console.log(form_data);
         if(form_data !== null) {
           res.render('checkin/nocode', {
             message: req.flash('permission'),
             form: form_data.data,
-            bg: businessID.bg,
+            bg: businessID.bg
           });
         }
 
@@ -23,7 +25,7 @@ exports.get = function (req, res, next) {
           res.render('checkin/nocode', {
             message: req.flash('permission'),
             form: "You don't have a a form yet.",
-            bg: businessID.bg,
+            bg: businessID.bg
           });
         }
     });
@@ -35,188 +37,30 @@ exports.post = function (req, res, next) {
     var appointments = db.get('appointments');
     var businesses = db.get('businesses');
 
-    var dobFormatErr = 'Please enter your Date of Birth in MM/DD/YYYY format';
-    var monthValErr = 'Please enter MM value between 01 and 12';
-    var dayValErr = 'Please enter DD value between 01 and 31';
-
     var business = req.session.business;
-
-    var inputFirst = req.body.inputFirst;
-    var inputLast = req.body.inputLast;
-    //var inputDOB = req.body.inputDOB;
-    //var dobSubStr = req.body.inputDOB;
-    //var numSlash = inputDOB.match(/\//g);
-    //
-    //if (numSlash !== null && numSlash.length !== 2) {
-    //    res.render('checkin/nocode', {
-    //        error: dobFormatErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //
-    //var firstSep = dobSubStr.indexOf('/');
-    //var inputMonth = dobSubStr.substring(0, firstSep);
-    //
-    //if (inputMonth.length > 2 || inputMonth.length <= 0) {
-    //    res.render('checkin/nocode', {
-    //        error: dobFormatErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //
-    //dobSubStr = dobSubStr.substring(firstSep+1);
-    //var secondSep = dobSubStr.indexOf('/');
-    //var inputDay = dobSubStr.substring(0, secondSep);
-    //
-    //if (inputDay.length > 2 || inputDay.length <= 0) {
-    //    res.render('checkin/nocode', {
-    //        error: dobFormatErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //
-    //var inputYear = dobSubStr.substring(secondSep+1);
-    //
-    //if (inputYear.length !== 4)
-    //{
-    //    res.render('checkin/nocode', {
-    //        error: dobFormatErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //
-    //try {
-    //    var monthInt = parseInt(inputMonth);
-    //} catch (e) {
-    //    res.render('checkin/nocode', {
-    //        error: monthValErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //
-    //if (monthInt < 1 || monthInt > 12)
-    //{
-    //    res.render('checkin/nocode', {
-    //        error: monthValErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //else if (monthInt < 10 && inputMonth.length === 1)
-    //{
-    //    inputMonth = '0' + inputMonth;
-    //}
-    //
-    //try {
-    //    var dayInt = parseInt(inputDay);
-    //} catch (e) {
-    //    res.render('checkin/nocode', {
-    //        error: dayValErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //
-    //if (dayInt < 1 || dayInt > 31)
-    //{
-    //    res.render('checkin/nocode', {
-    //        error: dayValErr,
-    //        inputFirst: inputFirst,
-    //        inputLast: inputLast,
-    //        inputDOB: inputDOB,
-    //        bg: business.bg,
-    //        buttonBg: style.rgbObjectToCSS(business.buttonBg),
-    //        buttonText: style.rgbObjectToCSS(business.buttonText),
-    //        containerText: style.rgbObjectToCSS(business.containerText),
-    //        containerBg: style.rgbObjectToCSS(business.containerBg)
-    //    });
-    //    return;
-    //}
-    //else if (dayInt < 10 && inputDay.length === 1)
-    //{
-    //    inputDay = '0' + inputDay;
-    //}
-    //
-    //inputDOB = inputMonth + '/' + inputDay + '/' + inputYear;
-
-    appointments.find({business: ObjectID(req.params.id), fname: inputFirst, lname: inputLast/*, dob: inputDOB*/}, function(err, result) {
-        console.log(req.params.id, inputFirst, inputLast/*, inputDOB*/);
+    appointments.find(_.extend(_.clone(req.body),{business: ObjectID(business._id)}), function(err, result) {
         if (result.length === 0) {
-            res.render('checkin/nocode', {
-                error: 'No appointment found',
-                inputFirst: inputFirst,
-                inputLast: inputLast,
-                //inputDOB: inputDOB,
-                bg: business.bg,
-            });
-            return;
+            res.json({error: 'No appointment found'});;
         }
         else {
             var appt = result[0];
             var apptID = appt._id;
-            req.session.appointmentId = apptID;
-            req.session.patientFirstName = inputFirst;
-            req.session.patientLastName = inputLast;
-            req.session.save(function (err) {
-                if (err) {
-                    console.error('Session save error:', err);
+            appointments.find({_id:apptID},function(err,data){
+                var myState = {};
+                if (data[0].state == 'checkedIn'){
+                    myState = _.extend(data[0], {state : "roomed"});
+                } else if (data[0].state == 'roomed'){
+                    myState = _.extend(data[0], {state : "done"});
+                } else {
+                    myState = _.extend(data[0], {state : "checkedIn"});
                 }
-                res.redirect('apptinfo');
+
+                appointments.findAndModify({_id:apptID }, myState, function(err, data) {
+                    if (err) { return res.sendStatus(500, err); }
+                    res.json({redirect:'/office/checkin'});
+                });
             });
+
         }
     });
 };

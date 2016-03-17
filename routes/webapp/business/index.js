@@ -4,6 +4,7 @@ var router = express.Router();
 
 //Define the controllers for checkin process
 var landing = require('./landing');
+var admindashboard = require('./admindashboard');
 var theming = require('./theming');
 var login = require('./login');
 var formbuilder = require('./formbuilder');
@@ -26,6 +27,8 @@ module.exports = function (passport) {
     //Setup the routes
     router.get('/', landing.get);
     router.post('/', landing.post);
+
+    router.get('/admindashboard', isLoggedIn, admindashboard.get);
 
     router.get('/theming', isLoggedInBusiness, theming.get);
 

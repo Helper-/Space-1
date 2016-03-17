@@ -5,6 +5,7 @@ $(function(){
   getDate();
   $(startTime);
   $(table);
+
   //$(poll);
 
 
