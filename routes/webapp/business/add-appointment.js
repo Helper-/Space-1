@@ -18,7 +18,7 @@ exports.post = function(req,res) {
         hour += 12;
     }
 
-    var date = new Date(year, month, day, hour, minute).toLocaleDateString();
+    var date = new Date(year, month, day, hour, minute);
 
     console.log('Date: ');
     console.log(date);
