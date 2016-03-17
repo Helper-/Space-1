@@ -1,4 +1,5 @@
 var auth = require('../../../lib/auth');
+var async = require('async');
 
 /**
  * Takes an req parameter and res parameter and returns the dashboard of the
@@ -30,12 +31,7 @@ exports.get = function (req, res) {
 	}
 
     if (role === 'SuperAdmin'){
-        res.render('business/admindashboard', {
-            eid: employeeId,
-            employeeName: employeename,
-            bid: businessId,
-            message: req.flash("permission")
-        });
+        res.redirect('/admindashboard');//, {
     }
 
     // only show the checkin page if we are using a check in account as log in
