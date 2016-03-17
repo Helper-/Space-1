@@ -12,11 +12,7 @@ exports.get = function (req, res) {
    businesses.then(function(doc){
 		 console.log(doc);
 		 next();
-	 },{
-		 function(err){
-
-		 }
-	 });
+	 },function(err){});
 
 
 	if(role === 'admin' || role === 'receptionist' || role === 'employee' || role === 'SuperAdmin') {
