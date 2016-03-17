@@ -19,7 +19,7 @@
           <nav id="nav">
             <ul>
               <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
-                <li class="current"><a href="/admindashboard" class="button">AdminDashboard</a></li>
+
               <!-- Create Appointment Pop-up-->
               <li class="current"><a href="#openModal">Create Appointment</a>
                 <div id="openModal" class="modalDialog">
@@ -81,7 +81,8 @@
                 </div>
 
               <!-- Check-in button to go to check-in-->
-            <!--  <li class="current"><a href="/office/{{bid}}/checkin" class="button">Check-In Mode</a></li> -->
+              <li class="current"><a href="/office/{{bid}}/checkin" class="button">Check-In Mode</a></li>
+                              <li class="current"><a href="admindashboard" class="button">Admin Dash</a></li>
 
               <li class="submenu">
                 <a href="#">Settings</a>

@@ -97,43 +97,7 @@
             <li>Space-1 &copy;2016</li>
           </ul>
         </footer>
-<!-- TODO: I believe this code populates the table, but we are temporarily taking it out in order to merge. Take a look at fix soon -->
-<!--
-      <h1 class="text-center">Today</h1>
-      <h1 class="text-center" id="currentDate" ></h1>
-      <div id="txt" class="text-center"></div>
-    </div>
-      <p></p>
-      <div class="row">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-           <th>#</th>
-           <th>Company Name</th>
-           <th></th>
-           <th>Owner</th>
-           <th>Last Login Date</th>
-           <th></th>
-           <th>Picture</th>
-           <th></th>
-          </tr>
-        </thead>
-        <tbody id="tblBody">
-          <tr>
 
-            <td></td>
-            <td>{{fname}}  {{lname}}</td>
-            <td></td>
-            <td>{{dob}}</td>
-            <td>{{state}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-          </tr>
-        </tbody>
-      </table>
--->
     </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.dropotron.min.js"></script>
@@ -142,18 +106,11 @@
     <script src="/js/skel.min.js"></script>
     <script src="/js/util.js"></script>
     <script src="/js/main.js"></script>
-    <script src="/javascripts/admindashboard.js"></script>
+    <script src="/javascripts/admindash.js"></script>
 
   <script>
     eid = "{{eid}}";
-  </script>
-
-  <script type="text/javascript">
-    //populatedropdown(id_of_day_select, id_of_month_select, id_of_year_select)
-    window.onload=function(){
-      populatedropdown("daydropdown", "monthdropdown", "yeardropdown")
-      timedropdown("hourdropdown", "minutedropdown", "nightdropdown")
-    }
+    table();
   </script>
 
   </body>
