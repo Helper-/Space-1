@@ -59,8 +59,8 @@ exports.post = function (req, res, next) {
 
     var business = req.session.business;
 
-    var inputFirst = req.body['firstname'];
-    var inputLast = req.body['lastname'];
+    var inputFirst = req.body['fname'];
+    var inputLast = req.body['lname'];
 
     //console.log(req);
 
