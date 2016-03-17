@@ -1,12 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: black;">
 
 <script src="js/doge.js"></script>
-<h1 style="text-align: center;">{{ message }}</h1>
-<h2 style="text-align: center;">{{ error.status }}</h2>
+<h1 style="text-align: center; color: white;">{{ message }}</h1>
+<h2 style="text-align: center; color: white;">{{ error.status }}</h2>
 <!-- <pre>{{ error.stack }}</pre> -->
 
 
 
-<img src="images/harold.jpg" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="images/chuck.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 65%; height 65%;
+                                   ">
 
 <audio controls autoplay style="display: none;">
   <source src="images/gir_doom_song.mp3" type="audio/mpeg">
@@ -21,6 +25,8 @@
         'wow',
         'much words',
         'such random',
+        "much wow",
+        "many norris",
         'very pretty',
         'much confuse',
         'javascript skillz',
@@ -28,6 +34,12 @@
         'very jshint',
         'cse112 got me like',
         'super error',
-        'many mistakes'
+        'many mistakes',
+        'last minute coding',
+        'code all the things',
+        'fix all the things'
         ]);
 </script>
+
+</body>
+</html>
