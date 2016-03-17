@@ -17,6 +17,10 @@ exports.get = function (req, res) {
     begin.setHours(0,0,0,0);
     var end = new Date();
     end.setHours(23, 59, 59, 999);
+
+    console.error("req.params.eid: " + req.params.eid);
+    console.error("req.user[0]._id" + req.user[0]._id);
+
     employees.find({
         _id : ObjectID(req.params.eid)
         //admin : true,

@@ -207,9 +207,6 @@
   <script>
     eid = "{{eid}}";
     table();
-
-    console.log(GLOBAL_APPT);
-    obj.watch(GLOBAL_APPT, table());
     //table();
   </script>
 
