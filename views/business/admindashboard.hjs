@@ -58,7 +58,6 @@
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th>#</th>
                             <th>Company Name</th>
                             <th></th>
                             <th>Owner</th>
@@ -70,18 +69,19 @@
                         </thead>
 
                         <tbody id="tblBody">
-                          <tr>
+                                    {{#signed}}
+                                  <tr>
 
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                                      <th>{{companyName}}</th>
+                                      <th></th>
+                                      <th>{{fname}} {{lname}}</th>
+                                      <th>{{lastCheckin}}</th>
+                                      <th></th>
+                                      <th>{{logo}}</th>
+                                      <th></th>
+                                   </tr>
 
-                          </tr>
+                                  {{/signed}}
                         </tbody>
                       </table>
                     </div>
