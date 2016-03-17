@@ -17,7 +17,6 @@ exports.get = function(req,res){
         var employee;
         var notemployee;
         var businessID = req.user[0].business.toString();
-				console.log("hello get");
         async.parallel({
           employee: function(cb){
             employeeDB.find({registrationToken: {$exists: false}, business: ObjectId(businessID)},function (err,results){
@@ -59,22 +58,14 @@ exports.get = function(req,res){
  */
 
 exports.post = function(req,res, next) {
-    // var parsed = baby.parse(req.body.csvEmployees);
-    //    var rows = parsed.data;
-    console.log(req.body);
     var database = req.db;
     var employeeDB = database.get('employees');
     var businessID = req.user[0].business;
-    //console.log(req.body.fname);
 
     if(req.body.submit == "delete"){
 
-      console.log("hello delete");
       employeeDB.find({email: req.body.email}, function (err, results) {
-          //if (err) { return next(err);  }
         if (results[0] == null) {
-          console.log("we are in");
-              //var token = randomToken();
 
           req.flash("employee", "employee is not in the database");
           res.redirect('back');
@@ -89,11 +80,9 @@ exports.post = function(req,res, next) {
       });
     }
 		else {
-      console.log("hello post");
       employeeDB.find({email: req.body.email}, function (err, results) {
             //if (err) { return next(err);  }
         if (results[0] == null) {
-          console.log("we are in");
             phone = req.body.phone;
             if(!phone) {
                 phone = "";

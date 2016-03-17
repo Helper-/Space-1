@@ -42,7 +42,6 @@ function updateBusiness(req, res, next) {
                 return next(err);
             }
             req.session.business = business;
-            console.log(business);
             req.session.save(function (err) {
                 if (err) {
                     return next(err);
