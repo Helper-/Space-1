@@ -11,7 +11,7 @@ exports.post = function(req,res) {
     var year = Number(req.body.year);
     var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'].indexOf(req.body.month);
     var day = Number(req.body.day);
-    var hour = Number(req.body.hour) -18;
+    var hour = Number(req.body.hour) -1;
     var minute =Number(req.body.minute);
 
     if(night === "PM") {
@@ -22,6 +22,8 @@ exports.post = function(req,res) {
 
     console.log('Date: ');
     console.log(date);
+    console.log(hour);
+    console.log(minute);
     console.log('req.user[0]:');
     console.log(req.user[0]);
     console.log('req.body:');

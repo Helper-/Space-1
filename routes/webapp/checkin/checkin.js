@@ -2,6 +2,7 @@ var style = require('./../../../lib/style.js');
 var slackClient = require('../business/slack-client');
 var mailerClient = require('../business/mailer-client');
 var twilioClient = require('../business/twilio-client');
+var _ = require('underscore');
 
 exports.get = function (req, res, next) {
     //var business = req.session.business;
@@ -12,7 +13,7 @@ exports.get = function (req, res, next) {
 
     businessDb.find({_id:businessId}, function (err, result) {
         var business = result[0];
-        console.log("background: " + business.bg);
+        //console.log("background: " + business.bg);
         forms.findOne({business: businessId}, function (err, form_data) {
             if (err) {
                 return next(err);
@@ -20,7 +21,7 @@ exports.get = function (req, res, next) {
             if (form_data) {
                 var formHtml = form_data.data;
                 req.session.formHtml = formHtml;
-                console.log(formHtml);
+                //console.log(formHtml);
                 res.render('checkin/checkin', {
                     formHtml: formHtml,
                     companyName: business.companyName,
@@ -61,10 +62,10 @@ exports.post = function (req, res, next) {
     var inputFirst = req.body['firstname'];
     var inputLast = req.body['lastname'];
 
-    console.log(req);
+    //console.log(req);
 
-    console.log('input first ' + inputFirst);
-    console.log('input last ' + inputLast);
+    //console.log('input first ' + inputFirst);
+    //console.log('input last ' + inputLast);
 
     appointments.find({business: businessId, fname: inputFirst, lname: inputLast/*, dob: inputDOB*/}, function(err, result) {
         console.log(req.params.id, inputFirst, inputLast/*, inputDOB*/);
@@ -83,6 +84,22 @@ exports.post = function (req, res, next) {
             var appt = result[0];
             var apptID = appt._id;
             req.session.appointmentId = apptID;
+
+            appointments.find({_id:apptID},function(err,data){
+                var myState = {};
+                if (data[0].state == 'checkedIn'){
+                    myState = _.extend(data[0], {state : "roomed"});
+                } else if (data[0].state == 'roomed'){
+                    myState = _.extend(data[0], {state : "done"});
+                } else {
+                    myState = _.extend(data[0], {state : "checkedIn"});
+                }
+
+                appointments.findAndModify({_id:apptID }, myState, function(err, data) {
+                    if (err) { return res.sendStatus(500, err); }
+                });
+            });
+
             //req.session.patientFirstName = inputFirst;
             //req.session.patientLastName = inputLast;
             req.session.save(function (err) {
