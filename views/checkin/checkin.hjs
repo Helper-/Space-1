@@ -47,7 +47,7 @@
                     {{ error }}
                 </div>
             {{/error}}
-            <h1 class ="header">Welcome to {{companyName}}!</h1>
+            <h1 class="welcome">Welcome to {{companyName}}!</h1>
             <img class="checkinphoto" src="{{logo}}" alt="...">
 ​
             <!-- Button Trigger for Modal -->
