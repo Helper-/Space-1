@@ -115,9 +115,9 @@ module.exports = function (passport) {
                             });
 
                             var defaultFrom = "<form-template>\r\n\t<fields>\r\n\t\t<field className=\"form-control\" " +
-                                "label=\"First Name\" maxlength=\"28\" name=\"firstname\" placeholder=\"First Name\" " +
+                                "label=\"First Name\" maxlength=\"28\" name=\"fname\" placeholder=\"First Name\" " +
                                 "required=\"true\" type=\"text\"/>\r\n\t\t<field className=\"form-control\" " +
-                                "label=\"Last Name\" name=\"lastname\" placeholder=\"Last Name\" required=\"true\" type=\"text\"/>\r\n\t"
+                                "label=\"Last Name\" name=\"lname\" placeholder=\"Last Name\" required=\"true\" type=\"text\"/>\r\n\t"
                                 +"<field className=\"btn btn-primary custom-center\" label=\"Submit\" name=\"submit\" type=\"submit\"/>\r\n\t</fields>\r\n</form-template>";
                             forms.insert({
                                 business:ObjectId(businessID),
