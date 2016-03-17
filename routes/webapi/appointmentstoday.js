@@ -27,7 +27,7 @@ exports.get = function (req, res) {
     employees.find({
         _id : ObjectID(req.params.eid)
         //admin : true,
-        role : 'admin',
+        //role : 'admin',
     },
     {sort : {date: 1}},function(err, results){
         if (err) {
