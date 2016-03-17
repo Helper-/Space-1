@@ -94,6 +94,10 @@ exports.post = function(req,res, next) {
             //if (err) { return next(err);  }
         if (results[0] == null) {
           console.log("we are in");
+            phone = req.body.phone;
+            if(!phone) {
+                phone = "";
+            }
                 //var token = randomToken();
           employeeDB.insert({
                     // business: ObjectId(businessID),
@@ -101,6 +105,7 @@ exports.post = function(req,res, next) {
             fname: req.body.fname,
             lname: req.body.lname,
             email: req.body.email,
+              phone: req.body.phone,
 						password: auth.hashPassword(req.body.password),
                     //registrationToken : token,
 						role: req.body.role
