@@ -16,6 +16,7 @@ exports.get = function (req,res) {
     var phone;
     var sms;
     var email;
+    var adminCheck = (req.user[0].role === 'admin') ? true : false;
 
     //calls find method to find the correct employee to pull results
     employees.find({_id: eid}, function (err, result) {
@@ -32,7 +33,8 @@ exports.get = function (req,res) {
             email: emp.email,
             smsNotify: emp.smsNotify,
             emailNotify: emp.emailNotify,
-            message: req.flash("permission")
+            message: req.flash("permission"),
+            adminFlag: adminCheck
         });
     });
 };

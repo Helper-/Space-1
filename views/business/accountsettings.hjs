@@ -25,17 +25,22 @@
           <ul>
             <li class="current"><a href="/dashboard" class="button">Dashboard</a></li>
 
-            <li class="submenu">
-              <a href="#">Settings</a>
-              <ul>
-                <li><a href="/addemployees">Employees</a></li>
-                <li><a href="/manageforms">Manage Forms</a></li>
-                <li><a href="/setdisclosure">Disclosure Agreements</a></li>
-                <li><a href="/customizetheme">Customize Theme</a></li>
-                <li><a href="/accountSettings">Account Settings</a></li>
-                <li><a href="/businesssetting">Company Settings</a></li>
-              </ul>
-            </li>
+            {{#adminFlag}}
+              <li class="submenu">
+                <a href="#">Settings</a>
+                <ul>
+                  <li><a href="/addemployees">Employees</a></li>
+                  <li><a href="/manageforms">Manage Forms</a></li>
+                  <li><a href="/setdisclosure">Disclosure Agreements</a></li>
+                  <li><a href="/customizetheme">Customize Theme</a></li>
+                  <li><a href="/accountSettings">Account Settings</a></li>
+                  <li><a href="/businesssetting">Company Settings</a></li>
+                </ul>
+              </li>
+            {{/adminFlag}}
+            {{^adminFlag}}
+              <li class="current"><a href="/accountSettings" class="button">Account Settings</a></li>
+            {{/adminFlag}}
 
             <li><a href="/login" class="button special">Logout</a></li>
           </ul>
