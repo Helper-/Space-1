@@ -85,7 +85,7 @@ module.exports = function (passport) {
                             fname: fname,
                             lname: lname,
                             logo: '/images/defaultLogo.png',
-                            bg: '/images/defaultBg.jpg',
+                            bg: '/images/defaultBackground.jpg',
                             lastCheckin: lastCheckin,
 
                         }, function (err, result) {
@@ -180,27 +180,27 @@ module.exports = function (passport) {
     auth.validateLogin(req.db, email, password, function (user) {
 
 
-
       if(!user) {
         return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
       }
       else {
 
-        function checkinDate(user) {
-          var businessDB = req.db.get('businesses');
-          var businessId = user.business;
-          var date = new Date().toLocaleDateString();
+          function checkinDate(user) {
+              var businessDB = req.db.get('businesses');
+              var businessId = user.business;
+              var date = new Date().toLocaleDateString();
 
-          businessDB.updateById(businessId,
-            {$set: {checkin: date}},
-            {upsert: true },
-            function(err){
-          });
-          console.log(date);
-        }
+              businessDB.updateById(businessId,
+                  {$set: {checkin: date}},
+                  {upsert: true},
+                  function (err) {
+                  });
+              console.log(date);
+          }
 
-        checkinDate(user);
-        return done(null,user);
+          checkinDate(user);
+          return done(null, user);
+
       }
     });
   }));
