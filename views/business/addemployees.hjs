@@ -146,12 +146,7 @@
                 <div class="12u 12u(mobile)">
                     <h2 style="text-align: center">Registered Employees</h2>
 
-                    <!-- show any messages that come back with authentication -->
-                                 {{#message}} <!-- Only display if `error` is set -->
-                                    <div class="alert alert-danger" role="alert">
-                                        {{ message }}
-                                    </div>
-                                {{/message}}
+
                             <table class="table" id="registeredEmployees">
                                 <thead style="font-weight: bold">
                                     <tr style="text-align: left">

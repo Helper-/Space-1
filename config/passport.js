@@ -168,7 +168,11 @@ module.exports = function (passport) {
   }, function (req, email, password, done) { // callback with email and password from our form
     auth.validateLogin(req.db, email, password, function (user) {
 
+        if(!user) {
+            return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
+        }
       function checkinDate(user) {
+
         var businessDB = req.db.get('businesses');
         var businessId = user.business;
         var date = new Date().toLocaleDateString();
@@ -183,12 +187,8 @@ module.exports = function (passport) {
 
       checkinDate(user);
 
-      if(!user) {
-        return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
-      }
-      else {
         return done(null,user);
-      }
+
     });
   }));
 };

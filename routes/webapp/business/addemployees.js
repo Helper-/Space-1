@@ -47,7 +47,8 @@ exports.get = function(req,res){
 					if(err){
             throw err;
           }
-          res.render('business/addemployees',{notsigned: notemployee, signed: employeee});
+            res.render('business/addemployees',{message: req.flash("employee"), title: 'Express',notsigned: notemployee, signed: employeee});
+
         });
 }
 
@@ -76,14 +77,14 @@ exports.post = function(req,res, next) {
           console.log("we are in");
               //var token = randomToken();
 
-          req.flash("employee", "employee is not in the database");
+          req.flash("employee", "Employee does not exists.");
           res.redirect('back');
         }
 				else {
           employeeDB.remove({
           	email: req.body.email
           });
-          req.flash("employee", "employee deleted");
+          req.flash("employee", "Employee has been deleted.");
           res.redirect('back');
         }
       });
@@ -106,11 +107,11 @@ exports.post = function(req,res, next) {
 						role: req.body.role
           });
 
-					req.flash("employee", "employee is added successfully!");
+					req.flash("employee", "Employee has been added successfully!");
           res.redirect('back');
         }
 				else {
-          req.flash("employee", "employee's email address already exists!");
+          req.flash("employee", "Employee's email address already exists!");
           res.redirect('back');
         }
       });
