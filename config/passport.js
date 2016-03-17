@@ -192,7 +192,7 @@ module.exports = function (passport) {
           var date = new Date().toLocaleDateString();
 
           businessDB.updateById(businessId,
-            {$set: {checkin: date}},
+            {$set: {lastCheckin: date}},
             {upsert: true },
             function(err){
           });
