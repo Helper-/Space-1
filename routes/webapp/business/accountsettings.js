@@ -7,7 +7,8 @@ var auth = require('../../../lib/auth');
  * @returns title, fname, lname, password, phone, email, smsNotify, emailNotify
  */
 exports.get = function (req,res) {
-		var eid = req.user[0]._id;
+
+    var eid = req.user[0]._id;
     var db = req.db;
     var employees = db.get('employees');
 
@@ -19,10 +20,13 @@ exports.get = function (req,res) {
 
     //calls find method to find the correct employee to pull results
     employees.find({_id: eid}, function (err, result) {
+
         var emp = result[0];
         var phone = emp.phone;
+
         phone = phone.replace('1', '');
-				phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+        phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
         res.render('business/accountsettings', {
             title: 'Express',
             fname: emp.fname,
@@ -45,6 +49,7 @@ exports.get = function (req,res) {
  * @returns title, fname, lname, password, phone, email, smsNotify, emailNotify
  */
 exports.post = function (req, res) {
+
     var db = req.db;
     var employees = db.get('employees');
     var eid = req.user[0]._id;
@@ -55,44 +60,56 @@ exports.post = function (req, res) {
     var textNotify = req.body.sendText;
     var emailNotify = req.body.sendEmail;
 
-    if (inputPass != null)
-    {
+    if (inputPass != null) {
 
-					inputPass = auth.hashPassword(inputPass);
-					employees.findAndModify({_id: eid}, { $set: {password: inputPass}}, function(err, data) {
-           	if (err) { return handleError(res, err);}
-		   //find employees based on id
-           	employees.find({_id: eid}, function (err, result) {
-             	var emp = result[0];
-             	var phone = emp.phone;
-             	phone = phone.replace('1', '');
-							phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
-             	res.render('business/accountsettings', {
-                 	title: 'Express',
-                 	fname: emp.fname,
-                 	lname: emp.lname,
-                 	password: emp.password,
-                 	phone: phone,
-                 	email: emp.email,
-                 	smsNotify: emp.smsNotify,
-                 	emailNotify: emp.emailNotify,
-                 	edited: 'Password successfully changed!',
-             	});
-           	});
-        	});
-    }
+        inputPass =
 
-    if (inputEmail != null)
-    {
-        employees.findAndModify({_id: eid}, { $set: {email: inputEmail}}, function(err, data)
-        {
+        auth.hashPassword(inputPass);
+        employees.findAndModify({_id: eid}, { $set: {password: inputPass}},
+
+        function(err, data) {
+
             if (err) { return handleError(res, err);}
-		    //find employees based on id
-            employees.find({_id: eid}, function (err, result) {
+
+            //find employees based on id
+            employees.find({_id: eid},
+
+            function (err, result) {
                 var emp = result[0];
                 var phone = emp.phone;
                 phone = phone.replace('1', '');
-								phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+                phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
+                res.render('business/accountsettings', {
+                    title: 'Express',
+                    fname: emp.fname,
+                    lname: emp.lname,
+                    password: emp.password,
+                    phone: phone,
+                    email: emp.email,
+                    smsNotify: emp.smsNotify,
+                    emailNotify: emp.emailNotify,
+                    edited: 'Password successfully changed!',
+                });
+            });
+        });
+    }
+
+    if (inputEmail != null) {
+
+        employees.findAndModify({_id: eid}, { $set: {email: inputEmail}}, function(err, data) {
+
+            if (err) { return handleError(res, err);}
+
+            //find employees based on id
+            employees.find({_id: eid}, function (err, result) {
+
+                var emp = result[0];
+                var phone = emp.phone;
+
+                phone = phone.replace('1', '');
+                phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
                 res.render('business/accountsettings', {
                     title: 'Express',
                     fname: emp.fname,
@@ -108,22 +125,27 @@ exports.post = function (req, res) {
         });
     }
 
-    if (inputPhone != null)
-    {
+    if (inputPhone != null) {
+
         inputPhone = inputPhone.replace(/-/g, '');
 
-        if (inputPhone.length === 10)
-        {
+        if (inputPhone.length === 10) {
+
             inputPhone = '1' + inputPhone;
-						employees.findAndModify({_id: eid}, { $set: {phone: inputPhone}}, function(err, data)
-            {
+
+            employees.findAndModify({_id: eid}, { $set: {phone: inputPhone}}, function(err, data) {
+
                 if (err) { return handleError(res, err);}
+
 		        //find employees based on id
                 employees.find({_id: eid}, function (err, result) {
+
                     var emp = result[0];
                     var phone = emp.phone;
+
                     phone = phone.replace('1', '');
-										phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+                    phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
                     res.render('business/accountsettings', {
                         title: 'Express',
                         fname: emp.fname,
@@ -138,14 +160,17 @@ exports.post = function (req, res) {
                 });
             });
         }
-        else
-        {
+        else {
+
             //find employees based on id
             employees.find({_id: eid}, function (err, result) {
+
                 var emp = result[0];
                 var phone = emp.phone;
+
                 phone = phone.replace('1', '');
-								phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+                phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
                 res.render('business/accountsettings', {
                     title: 'Express',
                     fname: emp.fname,
@@ -161,26 +186,29 @@ exports.post = function (req, res) {
         }
     }
 
-    if (textNotify != null)
-    {
-        if (textNotify === '0')
-        {
+    if (textNotify != null) {
+
+        if (textNotify === '0') {
             var smsSet = false;
         }
-        else
-        {
+
+        else {
             var smsSet = true;
         }
 
-        employees.findAndModify({_id: eid}, { $set: {smsNotify: smsSet}}, function(err, data)
-        {
+        employees.findAndModify({_id: eid}, { $set: {smsNotify: smsSet}}, function(err, data) {
+
             if (err) { return handleError(res, err);}
-	        //find the employee based off ids
+
+            //find the employee based off ids
             employees.find({_id: eid}, function (err, result) {
+
                 var emp = result[0];
                 var phone = emp.phone;
+
                 phone = phone.replace('1', '');
-								phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+                phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
                 res.render('business/accountsettings', {
                     title: 'Express',
                     fname: emp.fname,
@@ -196,26 +224,29 @@ exports.post = function (req, res) {
         });
     }
 
-    if (emailNotify != null)
-    {
-        if (emailNotify === '0')
-        {
+    if (emailNotify != null) {
+
+        if (emailNotify === '0') {
             var emailSet = false;
         }
-        else
-        {
+
+        else {
             var emailSet = true;
         }
+
 	    //find the appropriate employee to set the email and notification settings
-        employees.findAndModify({_id: eid}, { $set: {emailNotify: emailSet}}, function(err, data)
-        {
+        employees.findAndModify({_id: eid}, { $set: {emailNotify: emailSet}}, function(err, data) {
+
             if (err) { return handleError(res, err);}
 
             employees.find({_id: eid}, function (err, result) {
+
                 var emp = result[0];
                 var phone = emp.phone;
+
                 phone = phone.replace('1', '');
-								phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+                phone = phone.slice(0, 3) + '-' + phone.slice(3, 6) + '-' + phone.slice(6);
+
                 res.render('business/accountsettings', {
                     title: 'Express',
                     fname: emp.fname,
@@ -230,5 +261,4 @@ exports.post = function (req, res) {
             });
         });
     }
-
 };

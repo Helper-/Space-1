@@ -1,6 +1,12 @@
 var auth = require('../../../lib/auth');
 var _ = require('underscore');
 
+/**
+ * Gets the disclosure agreement already made beforehand from the database
+ *
+ * @param req and res The two parameters passed in to get session
+ * @returns the disclosure agreement from the database
+ */
 exports.get = function(req, res) {
 	var bid = req.user[0].business;
 	var db = req.db;
@@ -24,19 +30,28 @@ exports.get = function(req, res) {
 
 };
 
+/**
+ * Creates the disclosure agreement and updates the old
+ * disclosure agreement
+ *
+ * @param req and res The two parameters passed in to get session
+ * @returns the new disclosure agreement made
+ */
 exports.post = function(req, res) {
 	var bid = req.user[0].business;
 	var db = req.db;
 	var business = db.get('businesses');
 	var disclosure = req.body.disclosure;
 
-	if (disclosure.length === 0)
-	{
+    // empty disclosure agreement field error
+	if (disclosure.length === 0) {
 		res.render('business/setdisclosure', {
 			disclosure: req.body.disclosure,
 			alert: 'Disclosure field left empty, please fill it in.'
 		});
 	}
+
+    // creates the new disclosure agreement and saves it
 	else
 	{
 		disclosure = _.escape(disclosure);
@@ -44,7 +59,6 @@ exports.post = function(req, res) {
 		disclosure = disclosure.replace(/\r\n/g, '</p><p>');
 		disclosure = '<p>' + disclosure + '</p>';
 
-		console.log(disclosure);
 
 		business.findAndModify({_id: bid},{
 			$set :{
@@ -57,4 +71,4 @@ exports.post = function(req, res) {
 			edited: 'Disclosure agreement successfully saved!'
 		});
 	}
-}
+};

@@ -1,8 +1,22 @@
+/**
+ * Takes an req parameter and res parameter and returns the business's
+ * form builder document.
+ *
+ * @param req and res The two parameters passed in to get the appropriate businesses
+ * @returns The business's form builder
+ */
 exports.get = function (req, res) {
     res.render('business/formbuilder', {title: 'Express'});
 };
 
+/**
+ * Allows the user to create their own custom form for their business check in
+ *
+ * @param req and res The two parameters passed in to get the appropriate businesses
+ * @returns The business's newly made custom check in form
+ */
 exports.post = function (req, res) {
+
     var formData = (req.body.saveData);
     var bId = req.user[0].business;
     var formDB = req.db.get('forms');
@@ -35,13 +49,14 @@ exports.post = function (req, res) {
         return;
     }
 
-
+    // get the business's form data
     var query = ({
       query: {business: bId},
       update: {$set: {data: formData}},
       upsert: true
     })
 
+    // create a new form
     formDB.findAndModify(query, function (err, result) {
       if(err) {
         res.render('business/formbuilder', {error: 'Error occurred, please try again.'});
