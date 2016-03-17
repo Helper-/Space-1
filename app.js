@@ -118,16 +118,10 @@ app.use(function(req, res, next) {
     next();
 });
 
-
-
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
-
 app.use('/webapi', require('./routes/webapi'));
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
