@@ -167,7 +167,7 @@ gulp.task('browser-sync', ['nodemon', 'mongostart', 'watch-check'], function () 
     open: true,
 
     // open the proxied app in chrome
-    browser: ['firefox']
+    browser: ['google chrome']
 
   });
 });
