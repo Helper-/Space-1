@@ -3,8 +3,9 @@
 <head>
     <title>Checkin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel='stylesheet' type="text/css" href='/stylesheets/style.css'/>
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap-nav-wizard.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/form-render.min.css">
     {{#newrelic}}
         {{{ newrelic.getBrowserTimingHeader }}}
     {{/newrelic}}
@@ -58,8 +59,26 @@
                     {{ error }}
                 </div>
             {{/error}}
-            <h3 class="form-signin-heading"><center>Please enter the following information:</h3></center>
-            <form class="form-horizontal" action="nocode" method="post">
+            <h3><center>Please enter the following information:</h3></center>
+
+            <section class="wrapper style4 container 50%">
+              <div class="content">
+                <div class="row">
+                  <div class="12u 12u">
+                    <form id="rendered-form" style="border: solid; border-color: white">
+                      <textarea id="formBuilder">{{{form}}}</textarea>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+
+
+
+
+<!--            <form class="form-horizontal" action="nocode" method="post">
                 <div class="form-group">
                     <label class="col-md-5 control-label inputFirst">First Name</label>
                     <div class="col-md-4">
@@ -72,21 +91,32 @@
                         <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control form-width-custom" required autofocus>
                     </div>
                 </div>
-                <!-- <div class="form-group">
+                 <div class="form-group">
                     <label class="col-md-5 control-label inputDOB">Date of Birth</label>
                     <div class="col-md-4">
                         <input type="birthDate" id="inputDOB" name="inputDOB" value="{{ inputDOB }}" class="form-control form-width-custom" placeholder='MM/DD/YYYY' required autofocus>
-                    </div> -->
+                    </div>
                 </div>
+              -->
                <button class="btn btn-lg btn-block custom-button custom-center" type="submit">Next</button>
 
             </form>
         </div>
     </div>
 
+    <script>
+      jQuery(document).ready(function($) {
+        'use strict';
+        var template = document.getElementById('formBuilder'),
+        formContainer = document.getElementById('rendered-form');
+        $(template).formRender({
+          container: $(formContainer)
+        });
+      });
+    </script>
+
+<script src="/js/form-render.min.js"></script>
+
 </body>
 
 </html>
-
-
-

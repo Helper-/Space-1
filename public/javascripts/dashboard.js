@@ -1,9 +1,11 @@
+var GLOBAL_APPT = 50;
+
 $(function(){
 
   getDate();
   $(startTime);
   $(table);
-  $(poll);
+  //$(poll);
 
 
 });
@@ -102,7 +104,7 @@ function checkTime(i) {
 function table() {
 
     var cols,$btn;
-
+    console.log("we are in the appointment table function");
     $.get('/webapi/employee/'+eid+'/appointments/today', function( data ){
 
         var count = 0;
@@ -171,7 +173,7 @@ function poll() {
   //  setTimeout(function(){
   //      table();
 
-        //poll();
+  //      poll();
   //  },1000);//checks every 1000 millisecond
 }
 
