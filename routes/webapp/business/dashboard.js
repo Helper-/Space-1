@@ -23,7 +23,7 @@ exports.get = function (req, res) {
 	  res.render('business/dashboard', {
 	    eid: employeeId,
 			employeeName: employeename,
-			bid: businessId,
+			bid: businessId,s
 			message: req.flash("permission"),
 		});
 	}

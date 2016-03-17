@@ -85,7 +85,7 @@ module.exports = function (passport) {
                             fname: fname,
                             lname: lname,
                             logo: '/images/defaultLogo.png',
-                            bg: '/images/defaultBg.jpg',
+                            bg: '/images/defaultBackground.jpg',
                             lastCheckin: lastCheckin,
 
                         }, function (err, result) {
