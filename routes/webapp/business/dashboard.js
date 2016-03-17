@@ -19,9 +19,8 @@ exports.get = function (req, res) {
 
     businesses.then(function(doc) {next();}, function(err){});
 
-    // render the dashboard and the business's data
-	if(role === 'admin' || role === 'receptionist' || role === 'employee' || role === 'SuperAdmin') {
 
+	if(role === 'admin' || role === 'receptionist' || role === 'employee') {
 	  res.render('business/dashboard', {
 	    eid: employeeId,
         employeeName: employeename,
@@ -29,6 +28,15 @@ exports.get = function (req, res) {
         message: req.flash("permission"),
       });
 	}
+
+    if (role === 'SuperAdmin'){
+        res.render('business/admindashboard', {
+            eid: employeeId,
+            employeeName: employeename,
+            bid: businessId,
+            message: req.flash("permission")
+        });
+    }
 
     // only show the checkin page if we are using a check in account as log in
 	if(role === 'checkin') {

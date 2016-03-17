@@ -101,8 +101,9 @@
 							    <div class="12u 12u">
 							      <form class="form-horizontal" action="" method="post">
 							        <label>Phone Number</label>
-							        <input type="phone" id="editPhone" name="editPhone" value="{{ phone }}" class="form-control">
 							        <br />
+							        <input type="phone" id="editPhone" name="editPhone" value="{{ phone }}" class="form-control">
+
 							        <div style="text-align: center">
 							          <button type="phone" type="submit">Update</button>
 							        </div>
