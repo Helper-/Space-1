@@ -19,6 +19,7 @@ exports.get = function (req, res, next) {
             }
             if (form_data) {
                 var formHtml = form_data.data;
+                req.session.formHtml = formHtml;
                 console.log(formHtml);
                 res.render('checkin/checkin', {
                     formHtml: formHtml,
@@ -70,8 +71,7 @@ exports.post = function (req, res, next) {
         if (result.length === 0) {
             res.render('checkin/checkin', {
                 error: 'No appointment found',
-                inputFirst: inputFirst,
-                inputLast: inputLast,
+                formHtml: req.session.formHtml,
                 //inputDOB: inputDOB,
                 bg: business.bg,
                 logo: business.logo,
