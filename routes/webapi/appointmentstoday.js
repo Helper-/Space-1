@@ -12,9 +12,9 @@ exports.get = function (req, res) {
     var employees = db.get('employees');
 
     //Get the start and end of today
-    var begin = new Date().toLocaleDateString();
+    var begin = new Date();
     begin.setHours(0,0,0,0);
-    var end = new Date().toLocaleDateString();
+    var end = new Date();
     end.setHours(23, 59, 59, 999);
 
     console.error("req.params.eid: " + req.params.eid);
