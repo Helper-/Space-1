@@ -11,17 +11,19 @@ exports.post = function(req,res) {
     var year = Number(req.body.year);
     var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'].indexOf(req.body.month);
     var day = Number(req.body.day);
-    var hour = Number(req.body.hour) -18;
+    var hour = Number(req.body.hour) -1;
     var minute =Number(req.body.minute);
 
     if(night === "PM") {
         hour += 12;
     }
 
-    var date = new Date(year, month, day, hour, minute);
+    var date = new Date(year, month, day, hour, minute).toLocaleDateString();
 
     console.log('Date: ');
     console.log(date);
+    console.log(hour);
+    console.log(minute);
     console.log('req.user[0]:');
     console.log(req.user[0]);
     console.log('req.body:');
