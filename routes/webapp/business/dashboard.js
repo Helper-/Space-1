@@ -24,7 +24,6 @@ exports.get = function (req, res) {
 	    eid: employeeId,
 			employeeName: employeename,
 			bid: businessId,
-			//biz: biz.companyName,
 			message: req.flash("permission"),
 		});
 	}
