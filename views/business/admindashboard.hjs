@@ -99,6 +99,7 @@
         </footer>
 
     </div>
+
     <script src="/js/jquery.min.js"></script>
     <script src="/js/jquery.dropotron.min.js"></script>
     <script src="/js/jquery.scrolly.min.js"></script>
@@ -107,11 +108,20 @@
     <script src="/js/util.js"></script>
     <script src="/js/main.js"></script>
     <script src="/javascripts/admindash.js"></script>
-
-  <script>
-    eid = "{{eid}}";
-    table();
-  </script>
+    <script>
+        $(document).ready(function () {
+            function ({{json}}) {
+                var tr;
+                alert({{json}}.length);
+                for (var i = 0; i < json.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + json[0].companyName + "</td>");
+                    tr.append("<td>" + json[0].fname + "</td>");
+                    tr.append("<td>" + json[0].lname + "</td>");
+                    $('table').append(tr);
+                }
+            }});
+    </script>
 
   </body>
 </html>

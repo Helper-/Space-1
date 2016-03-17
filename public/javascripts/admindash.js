@@ -1,68 +1,75 @@
 
 function table() {
-
     var cols,$btn;
     console.log("we are in the appointment table function");
-    $.get('/webapi/employee/'+eid+'/appointments/today', function( data ){
-
-        var count = 0;
-        //empty's the table
-        $('#tblBody').empty();
-
-        //for loop to reload the table
-        for(var i=0; i<data.length; i++){
-
-            if(data[i].state == 'done'){
-                continue;
-            }
-
-            var $img = $('<img id="Image" src="http://placehold.it/50x50" />');
-            count++;
-
-            var appTime = getAppDate(data[i].date);
+    $.get('webapi/admindashboard', function( data ){
+        //alert(data);
 
 
-            if (data[i].state === 'checkedIn' || data[i].state === 'roomed') {
 
-                var url = '/viewform/' + data[i]._id;
-                var $form = $('<a href="'+url+'" onclick="window.open(\''+url+'\', \'newwindow\', \'width=600, height=400\'); return false;" >View Forms</a>');
 
-                if (data[i].state === 'checkedIn'){
-                    var $check = $('<input type="checkbox">').data('appid',data[i]._id);
-                    $check.change(function(){
-                        var $appid = $(this).data('appid');
 
-                        $.ajax({
-                            url :  '/api/appointments/'+$appid+'/state',
-                            type : 'PUT'
-                        });
-                    });
 
-                    cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$check,$img,""];
-                }
 
-                else if(data[i].state === 'roomed') {
-                    $btn = $('<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></button>');
-                    var x = data[i]._id;
-                    $btn.click(function() {
-                        $.ajax({
-                            url: '/api/appointments/'+x+'/state',
-                            type: 'PUT',
-                        });
-                    });
 
-                    cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$btn,$img,""];
-
-                }
-            }
-
-            else {
-                cols = [count,data[i].fname + ' ' + data[i].lname,$btn = false,appTime,data[i].state,$btn = false,$img,""];
-            }
-
-            insRow(cols);
-        }//end of for loop
-
+    //    var count = 0;
+    //    //empty's the table
+    //    $('#tblBody').empty();
+    //
+    //    //for loop to reload the table
+    //    for(var i=0; i<data.length; i++){
+    //
+    //        if(data[i].state == 'done'){
+    //            continue;
+    //        }
+    //
+    //        var $img = $('<img id="Image" src="http://placehold.it/50x50" />');
+    //        count++;
+    //
+    //        var appTime = getAppDate(data[i].date);
+    //
+    //
+    //        if (data[i].state === 'checkedIn' || data[i].state === 'roomed') {
+    //
+    //            var url = '/viewform/' + data[i]._id;
+    //            var $form = $('<a href="'+url+'" onclick="window.open(\''+url+'\', \'newwindow\', \'width=600, height=400\'); return false;" >View Forms</a>');
+    //
+    //            if (data[i].state === 'checkedIn'){
+    //                var $check = $('<input type="checkbox">').data('appid',data[i]._id);
+    //                $check.change(function(){
+    //                    var $appid = $(this).data('appid');
+    //
+    //                    $.ajax({
+    //                        url :  '/api/appointments/'+$appid+'/state',
+    //                        type : 'PUT'
+    //                    });
+    //                });
+    //
+    //                cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$check,$img,""];
+    //            }
+    //
+    //            else if(data[i].state === 'roomed') {
+    //                $btn = $('<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></button>');
+    //                var x = data[i]._id;
+    //                $btn.click(function() {
+    //                    $.ajax({
+    //                        url: '/api/appointments/'+x+'/state',
+    //                        type: 'PUT',
+    //                    });
+    //                });
+    //
+    //                cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$btn,$img,""];
+    //
+    //            }
+    //        }
+    //
+    //        else {
+    //            cols = [count,data[i].fname + ' ' + data[i].lname,$btn = false,appTime,data[i].state,$btn = false,$img,""];
+    //        }
+    //
+    //        insRow(cols);
+    //    }//end of for loop
+    //
     });//end of $get()
 }//end of table()
 
