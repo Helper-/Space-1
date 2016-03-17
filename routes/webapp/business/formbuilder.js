@@ -7,6 +7,35 @@ exports.post = function (req, res) {
     var bId = req.user[0].business;
     var formDB = req.db.get('forms');
 
+    var formNames = req.body['name'];
+    if (!formNames)
+    {
+        res.render('business/formbuilder', {error: 'You need at least a textfield with the name \"firstname\", a textfield' +
+                        'with the name \"lastname\" and a button with the name \"submit\" in your form!'});
+        return;
+    }
+    if (formNames.indexOf('submit') < 0)
+    {
+        console.log("There's no submit button");
+        res.render('business/formbuilder', {error: 'There needs to be a button with the name \'submit\' in your form.'});
+        return;
+    }
+
+    if (formNames.indexOf('firstname') < 0)
+    {
+        console.log("There's no firstName textfield!");
+        res.render('business/formbuilder', {error: 'There needs to be a textfield with the name \'firstname\' in your form.'});
+        return;
+    }
+
+    if (formNames.indexOf('lastname') < 0)
+    {
+        console.log("There's no lastName textfield!");
+        res.render('business/formbuilder', {error: 'There needs to be a textfield with the name \'lastname\' in your form.'});
+        return;
+    }
+
+
     var query = ({
       query: {business: bId},
       update: {$set: {data: formData}},

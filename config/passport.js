@@ -54,7 +54,7 @@ module.exports = function (passport) {
 
                 var businesses = db.get('businesses');
                 var employees = db.get('employees');
-
+                var forms = db.get('forms');
 
                 // find a user whose email is the same as the forms email
                 // we are checking to see if the user trying to login already exists
@@ -113,6 +113,17 @@ module.exports = function (passport) {
                                 }
                                 return done(null, user);
                             });
+
+                            var defaultFrom = "<form-template>\r\n\t<fields>\r\n\t\t<field className=\"form-control\" " +
+                                "label=\"First Name\" maxlength=\"28\" name=\"firstName\" placeholder=\"First Name\" " +
+                                "required=\"true\" type=\"text\"/>\r\n\t\t<field className=\"form-control\" " +
+                                "label=\"Last Name\" name=\"lastName\" placeholder=\"Last Name\" required=\"true\" type=\"text\"/>\r\n\t"
+                                +"<field className=\"btn btn-primary custom-center\" label=\"Submit\" name=\"submit\" type=\"submit\"/>\r\n\t</fields>\r\n</form-template>";
+                            forms.insert({
+                                business:ObjectId(businessID),
+                                data:defaultFrom,
+                            });
+
                         });
                     }
                 });
