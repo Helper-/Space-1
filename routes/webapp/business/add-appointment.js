@@ -11,7 +11,7 @@ exports.post = function(req,res) {
     var year = Number(req.body.year);
     var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'].indexOf(req.body.month);
     var day = Number(req.body.day);
-    var hour = Number(req.body.hour) -1;
+    var hour = Number(req.body.hour) -18;
     var minute =Number(req.body.minute);
 
     if(night === "PM") {
