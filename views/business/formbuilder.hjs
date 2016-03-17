@@ -47,6 +47,11 @@
   </div>
     <header class="build-form special container">
       <span class="icon featured fa-cog"></span>
+      {{#error}}
+                      <div class="alert alert-danger" role="alert">
+                          {{ error }}
+                      </div>
+                  {{/error}}
       <h2>Edit your form below</h2><br /><br />
 
 
@@ -106,7 +111,7 @@
       $(saveData).attr("value", $(template).val());
       console.log($(template).val());
       $(saveBtn).submit();
-      alert("Saved your form");
+      <!--alert("Saved your form");-->
     });
 
     $(renderBtn).click(function(e) {

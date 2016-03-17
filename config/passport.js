@@ -54,7 +54,7 @@ module.exports = function (passport) {
 
                 var businesses = db.get('businesses');
                 var employees = db.get('employees');
-
+                var forms = db.get('forms');
 
                 // find a user whose email is the same as the forms email
                 // we are checking to see if the user trying to login already exists
@@ -85,7 +85,7 @@ module.exports = function (passport) {
                             fname: fname,
                             lname: lname,
                             logo: '/images/defaultLogo.png',
-                            bg: '/images/defaultBg.jpg',
+                            bg: '/images/defaultBackground.jpg',
                             lastCheckin: lastCheckin,
 
                         }, function (err, result) {
@@ -113,6 +113,17 @@ module.exports = function (passport) {
                                 }
                                 return done(null, user);
                             });
+
+                            var defaultFrom = "<form-template>\r\n\t<fields>\r\n\t\t<field className=\"form-control\" " +
+                                "label=\"First Name\" maxlength=\"28\" name=\"firstname\" placeholder=\"First Name\" " +
+                                "required=\"true\" type=\"text\"/>\r\n\t\t<field className=\"form-control\" " +
+                                "label=\"Last Name\" name=\"lastname\" placeholder=\"Last Name\" required=\"true\" type=\"text\"/>\r\n\t"
+                                +"<field className=\"btn btn-primary custom-center\" label=\"Submit\" name=\"submit\" type=\"submit\"/>\r\n\t</fields>\r\n</form-template>";
+                            forms.insert({
+                                business:ObjectId(businessID),
+                                data:defaultFrom,
+                            });
+
                         });
                     }
                 });
@@ -180,27 +191,27 @@ module.exports = function (passport) {
     auth.validateLogin(req.db, email, password, function (user) {
 
 
-
       if(!user) {
         return done(null, false, req.flash("login", "Invalid Email/Password Combo"));
       }
       else {
 
-        function checkinDate(user) {
-          var businessDB = req.db.get('businesses');
-          var businessId = user.business;
-          var date = new Date().toLocaleDateString();
+          function checkinDate(user) {
+              var businessDB = req.db.get('businesses');
+              var businessId = user.business;
+              var date = new Date().toLocaleDateString();
 
-          businessDB.updateById(businessId,
-            {$set: {checkin: date}},
-            {upsert: true },
-            function(err){
-          });
-          console.log(date);
-        }
+              businessDB.updateById(businessId,
+                  {$set: {checkin: date}},
+                  {upsert: true},
+                  function (err) {
+                  });
+              console.log(date);
+          }
 
-        checkinDate(user);
-        return done(null,user);
+          checkinDate(user);
+          return done(null, user);
+
       }
     });
   }));

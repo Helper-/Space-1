@@ -11,6 +11,7 @@ var done = require('./done');
 
 //Setup the routes
 router.get('/checkin', updateBusiness, checkin.get);
+router.post('/checkin', updateBusiness, checkin.post);
 
 router.get('/nocode', updateBusiness, nocode.get);
 router.post('/nocode', updateBusiness, nocode.post);
@@ -31,6 +32,7 @@ module.exports = router;
  * Middleware to ensure that req.session.business contains info about the current business
  */
 function updateBusiness(req, res, next) {
+    console.log("USER : " + req.user[0]);
   var businessId = req.user[0].business;
   console.log("Going in updateBusiness");
   console.log(businessId);
@@ -41,7 +43,6 @@ function updateBusiness(req, res, next) {
                 return next(err);
             }
             req.session.business = business;
-            console.log(business);
             req.session.save(function (err) {
                 if (err) {
                     return next(err);

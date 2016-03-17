@@ -46,9 +46,6 @@
                 <h3><center>Progress:</h3></center>
                 <ul class="nav nav-wizard">
                     <li class="active"><a href="#">Information</a></li>
-                    <!-- <li><a href="#">Step 2: Confirm Appointment</a></li>
-                    <li><a href="#">Step 3: Additional Information</a></li>
-                    <li><a href="#">Step 4: Sign Disclosure Agreement</a></li> -->
                     <li><a href="#">Checked In!</a></li>
                 </ul>
             </div>
@@ -73,33 +70,8 @@
               </div>
             </section>
 
-
-
-
-
-
-<!--            <form class="form-horizontal" action="nocode" method="post">
-                <div class="form-group">
-                    <label class="col-md-5 control-label inputFirst">First Name</label>
-                    <div class="col-md-4">
-                        <input type="firstName" id="inputFirst" name="inputFirst" value="{{ inputFirst }}" class="form-control form-width-custom" required autofocus>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-5 control-label inputLast">Last Name</label>
-                    <div class="col-md-4">
-                        <input type="lastName" id="inputLast" name="inputLast" value="{{ inputLast }}" class="form-control form-width-custom" required autofocus>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-md-5 control-label inputDOB">Date of Birth</label>
-                    <div class="col-md-4">
-                        <input type="birthDate" id="inputDOB" name="inputDOB" value="{{ inputDOB }}" class="form-control form-width-custom" placeholder='MM/DD/YYYY' required autofocus>
-                    </div>
-                </div>
-              -->
-               <button class="btn btn-lg btn-block custom-button custom-center" type="submit">Next</button>
-
+            <form class="form-horizontal" action="" method="post">
+               <button class="btn btn-lg btn-block custom-button custom-center" id="checkinbutton" type="submit">Next</button>
             </form>
         </div>
     </div>
@@ -113,6 +85,22 @@
           container: $(formContainer)
         });
       });
+       $('#checkinbutton').click(function(event) {
+              event.preventDefault();
+              var userdata = $('#rendered-form');
+              $.ajax({
+                type: "POST",
+                url: "/office/nocode",
+                data: userdata.serialize(),
+                success: function (result) {
+                    if (result.redirect) {
+                        window.location = result.redirect;
+                    } else {
+                        alert(result.error);
+                    }
+                }
+              });
+            });
     </script>
 
 <script src="/js/form-render.min.js"></script>
