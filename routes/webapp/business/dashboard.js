@@ -6,7 +6,7 @@ exports.get = function (req, res) {
 	var employeeId = req.user[0]._id;
 	var employeename = req.user[0].fname;
 	var businessId = req.user[0].business;
-	var role = req.user[0].role
+	var role = req.user[0].role;
 
 	if(role === 'admin' || role === 'receptionist' || role === 'employee' || role === 'SuperAdmin') {
 	  res.render('business/dashboard', {

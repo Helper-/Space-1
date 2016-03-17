@@ -3,9 +3,29 @@ var style = require('./../../../lib/style.js');
 
 
 exports.get = function (req, res, next) {
-    var business = req.session.business;
-    res.render('checkin/nocode', {
-        bg: business.bg,
+    var businessID = req.session.business._id;
+    var forms = req.db.get('forms');
+    businessID = ObjectID(businessID + "");
+
+    forms.findOne({business: businessID}, function (err, form_data) {
+        if (err) {
+            return next(err);
+        }
+        if(form_data !== null) {
+          res.render('checkin/nocode', {
+            message: req.flash('permission'),
+            form: form_data.data,
+            bg: businessID.bg,
+          });
+        }
+
+        else {
+          res.render('checkin/nocode', {
+            message: req.flash('permission'),
+            form: "You don't have a a form yet.",
+            bg: businessID.bg,
+          });
+        }
     });
 };
 
