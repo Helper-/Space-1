@@ -61,9 +61,9 @@
                             <th>Company Name</th>
                             <th></th>
                             <th>Owner</th>
-                            <th>Last Login Date</th>
+                            <th>Phone Number</th>
                             <th></th>
-                            <th>Picture</th>
+                            <th>Last Login</th>
                             <th></th>
                           </tr>
                         </thead>
@@ -75,9 +75,9 @@
                                       <th>{{companyName}}</th>
                                       <th></th>
                                       <th>{{fname}} {{lname}}</th>
-                                      <th>{{lastCheckin}}</th>
+                                      <th>{{phone}}</th>
                                       <th></th>
-                                      <th>{{logo}}</th>
+                                      <th>{{lastCheckin}}</th>
                                       <th></th>
                                    </tr>
 
