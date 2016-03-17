@@ -59,7 +59,7 @@
         <form action="formbuilder" method="post">
               <textarea name="formBuilder" id="formBuilder" cols="30" rows="10"></textarea>
               <input type="hidden" name="saveData" id="saveData" value="">
-              <button id="saveButton" class="add btn btn-default">Save Form</button>
+              <!--<button id="saveButton" class="add btn btn-default">Save Form</button>-->
 
             <div class="row 50%">
 
@@ -72,10 +72,11 @@
                       <input type="button" value="Return to Forms" class="add btn btn-default" id="return" />
                   </a>
               </div>
-          </form>
 
-            <br style="clear:both">
+              <br style="clear:both">
             </div>
+        </form>
+
           <div class="render-form" >
           </div>
     </header>
@@ -123,6 +124,13 @@
   });
 
   </script>
+
+  <!-- Footer -->
+    <footer id="footer">
+      <ul class="copyright">
+        <li>Space-1 &copy;2016</li>
+      </ul>
+    </footer>
 </body>
 
 </html>
