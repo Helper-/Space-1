@@ -22,6 +22,8 @@ exports.post = function(req,res) {
 
     console.log('Date: ');
     console.log(date);
+    console.log(hour);
+    console.log(minute);
     console.log('req.user[0]:');
     console.log(req.user[0]);
     console.log('req.body:');

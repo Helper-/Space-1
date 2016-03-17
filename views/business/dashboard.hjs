@@ -62,8 +62,8 @@
                                         <div class="row 50%">
                                             <div class="12u"><center>
                                               Time:
-                                               <select id="hourdropdown" name="hour" value="{{ year }}"></select>
-                                               <select id="minutedropdown" name="minute" value="{{ year }}"></select>
+                                               <select id="hourdropdown" name="hour" value="{{ hour }}"></select>
+                                               <select id="minutedropdown" name="minute" value="{{ minute }}"></select>
                                                <select id="nightdropdown" name="night" value="{{ night }}"></select></center>
                                             </div>
                                         </div>
