@@ -81,7 +81,7 @@
                 </div>
 
               <!-- Check-in button to go to check-in-->
-              <li class="current"><a href="/office/{{bid}}/checkin" class="button">Check-In Mode</a></li>
+            <!--  <li class="current"><a href="/office/{{bid}}/checkin" class="button">Check-In Mode</a></li> -->
 
               {{#adminFlag}}
                 <li class="submenu">
@@ -137,10 +137,10 @@
                         <tbody id="tblBody">
                           <tr>
 
-                            <td>1</td>
                             <td></td>
                             <td></td>
-                            <td> </script></td>
+                            <td></td>
+                            <td>  </td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -211,6 +211,11 @@
 
   <script>
     eid = "{{eid}}";
+    table();
+
+    console.log(GLOBAL_APPT);
+    obj.watch(GLOBAL_APPT, table());
+    //table();
   </script>
 
   <script type="text/javascript">
