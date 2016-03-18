@@ -8,6 +8,7 @@ var async = require('async');
  * @param req and res The two parameters passed in to get the appropriate businesses
  * @returns The business's employees and their dashboard
  */
+ 
 exports.get = function (req, res) {
 
     var employees = req.db.get('employees');
@@ -31,7 +32,7 @@ exports.get = function (req, res) {
 	}
 
     if (role === 'SuperAdmin'){
-        res.redirect('/admindashboard');//, {
+        res.redirect('/admindashboard');
     }
 
     // only show the checkin page if we are using a check in account as log in
