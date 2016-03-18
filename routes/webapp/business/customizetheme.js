@@ -77,7 +77,7 @@ exports.post = function(req, res, next){
         if(err) { return next(err); }
 
         // remove the old default background from the database
-        if(results.bg !== '/images/defaultBg.jpg') {
+        if(results.bg !== '/images/defaultBackground.jpg') {
             fs.unlinkSync('public' + results.bg);
         }
 
