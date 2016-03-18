@@ -39,7 +39,7 @@ exports.get = function (req, res) {
         if(results[0]){
 
             appointments.find({
-                business: results[0].business,
+                //business: results[0].business,
                 date: {
                     $gte: begin,
                     $lte: end
