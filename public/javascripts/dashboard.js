@@ -21,7 +21,7 @@ function populatedropdown(dayfield, monthfield, yearfield) {
   var monthfield=document.getElementById(monthfield);
   var yearfield=document.getElementById(yearfield);
   for (var i=0; i<31; i++) {
-    dayfield.options[i]=new Option(i+1, i+2);
+    dayfield.options[i]=new Option(i+1);
     dayfield.options[today.getDate()]=new Option(today.getDate(), today.getDate(), true, true); //select today's day
   }
   for (var m=0; m<12; m++) {
