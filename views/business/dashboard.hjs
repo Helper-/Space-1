@@ -52,6 +52,7 @@
                                         <!-- Date dropdown -->
                                         <div class="row 50%">
                                             <div class="12u"><center>
+                                              Date:
                                                <select id="daydropdown" name="day" value="{{ day }}"></select>
                                                <select id="monthdropdown" name="month" value="{{ month }}"></select>
                                                <select id="yeardropdown" name="year" value="{{ year }}"></select></center>

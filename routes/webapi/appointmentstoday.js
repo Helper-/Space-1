@@ -27,6 +27,7 @@ exports.get = function (req, res) {
     employees.find({
         _id : ObjectID(req.params.eid)
         //admin : true,
+        //role : 'admin',
     },
     {sort : {date: 1}},function(err, results){
         if (err) {
@@ -38,7 +39,7 @@ exports.get = function (req, res) {
         if(results[0]){
 
             appointments.find({
-              //  business: results[0].business,
+                //business: results[0].business,
                 date: {
                     $gte: begin,
                     $lte: end
