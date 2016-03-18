@@ -20,8 +20,8 @@ function populatedropdown(dayfield, monthfield, yearfield) {
   var dayfield=document.getElementById(dayfield);
   var monthfield=document.getElementById(monthfield);
   var yearfield=document.getElementById(yearfield);
-  for (var i=0; i<31; i++) {
-    dayfield.options[i]=new Option(i+1);
+  for (var i=0; i<32; i++) {
+    dayfield.options[i]=new Option(i);
     dayfield.options[today.getDate()]=new Option(today.getDate(), today.getDate(), true, true); //select today's day
   }
   for (var m=0; m<12; m++) {
