@@ -1,4 +1,4 @@
-var newrelic = false;
+var newrelic = true;
 
 if (process.env.NODE_ENV && process.env.NODE_ENV !== 'development') {
     newrelic = require('newrelic');
